@@ -1,20 +1,19 @@
 .insight-card {
+  position: relative;
   display: flex;
-  gap: var(--space-5);
+  flex-direction: column;
   height: 100%;
-  padding-top: var(--space-5);
-  border-top: 1px solid var(--hairline);
+  background: var(--color-paper);
+  box-shadow: var(--shadow-soft);
+  transition:
+    box-shadow 200ms var(--ease-out),
+    transform 200ms var(--ease-out);
 }
 
-/* Carousel highlights: small cover beside the text */
-.insight-card--carousel {
-  align-items: flex-start;
-}
-
-.insight-card__image {
-  flex: none;
-  width: clamp(112px, 14vw, 160px);
-  border: 1px solid var(--hairline);
+/* No border: a soft shadow at rest, lifting onto the raised shadow on hover */
+.insight-card:hover {
+  box-shadow: var(--shadow-raised);
+  transform: translateY(-2px);
 }
 
 .insight-card__text {
@@ -22,22 +21,44 @@
   flex-direction: column;
   gap: var(--space-2);
   flex: 1;
+  padding: var(--space-4) var(--space-5) var(--space-5);
 }
 
-.insight-card__date {
-  font-size: var(--text-small);
-  color: var(--text-muted);
+.insight-card__topic {
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-taupe);
+}
+
+/*
+ * Titles stop at three lines and summaries at two, so one long title doesn't
+ * stretch every card and the cover stays a large part of the card.
+ */
+.insight-card__title,
+.insight-card__excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+.insight-card__excerpt {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 .insight-card__title {
   font-family: var(--font-display);
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.3;
   text-wrap: pretty;
 }
 
-/* The title is the link: keep the heading type, underline only on hover */
+/* The title is the link; it covers the whole card so any part of it can be clicked */
 .insight-card__link.content-link--text {
   display: inline;
   font-family: inherit;
@@ -45,7 +66,13 @@
   text-decoration-color: transparent;
 }
 
-.insight-card__link.content-link--text:hover {
+.insight-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.insight-card:hover .insight-card__link.content-link--text {
   text-decoration-color: currentColor;
   text-decoration-thickness: 1px;
 }
@@ -57,8 +84,18 @@
   color: var(--text-muted);
 }
 
-@media (max-width: 600px) {
-  .insight-card__image {
-    width: 96px;
-  }
+.insight-card__excerpt {
+  font-size: var(--text-small);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.insight-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin-top: auto;
+  padding-top: var(--space-2);
+  font-size: var(--text-small);
+  color: var(--text-muted);
 }

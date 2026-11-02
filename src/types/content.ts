@@ -144,15 +144,26 @@ export interface EventsContent extends SectionIntro {
 
 export interface ArticleCard {
   readonly id: string;
-  readonly kind: 'Article' | 'Carousel';
+  /** Short topic label shown above the title. */
+  readonly topic: string;
   readonly title: string;
+  /** One-sentence summary. */
+  readonly excerpt: string;
+  /** ISO date, e.g. 2025-08-13. */
   readonly date: string;
+  readonly readingMinutes: number;
   readonly link: SiteLink;
-  readonly image?: ImageAsset;
+  readonly image: ImageAsset;
 }
 
 export interface InsightsContent extends SectionIntro {
   readonly cards: readonly ArticleCard[];
+  readonly allLink: LinkItem;
+  /** Accessible names for the carousel arrows and dots. */
+  readonly previousLabel: string;
+  readonly nextLabel: string;
+  /** Dot label, followed by "2 / 3". */
+  readonly positionLabel: string;
 }
 
 export interface FaqItem {

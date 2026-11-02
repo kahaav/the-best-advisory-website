@@ -99,6 +99,14 @@
   --breakpoint-mobile: 600; /* Card grids become one column */
   --breakpoint-mobile-small: 560; /* Approach steps become one column */
 
+  /* Shadows: soft and warm, mixed from espresso. Soft for cards at rest, raised on hover. */
+  --shadow-soft:
+    0 1px 3px color-mix(in srgb, var(--color-espresso) 6%, transparent),
+    0 6px 16px -8px color-mix(in srgb, var(--color-espresso) 14%, transparent);
+  --shadow-raised:
+    0 4px 10px -4px color-mix(in srgb, var(--color-espresso) 14%, transparent),
+    0 16px 32px -12px color-mix(in srgb, var(--color-espresso) 22%, transparent);
+
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }

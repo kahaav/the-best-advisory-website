@@ -6,9 +6,12 @@
  * Voice: "I" (Sophie) where it is personal, "we" for the company's services.
  * Search this file for `kind: 'todo'` and `TODO` to find what still needs the owner.
  */
+import aiAsAnEqualiserImage from '../assets/articles/ai-as-an-equaliser.png';
+import cultureEatsStrategyImage from '../assets/articles/culture-eats-strategy.jpg';
+import ediscoveryReimaginedImage from '../assets/articles/ediscovery-reimagined.jpg';
+import legalOpsBeforeAiImage from '../assets/articles/legal-ops-before-ai.jpg';
+import leveragingAiInMaImage from '../assets/articles/leveraging-ai-in-ma.png';
 import aboutImage from '../assets/images/about-sophie-guests.jpg';
-import clientsDidTheMathsImage from '../assets/images/carousel-clients-did-the-maths.jpg';
-import evaluationChecklistImage from '../assets/images/carousel-evaluation-checklist.jpg';
 import americanaLogo from '../assets/images/client-americana.svg';
 import dubizzleLogo from '../assets/images/client-dubizzle.svg';
 import eandLogo from '../assets/images/client-eand.svg';
@@ -256,66 +259,84 @@ export const siteContent: SiteContent = {
     ],
   },
 
+  // Articles from docs/linkedin/raw/raw-articles.json, newest first. Reading time is the
+  // word count at about 230 words a minute. Cover images are decorative: the title says it all.
   insights: {
     headline: { roman: 'Recent writing' },
-    lead: 'Articles and carousels I’ve posted on LinkedIn.',
+    lead: 'Longer pieces I’ve written on LinkedIn.',
+    allLink: {
+      label: 'All articles on LinkedIn',
+      link: externalLink('https://www.linkedin.com/in/sophiebestai/recent-activity/articles/'),
+    },
+    previousLabel: 'Previous articles',
+    nextLabel: 'Next articles',
+    positionLabel: 'Articles, position',
     cards: [
       {
-        id: 'legal-ops-before-ai',
-        kind: 'Article',
-        title: 'Legal Ops Before AI: Why You Can’t Run Before You Can Walk',
-        date: '2025-08-13',
+        id: 'ai-as-an-equaliser',
+        topic: 'AI & inclusion',
+        title:
+          'AI as an Equaliser: How Technology Can Dismantle Barriers to Entry for Underrepresented Lawyers and Founders',
+        excerpt:
+          'A joint whitepaper with Hemisphere Consultants on how AI can lower the barriers for underrepresented lawyers and founders, if it’s built inclusively.',
+        date: '2026-05-19',
+        readingMinutes: 7,
         link: externalLink(
-          'https://www.linkedin.com/pulse/legal-ops-before-ai-why-you-cant-run-can-walk-sophie-best-vhcjf/',
+          'https://www.linkedin.com/pulse/ai-equaliser-how-technology-can-dismantle-barriers-entry-sophie-best-dkrfe/',
         ),
+        image: { src: aiAsAnEqualiserImage, alt: '', width: 1144, height: 644 },
       },
       {
-        id: 'culture-eats-strategy',
-        kind: 'Article',
-        title: 'Legal Tech Adoption: Why Culture Eats Strategy (and AI) for Breakfast',
-        date: '2025-08-26',
-        link: externalLink(
-          'https://www.linkedin.com/pulse/legal-tech-adoption-why-culture-eats-strategy-ai-breakfast-best-hbqgf/',
-        ),
-      },
-      {
-        id: 'ai-in-ma',
-        kind: 'Article',
+        id: 'leveraging-ai-in-ma',
+        topic: 'M&A',
         title: 'Leveraging AI in M&A: Lessons from GCs on the Frontlines',
+        excerpt:
+          'Lessons from a GC with two decades of deals: start with one small problem and prove the value before you scale.',
         date: '2025-09-10',
+        readingMinutes: 5,
         link: externalLink(
           'https://www.linkedin.com/pulse/leveraging-ai-ma-lessons-from-gcs-frontlines-sophie-best-babaf/',
         ),
+        image: { src: leveragingAiInMaImage, alt: '', width: 500, height: 281 },
       },
       {
-        id: 'evaluation-checklist',
-        kind: 'Carousel',
-        title: 'Legal Technology Evaluation Checklist',
-        date: '2026-10-26',
+        id: 'culture-eats-strategy',
+        topic: 'Adoption',
+        title: 'Legal Tech Adoption: Why Culture Eats Strategy (and AI) for Breakfast',
+        excerpt:
+          'No technology works if nobody uses it. Adoption comes down to people and trust, not features.',
+        date: '2025-08-26',
+        readingMinutes: 7,
         link: externalLink(
-          'https://www.linkedin.com/feed/update/urn:li:ugcPost:7520390574865170432/',
+          'https://www.linkedin.com/pulse/legal-tech-adoption-why-culture-eats-strategy-ai-breakfast-best-hbqgf/',
         ),
-        image: {
-          src: evaluationChecklistImage,
-          alt: '',
-          width: 390,
-          height: 487,
-        },
+        image: { src: cultureEatsStrategyImage, alt: '', width: 1280, height: 720 },
       },
       {
-        id: 'clients-did-the-maths',
-        kind: 'Carousel',
-        title: 'Clients did the maths',
-        date: '2026-10-28',
+        id: 'legal-ops-before-ai',
+        topic: 'Legal ops',
+        title: 'Legal Ops Before AI: Why You Can’t Run Before You Can Walk',
+        excerpt:
+          'Without strong legal operations, AI won’t deliver. What legal ops is, and why you map your processes before you buy tools.',
+        date: '2025-08-13',
+        readingMinutes: 8,
         link: externalLink(
-          'https://www.linkedin.com/feed/update/urn:li:ugcPost:7521119788316942336/',
+          'https://www.linkedin.com/pulse/legal-ops-before-ai-why-you-cant-run-can-walk-sophie-best-vhcjf/',
         ),
-        image: {
-          src: clientsDidTheMathsImage,
-          alt: '',
-          width: 480,
-          height: 480,
-        },
+        image: { src: legalOpsBeforeAiImage, alt: '', width: 1280, height: 720 },
+      },
+      {
+        id: 'ediscovery-reimagined',
+        topic: 'eDiscovery',
+        title: 'eDiscovery Reimagined: From Regex to Real‑Time AI Agents',
+        excerpt:
+          'How AI is replacing hand-written regex searches in eDiscovery, and why human review still matters.',
+        date: '2025-06-16',
+        readingMinutes: 2,
+        link: externalLink(
+          'https://www.linkedin.com/pulse/ediscovery-reimagined-from-regex-realtime-ai-agents-sophie-best-wlnaf/',
+        ),
+        image: { src: ediscoveryReimaginedImage, alt: '', width: 1192, height: 671 },
       },
     ],
   },

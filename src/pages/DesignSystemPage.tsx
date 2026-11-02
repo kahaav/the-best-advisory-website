@@ -40,6 +40,8 @@ const FONT_SIZES = [
 
 const SPACING = Array.from({ length: 10 }, (_, index) => `--space-${index + 1}`);
 
+const SHADOWS = ['--shadow-soft', '--shadow-raised'] as const;
+
 /** Each name has a matching `--breakpoint-*` token and a `.ds-breakpoint--*` class. */
 const BREAKPOINTS = ['wide', 'nav', 'tablet', 'footer', 'small', 'mobile', 'mobile-small'] as const;
 
@@ -79,14 +81,16 @@ const textEvent: EventStrand = {
   note: 'Optional note',
 };
 
-const insightCard = (kind: ArticleCard['kind']): ArticleCard => ({
-  id: kind,
-  kind,
+const insightCard: ArticleCard = {
+  id: 'article',
+  topic: 'Topic',
   title: 'Card title that may run onto a second line',
+  excerpt: TEMPLATE_BODY,
   date: '2025-01-01',
+  readingMinutes: 5,
   link: { kind: 'url', href: '#' },
-  image: kind === 'Carousel' ? TEMPLATE_IMAGE : undefined,
-});
+  image: TEMPLATE_IMAGE,
+};
 
 const galleryItems = [
   { image: TEMPLATE_IMAGE, caption: 'First image caption' },
@@ -248,6 +252,17 @@ export const DesignSystemPage = () => {
           </ul>
         </Panel>
 
+        <Panel id="shadows" title="Shadows">
+          <ul className="ds-shadows">
+            {SHADOWS.map((name) => (
+              <li key={name} className="ds-shadows__item">
+                <span className="ds-shadows__sample" style={{ boxShadow: `var(${name})` }} />
+                <code className="ds-code">{name}</code>
+              </li>
+            ))}
+          </ul>
+        </Panel>
+
         <Panel id="gallery" title="Gallery">
           <Gallery items={galleryItems} />
         </Panel>
@@ -358,10 +373,7 @@ export const DesignSystemPage = () => {
               <EventCard event={textEvent} />
             </Specimen>
             <Specimen label="Article card">
-              <InsightCard card={insightCard('Article')} />
-            </Specimen>
-            <Specimen label="Carousel card" wide>
-              <InsightCard card={insightCard('Carousel')} />
+              <InsightCard card={insightCard} />
             </Specimen>
           </ul>
         </Panel>

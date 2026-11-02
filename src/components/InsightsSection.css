@@ -1,33 +1,153 @@
-.insights__grid {
+.insights__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-5) var(--space-7);
+}
+
+.insights__all {
+  font-size: var(--text-small);
+}
+
+/* Side space keeps the arrows clear of the cards */
+.insights__carousel {
+  --arrow-size: 40px;
+
+  position: relative;
+  margin-top: var(--space-7);
+  padding-inline: calc(var(--arrow-size) + var(--space-3));
+}
+
+/* Four cards across on desktop, two on tablets, one and a bit on phones */
+.insights__track {
+  --cards-visible: 4;
+  --card-gap: var(--space-5);
+
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: var(--space-7) var(--space-6);
-  margin-top: var(--space-8);
+  grid-auto-flow: column;
+  grid-auto-columns: calc(
+    (100% - (var(--cards-visible) - 1) * var(--card-gap)) / var(--cards-visible)
+  );
+  gap: var(--card-gap);
+  /*
+   * Room for the hover shadow and focus outlines, which the scroll area would
+   * otherwise clip. Less than the card gap at the sides, so no next card peeks in.
+   */
+  margin: calc(-1 * var(--space-6)) calc(-1 * var(--space-4));
+  padding: var(--space-6) var(--space-4);
+  scroll-padding-inline: var(--space-4);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
   list-style: none;
 }
 
-.insights__item--article {
-  grid-column: span 2;
+.insights__track::-webkit-scrollbar {
+  display: none;
 }
 
-.insights__item--carousel {
-  grid-column: span 3;
+.insights__item {
+  scroll-snap-align: start;
+}
+
+/* Round chevrons on a light gray circle that darkens on hover */
+.insights__arrow {
+  position: absolute;
+  top: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  padding: 0;
+  color: var(--text);
+  background: color-mix(in srgb, var(--text) 8%, transparent);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    background-color 180ms var(--ease-out),
+    opacity 180ms var(--ease-out);
+}
+
+.insights__arrow:hover {
+  background: color-mix(in srgb, var(--text) 16%, transparent);
+}
+
+.insights__arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.insights__arrow--back {
+  left: 0;
+}
+
+.insights__arrow--forward {
+  right: 0;
+}
+
+/* Progress dots: the current one is longer and dark */
+.insights__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+  margin-top: var(--space-6);
+}
+
+.insights__dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.insights__dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: color-mix(in srgb, var(--text) 22%, transparent);
+  border-radius: 999px;
+  transition:
+    width 200ms var(--ease-out),
+    background-color 200ms var(--ease-out);
+}
+
+.insights__dot:hover::before {
+  background: color-mix(in srgb, var(--text) 45%, transparent);
+}
+
+.insights__dot[aria-current='true']::before {
+  width: 20px;
+  background: var(--text);
 }
 
 @media (max-width: 960px) {
-  .insights__item--article,
-  .insights__item--carousel {
-    grid-column: span 3;
+  .insights__track {
+    --cards-visible: 2;
   }
 }
 
+/* Phones: swipe and dots; no arrows, so the cards get the full width */
 @media (max-width: 600px) {
-  .insights__grid {
-    grid-template-columns: 1fr;
+  .insights__carousel {
+    padding-inline: 0;
   }
 
-  .insights__item--article,
-  .insights__item--carousel {
-    grid-column: auto;
+  .insights__track {
+    --cards-visible: 1.15;
+  }
+
+  .insights__arrow {
+    display: none;
   }
 }
