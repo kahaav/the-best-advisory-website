@@ -16,8 +16,11 @@ Follow the standards in:
 
 - `publish` (`.claude/skills/publish/`): review, check, commit with a meaningful message and push.
 - `rollback` (`.claude/skills/rollback/`): undo the latest publish with a revert commit and push.
+- `run-local` (`.claude/skills/run-local/`): start the dev server (or a production preview) and share the local URLs.
+- `stop-local` (`.claude/skills/stop-local/`): stop the local dev server or preview and confirm the port is free.
 
-Use them whenever the user asks to publish or to undo a publish (see `06-publishing.md`).
+Use them whenever the user asks to publish or to undo a publish (see `06-publishing.md`),
+or to run or stop the site locally.
 
 ## Commands
 

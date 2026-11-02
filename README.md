@@ -1,5 +1,11 @@
 # The Best Advisory website
 
+## Quick Start
+Ask Claude Code in VSCode:
+- **"run the site"**: starts the site on your computer and gives you the link to open.
+- **"stop the site"**: stops the site running on your computer.
+- **"undo my local changes"**: throws away edits that are not published yet.
+- **"publish my work"**: checks the code, commits and pushes. The live site updates in a few minutes.
 
 ## Published website
 - https://kahaav.github.io/the-best-advisory-website/
@@ -32,31 +38,14 @@
     - node --version
     - npm --version
 
-## Install dependencies and run Vite
+## Install Visual Studio Code + Claude Code extension
 1. Install dependencies inside the project folder
     - npm install
-2. Run the Vite development server
-    - npm run dev
-3. Open browser and confirm that Vite starts without errors
-    - http://localhost:5173/
-4. To stop, run Ctrl + C inside terminal
-
-## Install Visual Studio Code + Claude Code extension
-1. Download VSCode for Windows/Mac
+2. Download VSCode for Windows/Mac
     - https://code.visualstudio.com
-2. Run the installer and launch the VSCode
-3. Open the-best-advisory-website project in VSCode
-4. Open Extensions panel and search for 'Claude Code' by Anthropic
-5. Click Install
-6. Open Claude Code panel in VSCode
-7. Follow the authentication prompts
-
-## Publish with Claude Code
-Ask Claude, e.g. **"publish my work"** or **"we are done, push the changes"** or something similar.
-
-Claude checks the code, writes a commit message and pushes. The site updates in a few minutes.
-
-## Roll back with Claude Code
-Ask Claude, e.g. **"undo the last publish"** or **"the site is broken, go back"**.
-  
-Claude reverts the latest publish and pushes, so the previous version goes live again.
+3. Run the installer and launch the VSCode
+4. Open the-best-advisory-website project in VSCode
+5. Open Extensions panel and search for 'Claude Code' by Anthropic
+6. Click Install
+7. Open Claude Code panel in VSCode
+8. Follow the authentication prompts
