@@ -20,7 +20,7 @@ export const Hero = ({ content }: HeroProps) => {
           <p className="hero__subheadline">{content.subheadline}</p>
           <div className="hero__actions">
             <ContentLink item={content.primaryCta} variant="primary" />
-            <ContentLink item={content.secondaryCta} variant="secondary" />
+            <ContentLink item={content.secondaryCta} />
           </div>
         </div>
 

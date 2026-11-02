@@ -10,7 +10,6 @@ import { InsightsSection } from '../components/InsightsSection';
 import { ProblemSection } from '../components/ProblemSection';
 import { ProofSection } from '../components/ProofSection';
 import { ServicesSection } from '../components/ServicesSection';
-import { TrustStrip } from '../components/TrustStrip';
 import { siteContent } from '../content/siteContent';
 
 export const HomePage = () => {
@@ -26,7 +25,6 @@ export const HomePage = () => {
       />
       <main id="main" tabIndex={-1}>
         <Hero content={siteContent.hero} />
-        <TrustStrip content={siteContent.trustStrip} />
         <ProblemSection content={siteContent.problem} />
         <ServicesSection content={siteContent.services} />
         <ApproachSection content={siteContent.approach} />

@@ -14,10 +14,7 @@ export const ApproachSection = ({ content }: ApproachSectionProps) => {
 
       <ol className="approach__steps">
         {content.steps.map((step) => (
-          <li key={step.number} className="approach__step">
-            <span className="approach__number" aria-hidden="true">
-              {step.number}
-            </span>
+          <li key={step.title} className="approach__step">
             <h3 className="approach__title">{step.title}</h3>
             <p className="approach__body">{step.body}</p>
           </li>

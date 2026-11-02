@@ -16,7 +16,7 @@ export const InsightsSection = ({ content }: InsightsSectionProps) => {
       <ul className="insights__grid">
         {content.cards.map((card) => (
           <li key={card.id} className={`insights__item insights__item--${card.kind.toLowerCase()}`}>
-            <InsightCard card={card} linkLabel={content.linkLabel} />
+            <InsightCard card={card} />
           </li>
         ))}
       </ul>

@@ -7,24 +7,20 @@ interface FaqSectionProps {
   content: FaqContent;
 }
 
+/** Questions and answers, all visible: there are few and the answers are short. */
 export const FaqSection = ({ content }: FaqSectionProps) => {
   return (
     <Section id="faq" tone="ivory" labelledBy="faq-title">
-      <div className="faq__grid">
-        <SectionHeading intro={content} headingId="faq-title" />
+      <SectionHeading intro={content} headingId="faq-title" />
 
-        <div className="faq__list">
-          {content.items.map((item) => (
-            <details key={item.question} className="faq__item">
-              <summary className="faq__question">
-                <span className="faq__question-text">{item.question}</span>
-                <span className="faq__icon" aria-hidden="true" />
-              </summary>
-              <p className="faq__answer">{item.answer}</p>
-            </details>
-          ))}
-        </div>
-      </div>
+      <dl className="faq__list">
+        {content.items.map((item) => (
+          <div key={item.question} className="faq__item">
+            <dt className="faq__question">{item.question}</dt>
+            <dd className="faq__answer">{item.answer}</dd>
+          </div>
+        ))}
+      </dl>
     </Section>
   );
 };

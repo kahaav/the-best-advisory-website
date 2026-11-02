@@ -1,7 +1,9 @@
 /**
  * All copy, links and images for the landing page.
  *
- * Source: docs/answers.md (copy from section 6, hero Option A).
+ * Source: docs/answers.md. Wording follows Sophie's own phrases (section 3) and the
+ * sourced facts (sections 1, 2 and 4). docs/ai-look-review.md explains the choices.
+ * Voice: "I" (Sophie) where it is personal, "we" for the company's services.
  * Search this file for `kind: 'todo'` and `TODO` to find what still needs the owner.
  */
 import aboutImage from '../assets/images/about-sophie-guests.jpg';
@@ -51,22 +53,23 @@ export const siteContent: SiteContent = {
     { label: 'Approach', sectionId: 'approach' },
     { label: 'About', sectionId: 'about' },
     { label: 'Events', sectionId: 'events' },
-    { label: 'Insights', sectionId: 'insights' },
+    { label: 'Writing', sectionId: 'insights' },
     { label: 'Contact', sectionId: 'contact' },
   ],
 
   headerCta: { label: 'Book a call', link: bookingLink },
 
   hero: {
-    eyebrow: 'Legal tech & AI advisory · Dubai · London',
+    eyebrow: 'Legal tech & AI advisory',
+    // Post 2026-10-13: "Everyone thinks they need AI. Most teams I meet need structure."
     headline: {
       roman: 'Everyone thinks they need AI.',
-      italic: 'Most legal teams need structure.',
+      italic: 'Most teams I meet need structure.',
     },
     subheadline:
-      'We help in-house and law firm legal teams find the real problem, choose technology that fits how they work, and make it stick. Vendor-neutral, people and process first. Led by Sophie Best.',
+      'I’m Sophie Best. I’ve spent 20 years beside lawyers and inside legal tech companies. Now I help in-house and law firm teams find what’s really slowing them down before they buy anything, and I stay on after go-live until people use it.',
     primaryCta: { label: 'Book an intro call', link: bookingLink },
-    secondaryCta: { label: 'See how we work', link: { kind: 'url', href: '#approach' } },
+    secondaryCta: { label: 'See how I work', link: { kind: 'url', href: '#approach' } },
     image: {
       src: heroImage,
       alt: 'Sophie Best speaking on a panel, microphone in hand.',
@@ -75,103 +78,81 @@ export const siteContent: SiteContent = {
     },
   },
 
+  // Pain points are close to what GCs told Sophie (docs/answers.md, section 2).
+  problem: {
+    headline: { roman: 'What I hear from GCs' },
+    painPoints: [
+      'The business wants legal to “do something with AI”. Nobody has said what for.',
+      '“The demos all look similar.” CLM? Contract AI? A repository? The categories overlap and nobody explains them.',
+      'You bought a tool. Hardly anyone uses it, and nobody can work out why.',
+      '“Sales has a pipeline the CFO can see. What does legal have?”',
+      'An exec outside legal says “it’s fine, I checked it on Copilot”.',
+    ],
+    turn: {
+      strong: 'Most of this starts before the technology.',
+      rest: 'It’s in how work moves through the team and where information lives, so that’s where I look first.',
+    },
+  },
+
+  services: {
+    headline: { roman: 'How we can help' },
+    items: [
+      {
+        title: 'AI & legal tech strategy',
+        body: 'We sit with your team and map how work moves today, from intake to sign-off. Then we show where AI, automation or a simple process change would help, before you spend anything.',
+      },
+      {
+        title: 'Tool selection & adoption',
+        body: 'A demo shows you the product. A trial shows you the fit. We run trials on your hardest work, inside the systems you already use, ask vendors the awkward questions, and stay after launch to get people using the tool.',
+        tagline: 'Go live is the start, not the finish.',
+      },
+      {
+        title: 'Training, workshops & keynotes',
+        body: 'Sessions on AI and governance for in-house teams, law firms and conferences. Recent ones include a workshop for Norton Rose Fulbright’s Dubai and Riyadh teams and a session for DIFC Academy’s law course.',
+      },
+    ],
+    also: 'We also help teams make AI governance usable. If the approved route is too cumbersome, people go around it. And we advise legal tech companies on talking the language of lawyers.',
+  },
+
+  // The brief's "no vendor commissions" line is left out until the owner confirms it (open question 11).
+  // "People. Process. Then AI." is Sophie's Kuwait keynote slide.
+  approach: {
+    headline: { roman: 'People. Process.', italic: 'Then AI.' },
+    steps: [
+      {
+        title: 'Map',
+        body: 'Sit with your team and follow the work through intake, drafting, review, approvals and reporting.',
+      },
+      {
+        title: 'Assess',
+        body: 'Find where things get stuck and who needs to be won over. Sometimes the answer isn’t technology at all.',
+      },
+      {
+        title: 'Choose',
+        body: 'Know your problem first and every demo becomes a test, not a pitch. Trials run on your hardest tasks, inside the systems you already use.',
+      },
+      {
+        title: 'Embed',
+        body: 'Training, playbooks and a named owner after launch. Adoption isn’t a project with an end date.',
+      },
+    ],
+  },
+
   // TODO: confirm permission to show these client names and logos (open question 13).
-  // Width and height are each logo's viewBox size; they set its aspect ratio.
-  trustStrip: {
-    experience: '20+ years in legal technology',
-    clientsIntro: 'Trusted by legal teams at',
+  // Logo width and height are each logo's viewBox size; they set its aspect ratio.
+  proof: {
+    headline: { roman: 'Who I’ve worked with' },
+    clientsLabel: 'Clients include',
     clients: [
       { src: americanaLogo, alt: 'Americana', width: 164.4, height: 71 },
       { src: eandLogo, alt: 'e&', width: 530.26, height: 493.52 },
       { src: dubizzleLogo, alt: 'Dubizzle', width: 589.8, height: 184.8 },
       { src: qatarEnergyLogo, alt: 'QatarEnergy', width: 85.57, height: 88.6 },
     ],
-  },
-
-  problem: {
-    eyebrow: 'The problem',
-    headline: { roman: 'Sound', italic: 'familiar?' },
-    painPoints: [
-      'The business wants you to “do something with AI”, but nobody has said what problem it should solve.',
-      'Every demo looks the same, and CLM, contract AI and “legal front doors” all blur together.',
-      'You bought a tool. Hardly anyone uses it.',
-      'The board wants numbers on what legal does. You have anecdotes.',
-      'Someone outside legal has already “checked it on Copilot”.',
-    ],
-    turn: {
-      strong: 'Most teams don’t start with a technology problem.',
-      rest: 'They start with unclear processes, scattered information and pressure to move fast. That’s where we start too.',
-    },
-  },
-
-  services: {
-    eyebrow: 'Services',
-    headline: { roman: 'What we', italic: 'do.' },
-    items: [
-      {
-        number: '01',
-        title: 'AI & legal tech strategy',
-        body: 'We map how your team actually works, find what’s costing you most, and show where AI, automation or simply a better process will help, before you spend anything.',
-      },
-      {
-        number: '02',
-        title: 'Tool selection & adoption',
-        body: 'Vendor-neutral support from shortlist to go-live and beyond: real trials on your hardest work, the right questions for vendors, and change management that gets people using it.',
-        tagline: 'Go-live is the start, not the finish.',
-      },
-      {
-        number: '03',
-        title: 'Training, workshops & keynotes',
-        body: 'Practical sessions on AI, governance and the future-ready legal team, for in-house teams, law firms and conferences. Some sessions carry CLPD accreditation.',
-      },
-    ],
-    alsoLabel: 'Also',
-    also: ['AI governance that works in practice', 'Go-to-market advice for legal tech companies'],
-  },
-
-  // The brief's "no vendor commissions" line is left out until the owner confirms it (open question 11).
-  approach: {
-    eyebrow: 'Our approach',
-    headline: { roman: 'People. Process.', italic: 'Then AI.' },
-    steps: [
-      {
-        number: '01',
-        title: 'Map',
-        body: 'Sit with your team and trace the real workflow: intake, drafting, review, approvals, reporting.',
-      },
-      {
-        number: '02',
-        title: 'Assess',
-        body: 'Find the bottlenecks and the stakeholders who need to be won over. Decide where technology adds value and where it doesn’t.',
-      },
-      {
-        number: '03',
-        title: 'Choose',
-        body: 'Compare options neutrally. Run trials on your hardest tasks, inside the systems you already use.',
-      },
-      {
-        number: '04',
-        title: 'Embed',
-        body: 'Train, build playbooks, set ownership and measure. Adoption doesn’t stop at launch.',
-      },
-    ],
-  },
-
-  proof: {
-    eyebrow: 'Proof',
-    headline: { roman: '20 years beside lawyers,', italic: 'and the room to prove it.' },
-    stats: [
-      { value: '20+', label: 'years in legal tech' },
-      { value: '130+', label: 'legal leaders at our DIFC AI Governance seminar' },
-      { value: '25k+', label: 'LinkedIn followers' },
-    ],
-    spokenAtLabel: 'Spoken at',
-    spokenAt: [
-      'Kuwait Corporate Legal Summit',
-      'Bespoke Global Legal Summit',
-      'LexTalk World',
-      'AIJA',
-      'LegalTechTalk London',
+    paragraphs: [
+      'I’ve spoken at the Kuwait Corporate Legal Summit, the Bespoke Global Legal Summit, LexTalk World, AIJA and LegalTechTalk London.',
+      // Post 2026-10-09: 215 registered, 77 declined, "still had a room of at least 130".
+      'In October 2026, 215 people registered for our DIFC AI Governance seminar. We had to turn 77 away and still had a room of more than 130.',
     ],
     // TODO: Renato Leite Monteiro quote is marked "permission needed" (open question 16).
     quote: {
@@ -182,12 +163,11 @@ export const siteContent: SiteContent = {
 
   // TODO: confirm the "coffee meeting, or in the gym" personal touch (open question 22).
   about: {
-    eyebrow: 'About Sophie',
-    headline: { roman: 'The Best Advisory,', italic: 'led by Sophie Best.' },
+    headline: { roman: 'Why it’s called', italic: 'The Best Advisory.' },
     paragraphs: [
-      'Sophie Best started out two decades ago in London, running deal technology alongside M&A lawyers through the night. She went on to spend years inside leading legal tech companies before moving to Dubai and advising legal teams across the Middle East.',
-      'She never trained as a lawyer, but she has spent her whole career beside them, learning what lawyers need, often before they know it themselves. When she asked clients what they thought of when they thought of her work, they said “Sophie Best”. The Best Advisory puts a name on that.',
-      'Sophie also leads Knowledge Nexus, a legal education platform, and sits on the industry advisory board for Law at Middlesex University Dubai. You’ll usually find her at a DIFC coffee meeting, or in the gym.',
+      'I started out in London, running the tech alongside M&A lawyers at 2am. Then I spent years inside leading legal tech companies, selling it, before moving to Dubai to advise legal teams across the Middle East.',
+      'I never trained as a lawyer, but I’ve spent my whole career beside them. When I asked a couple of clients what they think of when they think of my work, they literally said “Sophie Best”. So I finally built a proper brand around it.',
+      'I also lead Knowledge Nexus, a legal education platform, and sit on the industry advisory board for Law at Middlesex University Dubai. When I’m not at a DIFC coffee meeting, I’m usually in the gym.',
     ],
     links: [knowledgeNexus, sophieLinkedIn],
     image: {
@@ -200,27 +180,22 @@ export const siteContent: SiteContent = {
   },
 
   // TODO: confirm permission from the people shown in event photos (open question 19).
+  // Headline from Post 2026-10-15: "No pitches, presentations just good people & conversations".
   events: {
-    eyebrow: 'Events & community',
-    headline: {
-      roman: 'What we do isn’t events.',
-      italic: 'It’s bringing the legal community together.',
-    },
-    lead: 'No selling, no pitching: just the right people around the table.',
+    headline: { roman: 'No pitches.', italic: 'Just good people and conversations.' },
+    lead: 'Breakfasts, dinners and seminars for GCs and senior in-house lawyers. Most are in Dubai and Abu Dhabi, and some in London.',
     strands: [
       {
         id: 'legal-table',
         title: 'The Legal Table',
-        meta: 'Breakfast roundtables',
-        body: 'Breakfast roundtables for GCs and senior in-house lawyers.',
+        body: 'Breakfast roundtables for GCs and senior in-house lawyers only.',
         // TODO: update or remove after 17 November 2026 (open question 25).
         note: 'Next: London, 17 November',
       },
       {
         id: 'wellness-brief',
         title: 'The Wellness Brief for Lawyers',
-        meta: 'Move · recover · connect',
-        body: 'Move, recover, connect. Networking on the mat, not at the bar.',
+        body: 'A workout, breathwork or a run, then coffee and a talk. Almost 40 people joined the session at Barry’s Dubai Marina.',
         image: {
           src: wellnessBriefImage,
           alt: 'Group photo of The Wellness Brief participants at Barry’s Dubai Marina.',
@@ -232,8 +207,7 @@ export const siteContent: SiteContent = {
       {
         id: 'seminars',
         title: 'Seminars & roundtables',
-        meta: 'Dubai · Abu Dhabi',
-        body: 'Practical sessions on AI governance and more, in Dubai and Abu Dhabi.',
+        body: 'Recent ones: “AI governance: everyone’s doing it. No one’s cracked it.” at DIFC, and a closed roundtable for about 20 GCs at the Four Seasons in Abu Dhabi.',
         image: {
           src: difcSeminarImage,
           alt: 'Panellists on stage at the DIFC AI Governance seminar.',
@@ -245,8 +219,8 @@ export const siteContent: SiteContent = {
       {
         id: 'practice-lab',
         title: 'Legal AI Practice Lab',
-        meta: 'Coming soon',
-        body: 'Hands-on simulations with realistic dummy data. Try Copilot and Claude without touching sensitive files.',
+        body: 'Real simulations with dummy data, so you can practise without touching client files. First up is Microsoft Copilot, then Claude.',
+        note: 'Coming soon',
       },
     ],
     gallery: [
@@ -284,9 +258,8 @@ export const siteContent: SiteContent = {
   },
 
   insights: {
-    eyebrow: 'Insights',
-    headline: { roman: 'Thinking out loud', italic: 'on AI, legal ops and adoption.' },
-    linkLabel: 'Read on LinkedIn',
+    headline: { roman: 'Recent writing' },
+    lead: 'Articles and carousels I’ve posted on LinkedIn.',
     cards: [
       {
         id: 'legal-ops-before-ai',
@@ -348,58 +321,58 @@ export const siteContent: SiteContent = {
     ],
   },
 
+  // Low-adoption examples are from Post 2026-10-27.
   faq: {
-    eyebrow: 'FAQ',
-    headline: { roman: 'Questions,', italic: 'answered.' },
+    headline: { roman: 'Before you get in touch' },
     items: [
       {
         question: 'Do we need AI?',
         answer:
-          'Maybe not. Sometimes the fix is a clearer process or simple automation. We’ll tell you.',
+          'Maybe not. It’s not always AI that’s needed. Sometimes it’s straightforward automation or a clearer process, and if so, I’ll tell you.',
       },
       {
         // TODO: confirm how vendor-sponsored events (e.g. Morae) are disclosed (open question 11).
         question: 'Are you tied to any vendor?',
-        answer: 'No. Our advice is vendor-neutral.',
+        answer:
+          'No. My advice is vendor-neutral, and if a tool doesn’t fit how your team works, I’ll say so.',
       },
       {
         question: 'We already bought a tool and adoption is low. Can you help?',
-        answer: 'Yes. This is one of the most common reasons teams call us.',
+        answer:
+          'Yes. It’s one of the most common reasons people get in touch. Often the tool is fine, but it asks lawyers for data entry or doesn’t connect to their email. That can be fixed.',
       },
       {
         question: 'Do you work with law firms or in-house teams?',
-        answer: 'Both, as well as corporates and legal tech companies.',
+        answer:
+          'Both. Most of my advisory work is with in-house teams at corporates, and I run training for law firms. I also work with legal tech companies on go-to-market.',
       },
       {
         // TODO: confirm whether sessions can run remotely.
         question: 'Where do you work?',
         answer:
-          'We’re based in Dubai and work across the UAE, the wider Middle East and London.',
+          'I’m based in Dubai and work across the UAE and the wider Gulf, and I’m in London regularly.',
       },
       {
         // TODO: confirm whether The Best Advisory can offer accredited training directly (open question 10).
         question: 'Is your training accredited?',
-        answer: 'Selected workshops are CLPD-accredited through Knowledge Nexus.',
+        answer: 'Some workshops are CLPD-accredited, through Knowledge Nexus.',
       },
     ],
   },
 
+  // "Where do I start?" is the question GCs ask most (Featured #3).
   contact: {
-    eyebrow: 'Contact',
     headline: { roman: 'Where do you', italic: 'start?' },
-    lead: 'That’s the question we hear most. Let’s work it out together.',
+    lead: 'It’s the question I hear most from GCs. Book a short call and tell me what’s going on.',
     primaryCta: { label: 'Book an intro call', link: bookingLink },
     email: {
-      label: 'Email us',
+      label: 'Or email us',
       link: { kind: 'todo', note: 'Contact email address (open question 1)' },
     },
-    social: [companyLinkedIn, sophieLinkedIn],
-    locations: ['Dubai', 'Abu Dhabi', 'London'],
-    regionLine: 'Working with legal teams across the Middle East and beyond.',
+    locations: 'Dubai, Abu Dhabi and London',
   },
 
   footer: {
-    tagline: 'People. Process. Then AI.',
     links: [
       companyLinkedIn,
       sophieLinkedIn,

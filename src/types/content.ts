@@ -53,7 +53,8 @@ export type SectionId =
   | 'contact';
 
 export interface SectionIntro {
-  readonly eyebrow: string;
+  /** Small caps label above the headline. Most sections leave it out. */
+  readonly eyebrow?: string;
   readonly headline: Headline;
   readonly lead?: string;
 }
@@ -67,13 +68,6 @@ export interface HeroContent {
   readonly image: ImageAsset;
 }
 
-export interface TrustStripContent {
-  readonly experience: string;
-  readonly clientsIntro: string;
-  /** Client logos. `alt` is the client name. */
-  readonly clients: readonly ImageAsset[];
-}
-
 export interface ProblemContent extends SectionIntro {
   readonly painPoints: readonly string[];
   readonly turn: {
@@ -83,7 +77,6 @@ export interface ProblemContent extends SectionIntro {
 }
 
 export interface ServiceItem {
-  readonly number: string;
   readonly title: string;
   readonly body: string;
   readonly tagline?: string;
@@ -91,23 +84,17 @@ export interface ServiceItem {
 
 export interface ServicesContent extends SectionIntro {
   readonly items: readonly ServiceItem[];
-  readonly alsoLabel: string;
-  readonly also: readonly string[];
+  /** One sentence on the secondary services. */
+  readonly also: string;
 }
 
 export interface ApproachStep {
-  readonly number: string;
   readonly title: string;
   readonly body: string;
 }
 
 export interface ApproachContent extends SectionIntro {
   readonly steps: readonly ApproachStep[];
-}
-
-export interface Stat {
-  readonly value: string;
-  readonly label: string;
 }
 
 /** A quote can only be shown once permission is confirmed. */
@@ -124,9 +111,10 @@ export type QuoteContent =
     };
 
 export interface ProofContent extends SectionIntro {
-  readonly stats: readonly Stat[];
-  readonly spokenAtLabel: string;
-  readonly spokenAt: readonly string[];
+  readonly clientsLabel: string;
+  /** Client logos. `alt` is the client name. */
+  readonly clients: readonly ImageAsset[];
+  readonly paragraphs: readonly string[];
   readonly quote: QuoteContent;
 }
 
@@ -139,7 +127,6 @@ export interface AboutContent extends SectionIntro {
 export interface EventStrand {
   readonly id: string;
   readonly title: string;
-  readonly meta: string;
   readonly body: string;
   readonly note?: string;
   readonly image?: ImageAsset;
@@ -167,7 +154,6 @@ export interface ArticleCard {
 
 export interface InsightsContent extends SectionIntro {
   readonly cards: readonly ArticleCard[];
-  readonly linkLabel: string;
 }
 
 export interface FaqItem {
@@ -182,13 +168,10 @@ export interface FaqContent extends SectionIntro {
 export interface ContactContent extends SectionIntro {
   readonly primaryCta: LinkItem;
   readonly email: LinkItem;
-  readonly social: readonly LinkItem[];
-  readonly locations: readonly string[];
-  readonly regionLine: string;
+  readonly locations: string;
 }
 
 export interface FooterContent {
-  readonly tagline: string;
   readonly links: readonly LinkItem[];
   readonly copyright: string;
 }
@@ -199,7 +182,6 @@ export interface SiteContent {
   readonly nav: readonly NavItem[];
   readonly headerCta: LinkItem;
   readonly hero: HeroContent;
-  readonly trustStrip: TrustStripContent;
   readonly problem: ProblemContent;
   readonly services: ServicesContent;
   readonly approach: ApproachContent;

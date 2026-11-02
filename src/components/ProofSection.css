@@ -1,57 +1,26 @@
-.proof__stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: var(--space-8);
-  border-block: 1px solid var(--hairline);
-}
-
-.proof__stat {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
-  gap: var(--space-3);
-  padding: var(--space-6) var(--space-5);
-}
-
-.proof__stat:first-child {
-  padding-left: 0;
-}
-
-.proof__stat + .proof__stat {
-  border-left: 1px solid var(--hairline);
-}
-
-.proof__stat-value {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 5vw + 1rem, 5rem);
-  line-height: 1;
-}
-
-.proof__stat-label {
-  max-width: 18rem;
-  color: var(--text-muted);
-}
-
-.proof__spoken {
+.proof__grid {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  margin-top: var(--space-7);
+  gap: var(--space-7);
 }
 
-.proof__spoken-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) 0;
-  list-style: none;
+.proof__body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-7) var(--space-8);
+}
+
+.proof__body .client-logos {
+  grid-column: 1 / -1;
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.proof__paragraph {
+  max-width: 34rem;
   font-family: var(--font-display);
   font-size: clamp(1.125rem, 0.6vw + 1rem, 1.375rem);
-}
-
-.proof__spoken-list li + li::before {
-  content: '·';
-  padding-inline: var(--space-3);
-  color: var(--accent-rule);
+  line-height: 1.5;
 }
 
 .proof__quote {
@@ -70,17 +39,7 @@
 }
 
 @media (max-width: 720px) {
-  .proof__stats {
-    grid-template-columns: 1fr;
-  }
-
-  .proof__stat,
-  .proof__stat:first-child {
-    padding-inline: 0;
-  }
-
-  .proof__stat + .proof__stat {
-    border-left: 0;
-    border-top: 1px solid var(--hairline);
+  .proof__body {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

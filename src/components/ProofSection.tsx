@@ -1,4 +1,5 @@
 import type { ProofContent } from '../types/content';
+import { ClientLogos } from './ClientLogos';
 import { Section } from './ui/Section';
 import { SectionHeading } from './ui/SectionHeading';
 import './ProofSection.css';
@@ -12,24 +13,17 @@ export const ProofSection = ({ content }: ProofSectionProps) => {
 
   return (
     <Section id="proof" tone="paper" labelledBy="proof-title">
-      <SectionHeading intro={content} headingId="proof-title" />
+      <div className="proof__grid">
+        <SectionHeading intro={content} headingId="proof-title" />
 
-      <dl className="proof__stats">
-        {content.stats.map((stat) => (
-          <div key={stat.label} className="proof__stat">
-            <dt className="proof__stat-label">{stat.label}</dt>
-            <dd className="proof__stat-value">{stat.value}</dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="proof__spoken">
-        <h3 className="eyebrow">{content.spokenAtLabel}</h3>
-        <ul className="proof__spoken-list">
-          {content.spokenAt.map((stage) => (
-            <li key={stage}>{stage}</li>
+        <div className="proof__body">
+          <ClientLogos label={content.clientsLabel} logos={content.clients} />
+          {content.paragraphs.map((paragraph) => (
+            <p key={paragraph} className="proof__paragraph">
+              {paragraph}
+            </p>
           ))}
-        </ul>
+        </div>
       </div>
 
       {quote.kind === 'quote' && (

@@ -12,10 +12,7 @@ export const Footer = ({ brandName, content }: FooterProps) => {
   return (
     <footer className="site-footer tone-espresso">
       <div className="container site-footer__inner">
-        <div className="site-footer__brand">
-          <Wordmark brandName={brandName} size="large" />
-          <p className="site-footer__tagline">{content.tagline}</p>
-        </div>
+        <Wordmark brandName={brandName} size="large" />
 
         <nav aria-label="Footer">
           <ul className="site-footer__links">

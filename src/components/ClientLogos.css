@@ -1,0 +1,90 @@
+.client-logos {
+  --logo-size: 88px;
+  --logo-gap: clamp(48px, 7vw, 96px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.client-logos__label {
+  font-size: var(--text-small);
+  color: var(--text-muted);
+}
+
+/* Clips the strip and fades it out at both ends */
+.client-logos__marquee {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+}
+
+.client-logos__track {
+  display: flex;
+  width: max-content;
+  animation: client-logos-scroll 40s linear infinite;
+}
+
+.client-logos__marquee:hover .client-logos__track {
+  animation-play-state: paused;
+}
+
+.client-logos__list {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--logo-gap);
+  padding-right: var(--logo-gap);
+  list-style: none;
+}
+
+/*
+ * Logos are sized to a similar area rather than one height, so wide and
+ * square marks look balanced. Grayscale keeps them from pulling focus.
+ */
+.client-logos__logo {
+  width: auto;
+  height: calc(var(--logo-size) / sqrt(var(--logo-aspect, 1)));
+  filter: grayscale(1);
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+}
+
+@keyframes client-logos-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* No motion: one still, centred row */
+@media (prefers-reduced-motion: reduce) {
+  .client-logos__marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .client-logos__track {
+    width: auto;
+    justify-content: center;
+    animation: none;
+  }
+
+  .client-logos__list {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .client-logos__list[data-copy] {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .client-logos {
+    --logo-size: 64px;
+  }
+}

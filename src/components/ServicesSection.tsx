@@ -13,24 +13,15 @@ export const ServicesSection = ({ content }: ServicesSectionProps) => {
     <Section id="services" tone="ivory" labelledBy="services-title">
       <SectionHeading intro={content} headingId="services-title" />
 
-      <ol className="services__list">
+      <ul className="services__list">
         {content.items.map((service) => (
-          <li key={service.number}>
+          <li key={service.title}>
             <ServiceCard service={service} />
           </li>
         ))}
-      </ol>
+      </ul>
 
-      <p className="services__also">
-        <span className="services__also-label">{content.alsoLabel}</span>
-        {content.also.map((item, index) => (
-          <span key={item}>
-            {index > 0 && <span aria-hidden="true"> · </span>}
-            {index > 0 && <span className="visually-hidden">, </span>}
-            <em>{item}</em>
-          </span>
-        ))}
-      </p>
+      <p className="services__also">{content.also}</p>
     </Section>
   );
 };

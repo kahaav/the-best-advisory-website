@@ -5,25 +5,8 @@
   height: 100%;
 }
 
-.event-card > :first-child {
+.event-card > .framed-image {
   margin-bottom: var(--space-3);
-}
-
-/* Typographic tile for events without a photo, in the dark carousel style */
-.event-card__tile {
-  display: flex;
-  align-items: flex-end;
-  aspect-ratio: 3 / 2;
-  padding: var(--space-5);
-  background: var(--surface);
-  color: var(--text);
-}
-
-.event-card__tile-title {
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-style: italic;
-  line-height: 1.2;
 }
 
 .event-card__title {
@@ -39,9 +22,6 @@
 }
 
 .event-card__note {
-  margin-top: auto;
-  padding-top: var(--space-3);
   font-family: var(--font-display);
   font-style: italic;
-  border-top: 1px solid var(--hairline);
 }

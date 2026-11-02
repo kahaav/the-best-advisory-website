@@ -18,47 +18,23 @@
   border-bottom: 1px solid var(--hairline);
 }
 
-/* A "quote slide" in the style of the dark carousel pages */
 .problem__turn {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  gap: var(--space-6);
-  align-items: center;
-  margin-top: var(--space-9);
-  padding: clamp(32px, 6vw, 72px);
-  background: var(--surface);
-  color: var(--text);
+  max-width: 34rem;
+  margin-top: var(--space-6);
+  font-size: var(--text-lead);
+  line-height: 1.5;
+  color: var(--text-muted);
 }
 
 .problem__turn-strong {
   font-family: var(--font-display);
-  font-size: var(--text-h3);
   font-style: italic;
-  line-height: 1.25;
-}
-
-.problem__turn-rule {
-  width: 1px;
-  align-self: stretch;
-  background: var(--accent-rule);
-}
-
-.problem__turn-rest {
-  color: var(--text-muted);
+  font-weight: 400;
+  color: var(--text);
 }
 
 @media (max-width: 860px) {
   .problem__grid {
     grid-template-columns: 1fr;
-  }
-
-  .problem__turn {
-    grid-template-columns: 1fr;
-    margin-top: var(--space-8);
-  }
-
-  .problem__turn-rule {
-    width: 48px;
-    height: 1px;
   }
 }

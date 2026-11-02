@@ -12,19 +12,19 @@ export const ProblemSection = ({ content }: ProblemSectionProps) => {
     <Section id="problem" tone="paper" labelledBy="problem-title" className="problem">
       <div className="problem__grid">
         <SectionHeading intro={content} headingId="problem-title" />
-        <ul className="problem__list">
-          {content.painPoints.map((point) => (
-            <li key={point} className="problem__item">
-              {point}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="problem__turn tone-espresso">
-        <p className="problem__turn-strong">{content.turn.strong}</p>
-        <span className="problem__turn-rule" aria-hidden="true" />
-        <p className="problem__turn-rest">{content.turn.rest}</p>
+        <div>
+          <ul className="problem__list">
+            {content.painPoints.map((point) => (
+              <li key={point} className="problem__item">
+                {point}
+              </li>
+            ))}
+          </ul>
+          <p className="problem__turn">
+            <strong className="problem__turn-strong">{content.turn.strong}</strong>{' '}
+            {content.turn.rest}
+          </p>
+        </div>
       </div>
     </Section>
   );

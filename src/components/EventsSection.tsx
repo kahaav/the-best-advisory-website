@@ -27,11 +27,7 @@ export const EventsSection = ({ content }: EventsSectionProps) => {
 
       <div className="events__actions">
         {content.ctas.map((cta, index) => (
-          <ContentLink
-            key={cta.label}
-            item={cta}
-            variant={index === 0 ? 'primary' : 'secondary'}
-          />
+          <ContentLink key={cta.label} item={cta} variant={index === 0 ? 'primary' : 'text'} />
         ))}
       </div>
     </Section>

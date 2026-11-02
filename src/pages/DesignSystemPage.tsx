@@ -63,20 +63,18 @@ const TEMPLATE_IMAGE: ImageAsset = { src: templateImage, alt: '', width: 400, he
 
 const TEMPLATE_BODY = 'Short supporting text that describes the card in a sentence or two.';
 
-const serviceCard = { number: '01', title: 'Card title', body: TEMPLATE_BODY, tagline: 'Optional tagline' };
+const serviceCard = { title: 'Card title', body: TEMPLATE_BODY, tagline: 'Optional tagline' };
 
 const photoEvent: EventStrand = {
   id: 'photo',
   title: 'Card title',
-  meta: 'Meta · Detail',
   body: TEMPLATE_BODY,
   image: TEMPLATE_IMAGE,
 };
 
-const tileEvent: EventStrand = {
-  id: 'tile',
+const textEvent: EventStrand = {
+  id: 'text',
   title: 'Card title',
-  meta: 'Meta · Detail',
   body: TEMPLATE_BODY,
   note: 'Optional note',
 };
@@ -357,13 +355,13 @@ export const DesignSystemPage = () => {
               <EventCard event={photoEvent} />
             </Specimen>
             <Specimen label="Event card · no photo">
-              <EventCard event={tileEvent} />
+              <EventCard event={textEvent} />
             </Specimen>
             <Specimen label="Article card">
-              <InsightCard card={insightCard('Article')} linkLabel="Read more" />
+              <InsightCard card={insightCard('Article')} />
             </Specimen>
             <Specimen label="Carousel card" wide>
-              <InsightCard card={insightCard('Carousel')} linkLabel="Read more" />
+              <InsightCard card={insightCard('Carousel')} />
             </Specimen>
           </ul>
         </Panel>

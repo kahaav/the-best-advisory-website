@@ -1,17 +1,10 @@
+/* Two columns when there is room, one when narrow: no media query needed */
 .service-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  height: 100%;
-  padding-top: var(--space-5);
-  border-top: 1px solid var(--text);
-}
-
-.service-card__number {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  color: var(--accent-rule);
-  letter-spacing: 0.08em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--space-3) var(--space-7);
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--hairline);
 }
 
 .service-card__title {
@@ -21,13 +14,18 @@
   line-height: 1.2;
 }
 
+.service-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: var(--measure);
+}
+
 .service-card__body {
   color: var(--text-muted);
 }
 
 .service-card__tagline {
-  margin-top: auto;
-  padding-top: var(--space-2);
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.125rem;
