@@ -1,7 +1,6 @@
 import type { ProofContent } from '../types/content';
 import { Section } from './ui/Section';
 import { SectionHeading } from './ui/SectionHeading';
-import { TodoTag } from './ui/TodoTag';
 import './ProofSection.css';
 
 interface ProofSectionProps {
@@ -33,7 +32,7 @@ export const ProofSection = ({ content }: ProofSectionProps) => {
         </ul>
       </div>
 
-      {quote.kind === 'quote' ? (
+      {quote.kind === 'quote' && (
         <figure className="proof__quote">
           <blockquote className="proof__quote-text">
             <p>“{quote.text}”</p>
@@ -42,11 +41,6 @@ export const ProofSection = ({ content }: ProofSectionProps) => {
             {quote.name}, {quote.role}
           </figcaption>
         </figure>
-      ) : (
-        <div className="proof__quote proof__quote--todo">
-          <TodoTag />
-          <p>{quote.note}</p>
-        </div>
       )}
     </Section>
   );

@@ -1,0 +1,5 @@
+.page-section {
+  padding-block: var(--section-padding);
+  background: var(--surface);
+  color: var(--text);
+}

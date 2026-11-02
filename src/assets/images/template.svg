@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <!-- Template image for the design-system page. Transparent, so the frame's background shows through. -->
+  <g fill="#000" fill-opacity="0.14">
+    <circle cx="226" cy="124" r="14" />
+    <path d="M152 186 188 142 212 170 228 152 262 186Z" />
+  </g>
+</svg>

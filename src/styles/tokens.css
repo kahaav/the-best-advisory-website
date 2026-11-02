@@ -1,23 +1,54 @@
 /*
- * Design tokens from docs/answers.md section 8.
- * Colour values are estimated from the brand images; confirm against brand source files.
+ * Design tokens. Shared by the landing page and the /design-system page,
+ * which previews them through var(), so changes here show on both.
  */
 :root {
-  /* Colour */
-  --color-espresso-900: #241c18;
-  --color-espresso-700: #3a2e28;
-  --color-ivory-50: #fbf9f6;
-  --color-ivory-100: #f4efe8;
-  --color-paper: #ffffff;
-  --color-sand-300: #b9a28a;
-  --color-taupe-500: #8c7563;
-  --color-ink-muted: #6b5e56;
-  --color-line: #e4dcd2;
-  --color-focus: #8c5a2b;
+  /*
+   * Colours: five shades each. 300 is the brand value; 100 and 200 are
+   * lighter, 400 and 500 darker. The plain name is an alias for 300.
+   */
+
+  /* Brand colours */
+  --color-espresso-100: hsl(20 20% 70%);
+  --color-espresso-200: hsl(20 20% 40.9%);
+  --color-espresso-300: hsl(20 20% 11.8%);
+  --color-espresso-400: hsl(20 20% 7.8%);
+  --color-espresso-500: hsl(20 20% 3.9%);
+  --color-espresso: var(--color-espresso-300);
+
+  --color-taupe-100: hsl(26.3 17.2% 81.9%);
+  --color-taupe-200: hsl(26.3 17.2% 64.4%);
+  --color-taupe-300: hsl(26.3 17.2% 46.9%);
+  --color-taupe-400: hsl(26.3 17.2% 31%);
+  --color-taupe-500: hsl(26.3 17.2% 15.5%);
+  --color-taupe: var(--color-taupe-300);
+
+  /* Neutral colours */
+  --color-ivory-100: hsl(36 38.5% 99.2%);
+  --color-ivory-200: hsl(36 38.5% 98.3%);
+  --color-ivory-300: hsl(36 38.5% 97.5%);
+  --color-ivory-400: hsl(36 38.5% 64.4%);
+  --color-ivory-500: hsl(36 38.5% 32.2%);
+  --color-ivory: var(--color-ivory-300);
+
+  --color-cream-100: hsl(35 35.3% 97.7%);
+  --color-cream-200: hsl(35 35.3% 95.5%);
+  --color-cream-300: hsl(35 35.3% 93.3%);
+  --color-cream-400: hsl(35 35.3% 61.6%);
+  --color-cream-500: hsl(35 35.3% 30.8%);
+  --color-cream: var(--color-cream-300);
+
+  --color-paper-100: hsl(0 0% 100%);
+  --color-paper-200: hsl(0 0% 100%);
+  --color-paper-300: hsl(0 0% 100%);
+  --color-paper-400: hsl(0 0% 66%);
+  --color-paper-500: hsl(0 0% 33%);
+  --color-paper: var(--color-paper-300);
 
   /* Type */
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-text: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   --text-display: clamp(2.5rem, 5vw + 1rem, 4.5rem);
   --text-h2: clamp(2rem, 3vw + 1rem, 3rem);
@@ -47,31 +78,55 @@
   --section-padding: clamp(64px, 10vw, 128px);
   --header-height: 72px;
 
+  /* Buttons */
+  --button-height-large: 48px;
+  --button-padding-large: 14px 28px;
+  --button-font-large: 0.9375rem;
+  --button-height-small: 36px;
+  --button-padding-small: 8px 16px;
+  --button-font-small: 0.8125rem;
+  --button-inactive-opacity: 0.4;
+
+  /*
+   * Breakpoints (max-width, in px). Unitless so CSS can position them on the
+   * design-system page. Media queries cannot read variables: keep in step.
+   */
+  --breakpoint-wide: 1024; /* Event cards: 4 to 2 columns */
+  --breakpoint-nav: 960; /* Navigation becomes a menu, 4-column grids halve */
+  --breakpoint-tablet: 860; /* Two-column layouts stack */
+  --breakpoint-footer: 760; /* Footer stacks */
+  --breakpoint-small: 720; /* Stats and trust strip stack */
+  --breakpoint-mobile: 600; /* Card grids become one column */
+  --breakpoint-mobile-small: 560; /* Approach steps become one column */
+
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /*
  * Surface tones. Components read these variables, so a section's tone
- * switches text, rules and buttons in one place.
+ * switches text, rules and buttons in one place. Muted text, hairlines and
+ * hover colours are mixed from the palette rather than being extra colours.
  */
 .tone-ivory,
 .tone-cream,
-.tone-paper {
-  --surface: var(--color-ivory-50);
-  --text: var(--color-espresso-900);
-  --text-muted: var(--color-ink-muted);
-  --accent-rule: var(--color-taupe-500);
-  --hairline: var(--color-line);
-  --button-bg: var(--color-espresso-900);
-  --button-bg-hover: var(--color-espresso-700);
-  --button-fg: var(--color-ivory-100);
-  --focus-ring: var(--color-focus);
+.tone-paper,
+.tone-espresso {
+  --surface: var(--color-ivory);
+  --text: var(--color-espresso);
+  --accent-rule: var(--color-taupe);
+  --button-bg: var(--color-espresso);
+  --button-fg: var(--color-cream);
+  --focus-ring: var(--color-taupe);
+  --text-muted: color-mix(in srgb, var(--text) 72%, var(--surface));
+  --hairline: color-mix(in srgb, var(--color-taupe) 25%, var(--surface));
+  --button-bg-hover: color-mix(in srgb, var(--button-bg) 90%, var(--color-paper));
+  --button-bg-pressed: color-mix(in srgb, var(--button-bg) 65%, var(--color-taupe));
+  --button-outline-pressed: color-mix(in srgb, var(--text) 65%, var(--color-taupe));
 }
 
 .tone-cream {
-  --surface: var(--color-ivory-100);
-  --hairline: #ddd3c7;
+  --surface: var(--color-cream);
 }
 
 .tone-paper {
@@ -79,13 +134,9 @@
 }
 
 .tone-espresso {
-  --surface: var(--color-espresso-900);
-  --text: var(--color-ivory-100);
-  --text-muted: #cfc3b6;
-  --accent-rule: var(--color-sand-300);
-  --hairline: #4a3d35;
-  --button-bg: var(--color-ivory-100);
-  --button-bg-hover: #ffffff;
-  --button-fg: var(--color-espresso-900);
-  --focus-ring: var(--color-sand-300);
+  --surface: var(--color-espresso);
+  --text: var(--color-cream);
+  --button-bg: var(--color-cream);
+  --button-fg: var(--color-espresso);
+  --focus-ring: var(--color-cream);
 }

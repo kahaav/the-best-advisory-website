@@ -12,7 +12,6 @@ import { ProofSection } from '../components/ProofSection';
 import { ServicesSection } from '../components/ServicesSection';
 import { TrustStrip } from '../components/TrustStrip';
 import { siteContent } from '../content/siteContent';
-import './HomePage.css';
 
 export const HomePage = () => {
   return (

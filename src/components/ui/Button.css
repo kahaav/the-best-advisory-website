@@ -1,0 +1,76 @@
+/*
+ * Buttons: square corners, as in the brand. Two variants (primary,
+ * secondary), two sizes (large, small) and states: hover, pressed, disabled.
+ * Used by <Button> and by button-style <ContentLink>, so both look the same.
+ * The .is-hover and .is-pressed classes show a state without interaction,
+ * e.g. on the design-system page.
+ */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--button-height-large);
+  padding: var(--button-padding-large);
+  font-family: var(--font-text);
+  font-size: var(--button-font-large);
+  font-weight: 500;
+  line-height: inherit;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1px solid var(--button-bg);
+  border-radius: 0;
+  cursor: pointer;
+  transition:
+    background-color 180ms var(--ease-out),
+    border-color 180ms var(--ease-out),
+    color 180ms var(--ease-out);
+}
+
+.button--small {
+  min-height: var(--button-height-small);
+  padding: var(--button-padding-small);
+  font-size: var(--button-font-small);
+}
+
+.button--primary {
+  background: var(--button-bg);
+  color: var(--button-fg);
+}
+
+.button--primary:is(:hover, .is-hover):not(:disabled) {
+  background: var(--button-bg-hover);
+  border-color: var(--button-bg-hover);
+}
+
+.button--primary:is(:active, .is-pressed):not(:disabled) {
+  background: var(--button-bg-pressed);
+  border-color: var(--button-bg-pressed);
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.button--secondary:is(:hover, .is-hover):not(:disabled) {
+  background: var(--text);
+  color: var(--surface);
+}
+
+.button--secondary:is(:active, .is-pressed):not(:disabled) {
+  background: var(--button-outline-pressed);
+  border-color: var(--button-outline-pressed);
+  color: var(--surface);
+}
+
+.button:disabled {
+  opacity: var(--button-inactive-opacity);
+  cursor: not-allowed;
+}
+
+.button__icon {
+  display: inline-flex;
+  flex: none;
+}

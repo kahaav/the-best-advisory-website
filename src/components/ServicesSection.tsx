@@ -1,4 +1,5 @@
 import type { ServicesContent } from '../types/content';
+import { ServiceCard } from './cards/ServiceCard';
 import { Section } from './ui/Section';
 import { SectionHeading } from './ui/SectionHeading';
 import './ServicesSection.css';
@@ -14,15 +15,8 @@ export const ServicesSection = ({ content }: ServicesSectionProps) => {
 
       <ol className="services__list">
         {content.items.map((service) => (
-          <li key={service.number} className="services__card">
-            <span className="services__number" aria-hidden="true">
-              {service.number}
-            </span>
-            <h3 className="services__title">{service.title}</h3>
-            <p className="services__body">{service.body}</p>
-            {service.tagline !== undefined && (
-              <p className="services__tagline">{service.tagline}</p>
-            )}
+          <li key={service.number}>
+            <ServiceCard service={service} />
           </li>
         ))}
       </ol>

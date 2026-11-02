@@ -6,69 +6,8 @@
   list-style: none;
 }
 
-.events__card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.events__card > :first-child {
-  margin-bottom: var(--space-3);
-}
-
-/* Typographic tile for strands without a photo, in the dark carousel style */
-.events__tile {
-  display: flex;
-  align-items: flex-end;
-  aspect-ratio: 3 / 2;
-  padding: var(--space-5);
-  background: var(--surface);
-  color: var(--text);
-}
-
-.events__tile-title {
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-style: italic;
-  line-height: 1.2;
-}
-
-.events__title {
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-weight: 400;
-  line-height: 1.25;
-}
-
-.events__body {
-  color: var(--text-muted);
-  font-size: 1rem;
-}
-
-.events__note {
-  margin-top: auto;
-  padding-top: var(--space-3);
-  font-family: var(--font-display);
-  font-style: italic;
-  border-top: 1px solid var(--hairline);
-}
-
 .events__gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-5);
   margin-top: var(--space-8);
-}
-
-.events__figure {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.events__caption {
-  font-size: var(--text-small);
-  color: var(--text-muted);
 }
 
 .events__actions {
@@ -85,8 +24,7 @@
 }
 
 @media (max-width: 600px) {
-  .events__strands,
-  .events__gallery {
+  .events__strands {
     grid-template-columns: 1fr;
   }
 }

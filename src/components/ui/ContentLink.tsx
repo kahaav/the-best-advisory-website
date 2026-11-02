@@ -1,8 +1,9 @@
 import type { LinkItem } from '../../types/content';
-import { TodoTag } from './TodoTag';
+import type { ButtonVariant } from './Button';
+import './Button.css';
 import './ContentLink.css';
 
-export type ContentLinkVariant = 'primary' | 'secondary' | 'text';
+export type ContentLinkVariant = ButtonVariant | 'text';
 
 interface ContentLinkProps {
   item: LinkItem;
@@ -12,34 +13,29 @@ interface ContentLinkProps {
   hiddenContext?: string;
 }
 
-/**
- * Renders a content link. Links still marked TODO render as a visible,
- * non-interactive placeholder so no dead link ships.
- */
+/** Links without a destination yet point to the contact section. */
+const UNFINISHED_LINK_HREF = '#contact';
+
+/** Renders a link, styled as a button (primary, secondary) or as a text link. */
 export const ContentLink = ({
   item,
   variant = 'text',
   className,
   hiddenContext,
 }: ContentLinkProps) => {
-  const classes = ['content-link', `content-link--${variant}`, className]
+  const classes = [
+    'content-link',
+    `content-link--${variant}`,
+    variant === 'text' ? undefined : `button button--${variant}`,
+    className,
+  ]
     .filter(Boolean)
     .join(' ');
 
   const context =
     hiddenContext !== undefined ? <span className="visually-hidden">: {hiddenContext}</span> : null;
 
-  if (item.link.kind === 'todo') {
-    return (
-      <span className={`${classes} content-link--todo`} title={`TODO: ${item.link.note}`}>
-        {item.label}
-        {context}
-        <TodoTag />
-      </span>
-    );
-  }
-
-  if (item.link.external === true) {
+  if (item.link.kind === 'url' && item.link.external === true) {
     return (
       <a className={classes} href={item.link.href} target="_blank" rel="noopener noreferrer">
         {item.label}
@@ -53,7 +49,10 @@ export const ContentLink = ({
   }
 
   return (
-    <a className={classes} href={item.link.href}>
+    <a
+      className={classes}
+      href={item.link.kind === 'url' ? item.link.href : UNFINISHED_LINK_HREF}
+    >
       {item.label}
       {context}
     </a>

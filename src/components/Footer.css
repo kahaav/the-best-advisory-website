@@ -1,5 +1,6 @@
 .site-footer {
-  background: #1c1512;
+  background: var(--surface);
+  border-top: 1px solid var(--hairline);
   color: var(--text);
 }
 

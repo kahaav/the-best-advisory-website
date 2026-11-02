@@ -10,8 +10,8 @@
   font-family: var(--font-text);
   font-size: 100%;
   line-height: 1.5;
-  color: var(--color-espresso-900);
-  background: var(--color-ivory-50);
+  color: var(--color-espresso);
+  background: var(--color-ivory);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -56,7 +56,7 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--focus-ring, var(--color-focus));
+  outline: 2px solid var(--focus-ring, var(--color-taupe));
   outline-offset: 3px;
 }
 
@@ -70,6 +70,27 @@ a {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+main:focus {
+  outline: none;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 20;
+  padding: var(--space-3) var(--space-5);
+  font-weight: 500;
+  color: var(--color-cream);
+  background: var(--color-espresso);
+  transform: translateY(-200%);
+  transition: transform 150ms var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: none;
 }
 
 .container {

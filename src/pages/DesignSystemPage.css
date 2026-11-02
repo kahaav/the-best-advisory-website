@@ -1,0 +1,366 @@
+/* Design-system page. Every value comes from src/styles/tokens.css. */
+
+.ds-page {
+  min-height: 100vh;
+  padding-block: var(--space-6);
+  color: var(--text);
+  background: var(--surface);
+}
+
+/* Two-column grid of panels; one column on small screens */
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.ds-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+  padding: var(--space-5);
+  background: var(--color-paper);
+  border: 1px solid var(--hairline);
+}
+
+.ds-panel--wide {
+  grid-column: 1 / -1;
+}
+
+.ds-panel__title {
+  padding-bottom: var(--space-3);
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.ds-code {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  font-weight: 400;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+/* Colours: one row per colour, columns 100 (lightest) to 500 (darkest) */
+.ds-colours {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: var(--space-2);
+  table-layout: fixed;
+}
+
+.ds-colours th {
+  text-align: left;
+}
+
+.ds-colours thead th {
+  text-align: center;
+}
+
+/* The fixed layout takes widths from the first row */
+.ds-colours tr > :first-child {
+  width: 36%;
+  white-space: nowrap;
+}
+
+.ds-shade {
+  display: block;
+  aspect-ratio: 1;
+  max-width: var(--space-8);
+  margin-inline: auto;
+  border: 1px solid var(--hairline);
+}
+
+/* Text */
+.ds-rows {
+  list-style: none;
+}
+
+.ds-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-1);
+}
+
+.ds-row + .ds-row {
+  border-top: 1px solid var(--hairline);
+}
+
+.ds-row__sample {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ds-row__sample--size {
+  font-family: var(--font-display);
+  line-height: 1.1;
+}
+
+/* Spacing: one bar per step, as wide as the token */
+.ds-spacing {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.ds-spacing__item {
+  display: grid;
+  grid-template-columns: var(--space-9) minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.ds-spacing__bar {
+  display: block;
+  height: var(--space-3);
+  background: var(--accent-rule);
+}
+
+/* Tones */
+.ds-tones {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+  list-style: none;
+}
+
+.ds-tone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+}
+
+.ds-tone__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  line-height: 1;
+}
+
+.ds-tone__muted {
+  font-size: var(--text-small);
+  color: var(--text-muted);
+}
+
+.ds-tone__rule {
+  display: block;
+  width: var(--space-6);
+  height: 1px;
+  background: var(--accent-rule);
+}
+
+/*
+ * Breakpoints. The tokens are unitless, so they set each device's width,
+ * each point's position and the printed value (via a counter).
+ */
+.ds-breakpoint--wide { --bp: var(--breakpoint-wide); }
+.ds-breakpoint--nav { --bp: var(--breakpoint-nav); }
+.ds-breakpoint--tablet { --bp: var(--breakpoint-tablet); }
+.ds-breakpoint--footer { --bp: var(--breakpoint-footer); }
+.ds-breakpoint--small { --bp: var(--breakpoint-small); }
+.ds-breakpoint--mobile { --bp: var(--breakpoint-mobile); }
+.ds-breakpoint--mobile-small { --bp: var(--breakpoint-mobile-small); }
+
+/* Devices drawn at 16% scale */
+.ds-devices {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.ds-device {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  counter-reset: bp var(--bp);
+}
+
+.ds-device__screen {
+  position: relative;
+  width: calc(var(--bp) * 0.16px);
+  background: var(--color-cream);
+  border: 3px solid var(--text);
+}
+
+.ds-device--phone .ds-device__screen {
+  aspect-ratio: 9 / 19;
+  border-radius: var(--space-4);
+}
+
+.ds-device--tablet .ds-device__screen {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--space-3);
+}
+
+.ds-device--laptop .ds-device__screen {
+  aspect-ratio: 16 / 10;
+  margin-bottom: var(--space-2);
+  border-radius: var(--space-2) var(--space-2) 0 0;
+}
+
+/* Laptop base */
+.ds-device--laptop .ds-device__screen::after {
+  content: '';
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  bottom: calc(-1 * var(--space-2) - 3px);
+  height: var(--space-2);
+  background: var(--text);
+  border-radius: 0 0 var(--space-1) var(--space-1);
+}
+
+.ds-device__label,
+.ds-breakpoint__label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ds-device__label::before,
+.ds-breakpoint__label::before {
+  content: counter(bp) 'px';
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+}
+
+/* All breakpoints as points on a 480 to 1080px line */
+.ds-breakpoints {
+  --ds-axis-min: 480;
+  --ds-axis-max: 1080;
+  position: relative;
+  height: var(--space-9);
+  list-style: none;
+}
+
+.ds-breakpoints::before {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1px;
+  background: var(--text);
+}
+
+.ds-breakpoint {
+  position: absolute;
+  top: 50%;
+  left: calc((var(--bp) - var(--ds-axis-min)) / (var(--ds-axis-max) - var(--ds-axis-min)) * 100%);
+  counter-reset: bp var(--bp);
+}
+
+.ds-breakpoint::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--space-3) / -2);
+  left: calc(var(--space-3) / -2);
+  width: var(--space-3);
+  height: var(--space-3);
+  border-radius: 50%;
+  background: var(--accent-rule);
+}
+
+.ds-breakpoint__label {
+  position: absolute;
+  bottom: var(--space-3);
+  left: 0;
+  transform: translateX(-50%);
+}
+
+/* Alternate labels above and below the line so close points stay readable */
+.ds-breakpoint:nth-child(even) .ds-breakpoint__label {
+  top: var(--space-3);
+  bottom: auto;
+}
+
+/* Buttons: type and icon across, size and state down */
+.ds-table-scroll {
+  overflow-x: auto;
+}
+
+.ds-button-table {
+  border-collapse: collapse;
+}
+
+.ds-button-table th,
+.ds-button-table td {
+  padding: var(--space-2) var(--space-5) var(--space-2) 0;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.ds-button-table thead th[scope='colgroup'] {
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+.ds-button-table tbody th[scope='rowgroup'] {
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+/* Space between the large and small groups */
+.ds-button-table tbody tr:nth-child(4n + 1) > * {
+  padding-top: var(--space-5);
+}
+
+/* Cards: one labelled cell per card type */
+.ds-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.ds-specimen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--hairline);
+}
+
+.ds-specimen--wide {
+  grid-column: span 2;
+}
+
+@media (max-width: 860px) {
+  .ds-grid,
+  .ds-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ds-grid > .ds-panel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .ds-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ds-specimen--wide {
+    grid-column: auto;
+  }
+
+  .ds-tones {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
