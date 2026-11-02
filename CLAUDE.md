@@ -10,6 +10,14 @@ Follow the standards in:
 - .claude/rules/03-architecture.md
 - .claude/rules/04-accessibility.md
 - .claude/rules/05-design-system.md
+- .claude/rules/06-publishing.md
+
+## Skills
+
+- `publish` (`.claude/skills/publish/`): review, check, commit with a meaningful message and push.
+- `rollback` (`.claude/skills/rollback/`): undo the latest publish with a revert commit and push.
+
+Use them whenever the user asks to publish or to undo a publish (see `06-publishing.md`).
 
 ## Commands
 
