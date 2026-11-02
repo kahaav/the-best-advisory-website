@@ -1,4 +1,4 @@
-import { Fragment, type ReactNode } from 'react';
+import { Fragment, useEffect, useRef, useState, type ReactNode } from 'react';
 import templateImage from '../assets/images/template.svg';
 import { EventCard } from '../components/cards/EventCard';
 import { InsightCard } from '../components/cards/InsightCard';
@@ -18,7 +18,13 @@ import './DesignSystemPage.css';
 
 const COLOURS = ['espresso', 'taupe', 'ivory', 'cream', 'paper'] as const;
 
+/** Matches the "Brand colours" group in tokens.css. */
+const BRAND_COLOURS: ReadonlySet<string> = new Set(['espresso', 'taupe']);
+
 const SHADES = [100, 200, 300, 400, 500] as const;
+
+/** tokens.css: "300 is the brand value". */
+const BRAND_SHADE = 300;
 
 const FONT_FAMILIES = ['--font-display', '--font-text', '--font-mono'] as const;
 
@@ -117,6 +123,49 @@ interface SpecimenProps {
   children: ReactNode;
 }
 
+/** Turns a computed colour like `rgb(185, 173, 167)` into `#B9ADA7`. */
+const rgbToHex = (rgb: string): string | undefined => {
+  const channels = rgb.match(/\d+(\.\d+)?/g);
+  if (channels === null || channels.length < 3) {
+    return undefined;
+  }
+  const hex = channels
+    .slice(0, 3)
+    .map((channel) => Math.round(Number(channel)).toString(16).padStart(2, '0'))
+    .join('');
+  return `#${hex.toUpperCase()}`;
+};
+
+interface ColourSwatchProps {
+  token: string;
+  brand?: boolean;
+}
+
+/** A colour square with its hex value, read from the rendered token. */
+const ColourSwatch = ({ token, brand = false }: ColourSwatchProps) => {
+  const swatchRef = useRef<HTMLSpanElement>(null);
+  const [hex, setHex] = useState<string>();
+
+  useEffect(() => {
+    if (swatchRef.current !== null) {
+      setHex(rgbToHex(getComputedStyle(swatchRef.current).backgroundColor));
+    }
+  }, [token]);
+
+  return (
+    <>
+      <span ref={swatchRef} className="ds-shade" title={token} style={{ background: `var(${token})` }}>
+        {brand && (
+          <span className="ds-shade__brand" title="Brand colour">
+            <span className="visually-hidden">Brand colour</span>
+          </span>
+        )}
+      </span>
+      {hex !== undefined && <code className="ds-code ds-shade__hex">{hex}</code>}
+    </>
+  );
+};
+
 /** One labelled cell in the cards grid. */
 const Specimen = ({ label, wide = false, children }: SpecimenProps) => (
   <li className={wide ? 'ds-specimen ds-specimen--wide' : 'ds-specimen'}>
@@ -151,10 +200,9 @@ export const DesignSystemPage = () => {
                   </th>
                   {SHADES.map((shade) => (
                     <td key={shade}>
-                      <span
-                        className="ds-shade"
-                        title={`--color-${colour}-${shade}`}
-                        style={{ background: `var(--color-${colour}-${shade})` }}
+                      <ColourSwatch
+                        token={`--color-${colour}-${shade}`}
+                        brand={BRAND_COLOURS.has(colour) && shade === BRAND_SHADE}
                       />
                     </td>
                   ))}
@@ -210,8 +258,7 @@ export const DesignSystemPage = () => {
           <ul className="ds-tones">
             {SECTION_TONES.map((tone) => (
               <li key={tone} className={`ds-tone tone-${tone}`}>
-                <span className="ds-tone__heading">Aa</span>
-                <span className="ds-tone__muted">Muted</span>
+                <span className="ds-tone__heading">Text</span>
                 <span className="ds-tone__rule" />
                 <code className="ds-code">{tone}</code>
               </li>

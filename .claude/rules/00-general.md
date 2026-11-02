@@ -1,31 +1,21 @@
-# General Project Standards
+# General
 
-## Technology
+A static, single-page landing site: React, TypeScript, Vite. No backend, API calls or shared state.
 
-- React
-- TypeScript
-- Vite
-- Functional components only.
+## Principles
 
-## General Principles
+- Keep it simple and readable. No abstractions, patterns or folders before they are needed.
+- Follow existing project conventions.
+- Reuse existing components and tokens before adding new ones. Avoid duplicated code.
+- Make focused changes. Do not modify unrelated files or silently change behaviour.
+- Do not add dependencies without approval.
+- Do not disable lint rules to get past errors.
+- Never put secrets in frontend code. Do not use `dangerouslySetInnerHTML`.
 
-- Prefer readable, maintainable code over clever code.
-- Follow SOLID principles where they genuinely improve the design.
-- Avoid duplicated code.
-- Avoid unnecessary abstractions and premature optimization.
-- Prefer composition over inheritance.
-- Keep solutions as simple as possible.
-- Follow existing project conventions unless they conflict with these rules.
-- Do not introduce dependencies without approval.
-- Do not modify unrelated files.
-- Do not silently change application behavior.
-- Do not disable lint rules to bypass errors.
+## Before finishing a task
 
-## Development Approach
-
-- Inspect existing code before making changes.
-- Understand the surrounding architecture before introducing new patterns.
-- Reuse existing components, hooks and utilities where appropriate.
-- Make focused, incremental changes.
-- Explain significant architectural decisions.
-- Never claim that a test or command passed without running it.
+1. `npx tsc -b`
+2. `npm run lint`
+3. `npm run build`
+4. Review the diff for unrelated changes.
+5. Report any remaining errors or warnings. Never claim a command passed without running it.

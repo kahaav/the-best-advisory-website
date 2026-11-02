@@ -1,14 +1,8 @@
-# Accessibility Standards
+# Accessibility
 
-- Prefer semantic HTML elements.
-- Use buttons for actions and links for navigation.
-- All interactive elements must be keyboard accessible.
-- Maintain visible keyboard focus.
-- Provide accessible names for interactive elements.
-- Associate form controls with labels.
-- Provide meaningful alt text for informative images.
-- Use empty alt text for decorative images.
-- Use ARIA only when native HTML semantics are insufficient.
-- Ensure dialogs and modals manage keyboard focus correctly.
-- Do not communicate information using color alone.
-- Respect reduced-motion preferences.
+- Semantic HTML. Buttons for actions, links for navigation. ARIA only when HTML is not enough.
+- Everything interactive is keyboard accessible with a visible focus style.
+- Interactive elements have accessible names; form controls have labels.
+- Meaningful `alt` for informative images, empty `alt` for decorative ones.
+- Do not convey information by colour alone.
+- Respect `prefers-reduced-motion`.

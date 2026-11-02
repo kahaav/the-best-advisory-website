@@ -68,11 +68,37 @@
 }
 
 .ds-shade {
+  position: relative;
   display: block;
   aspect-ratio: 1;
   max-width: var(--space-8);
   margin-inline: auto;
   border: 1px solid var(--hairline);
+}
+
+/*
+ * Marks the main brand shades. Centred on the outer top-right corner
+ * (-1px covers the border). The white ring keeps it visible on any shade.
+ */
+.ds-shade__brand {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 12px;
+  height: 12px;
+  transform: translate(50%, -50%);
+  background: hsl(8 40% 55%);
+  border: 1px solid var(--color-paper);
+  border-radius: 50%;
+}
+
+/* One click selects the whole value for copying */
+.ds-shade__hex {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: 0.625rem;
+  text-align: center;
+  user-select: all;
 }
 
 /* Text */
@@ -147,11 +173,6 @@
   font-family: var(--font-display);
   font-size: var(--text-h3);
   line-height: 1;
-}
-
-.ds-tone__muted {
-  font-size: var(--text-small);
-  color: var(--text-muted);
 }
 
 .ds-tone__rule {
