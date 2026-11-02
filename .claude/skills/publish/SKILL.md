@@ -95,7 +95,6 @@ Tell the user, in plain words:
 - the commit hash and message;
 - the branch it was pushed to;
 - on `main`: the site is deploying and will be live in a few minutes at the URL above.
-  If the `gh` CLI is available, `gh run list --limit 1` shows the deploy status.
 - anything you left out in step 2, and why.
 
 To undo a publish, use the `rollback` skill.
