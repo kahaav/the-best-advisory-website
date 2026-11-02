@@ -1,4 +1,4 @@
-import './Wordmark.css';
+import '@components/ui/Wordmark.css';
 
 interface WordmarkProps {
   brandName: string;

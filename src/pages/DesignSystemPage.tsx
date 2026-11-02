@@ -1,14 +1,14 @@
 import { Fragment, useEffect, useRef, useState, type ReactNode } from 'react';
-import templateImage from '../assets/images/template.svg';
-import { EventCard } from '../components/cards/EventCard';
-import { InsightCard } from '../components/cards/InsightCard';
-import { ServiceCard } from '../components/cards/ServiceCard';
-import { Gallery } from '../components/Gallery';
-import { ArrowIcon } from '../components/ui/ArrowIcon';
-import { Button, type ButtonSize } from '../components/ui/Button';
-import { SECTION_TONES } from '../components/ui/tones';
-import type { ArticleCard, EventStrand, ImageAsset } from '../types/content';
-import './DesignSystemPage.css';
+import templateImage from '@assets/images/template.svg';
+import { EventCard } from '@components/cards/EventCard';
+import { InsightCard } from '@components/cards/InsightCard';
+import { ServiceCard } from '@components/cards/ServiceCard';
+import { Gallery } from '@components/Gallery';
+import { ArrowIcon } from '@components/ui/ArrowIcon';
+import { Button, type ButtonSize } from '@components/ui/Button';
+import { SECTION_TONES } from '@components/ui/tones';
+import type { ArticleCard, EventStrand, ImageAsset } from '@typings/content';
+import '@pages/DesignSystemPage.css';
 
 /*
  * A static style guide. Every preview reads the design tokens through var()

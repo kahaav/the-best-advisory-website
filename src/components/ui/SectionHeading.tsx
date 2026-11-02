@@ -1,6 +1,6 @@
-import type { SectionIntro } from '../../types/content';
-import { HeadlineText } from './HeadlineText';
-import './SectionHeading.css';
+import type { SectionIntro } from '@typings/content';
+import { HeadlineText } from '@components/ui/HeadlineText';
+import '@components/ui/SectionHeading.css';
 
 interface SectionHeadingProps {
   intro: SectionIntro;

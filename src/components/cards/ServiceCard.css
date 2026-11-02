@@ -10,11 +10,30 @@
 }
 
 .service-card__title {
+  position: relative;
   max-width: 22ch;
   font-family: var(--font-display);
   font-size: var(--text-h3);
   font-weight: 400;
   line-height: 1.2;
+}
+
+/* An accent rule that draws in under the title on hover. Positioned, so it takes no space at rest. */
+.service-card__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: calc(-1 * var(--space-2));
+  width: var(--space-7);
+  height: 2px;
+  background: var(--accent-rule);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 400ms var(--ease-out);
+}
+
+.service-card:hover .service-card__title::after {
+  transform: scaleX(1);
 }
 
 .service-card__body {

@@ -1,7 +1,7 @@
-import type { FaqContent } from '../types/content';
-import { Section } from './ui/Section';
-import { SectionHeading } from './ui/SectionHeading';
-import './FaqSection.css';
+import type { FaqContent } from '@typings/content';
+import { Section } from '@components/ui/Section';
+import { SectionHeading } from '@components/ui/SectionHeading';
+import '@components/FaqSection.css';
 
 interface FaqSectionProps {
   content: FaqContent;

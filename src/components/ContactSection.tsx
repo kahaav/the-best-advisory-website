@@ -1,8 +1,8 @@
-import type { ContactContent } from '../types/content';
-import { ContentLink } from './ui/ContentLink';
-import { Section } from './ui/Section';
-import { SectionHeading } from './ui/SectionHeading';
-import './ContactSection.css';
+import type { ContactContent } from '@typings/content';
+import { ContentLink } from '@components/ui/ContentLink';
+import { Section } from '@components/ui/Section';
+import { SectionHeading } from '@components/ui/SectionHeading';
+import '@components/ContactSection.css';
 
 interface ContactSectionProps {
   content: ContactContent;

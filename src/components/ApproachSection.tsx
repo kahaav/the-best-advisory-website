@@ -1,7 +1,7 @@
-import type { ApproachContent } from '../types/content';
-import { Section } from './ui/Section';
-import { SectionHeading } from './ui/SectionHeading';
-import './ApproachSection.css';
+import type { ApproachContent } from '@typings/content';
+import { Section } from '@components/ui/Section';
+import { SectionHeading } from '@components/ui/SectionHeading';
+import '@components/ApproachSection.css';
 
 interface ApproachSectionProps {
   content: ApproachContent;

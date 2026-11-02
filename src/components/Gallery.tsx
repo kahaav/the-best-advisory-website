@@ -1,6 +1,6 @@
-import type { CaptionedImage } from '../types/content';
-import { FramedImage } from './ui/FramedImage';
-import './Gallery.css';
+import type { CaptionedImage } from '@typings/content';
+import { FramedImage } from '@components/ui/FramedImage';
+import '@components/Gallery.css';
 
 interface GalleryProps {
   items: readonly CaptionedImage[];

@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import type { InsightsContent } from '../types/content';
-import { InsightCard } from './cards/InsightCard';
-import { ChevronIcon } from './ui/ChevronIcon';
-import { ContentLink } from './ui/ContentLink';
-import { Section } from './ui/Section';
-import { SectionHeading } from './ui/SectionHeading';
-import './InsightsSection.css';
+import type { InsightsContent } from '@typings/content';
+import { InsightCard } from '@components/cards/InsightCard';
+import { ChevronIcon } from '@components/ui/ChevronIcon';
+import { ContentLink } from '@components/ui/ContentLink';
+import { Section } from '@components/ui/Section';
+import { SectionHeading } from '@components/ui/SectionHeading';
+import '@components/InsightsSection.css';
 
 interface InsightsSectionProps {
   content: InsightsContent;

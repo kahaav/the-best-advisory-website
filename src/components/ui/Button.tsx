@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
-import './Button.css';
+import '@components/ui/Button.css';
 
 export type ButtonVariant = 'primary' | 'secondary';
 

@@ -1,8 +1,8 @@
-import type { ServicesContent } from '../types/content';
-import { ServiceCard } from './cards/ServiceCard';
-import { Section } from './ui/Section';
-import { SectionHeading } from './ui/SectionHeading';
-import './ServicesSection.css';
+import type { ServicesContent } from '@typings/content';
+import { ServiceCard } from '@components/cards/ServiceCard';
+import { Section } from '@components/ui/Section';
+import { SectionHeading } from '@components/ui/SectionHeading';
+import '@components/ServicesSection.css';
 
 interface ServicesSectionProps {
   content: ServicesContent;

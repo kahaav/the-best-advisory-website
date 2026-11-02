@@ -1,16 +1,16 @@
-import { AboutSection } from '../components/AboutSection';
-import { ApproachSection } from '../components/ApproachSection';
-import { ContactSection } from '../components/ContactSection';
-import { EventsSection } from '../components/EventsSection';
-import { FaqSection } from '../components/FaqSection';
-import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
-import { Hero } from '../components/Hero';
-import { InsightsSection } from '../components/InsightsSection';
-import { ProblemSection } from '../components/ProblemSection';
-import { ProofSection } from '../components/ProofSection';
-import { ServicesSection } from '../components/ServicesSection';
-import { siteContent } from '../content/siteContent';
+import { AboutSection } from '@components/AboutSection';
+import { ApproachSection } from '@components/ApproachSection';
+import { ContactSection } from '@components/ContactSection';
+import { EventsSection } from '@components/EventsSection';
+import { FaqSection } from '@components/FaqSection';
+import { Footer } from '@components/Footer';
+import { Header } from '@components/Header';
+import { Hero } from '@components/Hero';
+import { InsightsSection } from '@components/InsightsSection';
+import { ProblemSection } from '@components/ProblemSection';
+import { ProofSection } from '@components/ProofSection';
+import { ServicesSection } from '@components/ServicesSection';
+import { siteContent } from '@content/siteContent';
 
 export const HomePage = () => {
   return (

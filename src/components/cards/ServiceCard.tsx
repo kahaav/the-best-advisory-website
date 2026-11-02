@@ -1,5 +1,5 @@
-import type { ServiceItem } from '../../types/content';
-import './ServiceCard.css';
+import type { ServiceItem } from '@typings/content';
+import '@components/cards/ServiceCard.css';
 
 interface ServiceCardProps {
   service: ServiceItem;

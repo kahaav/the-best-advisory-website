@@ -1,7 +1,7 @@
-import type { ProblemContent } from '../types/content';
-import { Section } from './ui/Section';
-import { SectionHeading } from './ui/SectionHeading';
-import './ProblemSection.css';
+import type { ProblemContent } from '@typings/content';
+import { Section } from '@components/ui/Section';
+import { SectionHeading } from '@components/ui/SectionHeading';
+import '@components/ProblemSection.css';
 
 interface ProblemSectionProps {
   content: ProblemContent;

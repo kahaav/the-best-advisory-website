@@ -5,6 +5,8 @@ import { defineConfig, type Plugin } from 'vite'
 
 const BASE = '/the-best-advisory-website/'
 
+const srcPath = (folder: string) => fileURLToPath(new URL(`./src/${folder}`, import.meta.url))
+
 /** Redirects the base path without its trailing slash, e.g. /the-best-advisory-website → /the-best-advisory-website/. */
 const redirectBaseWithoutSlash = (): Plugin => {
   const baseWithoutSlash = BASE.slice(0, -1)
@@ -32,6 +34,17 @@ const redirectBaseWithoutSlash = (): Plugin => {
 export default defineConfig({
   plugins: [react(), redirectBaseWithoutSlash()],
   base: BASE,
+  // Keep in step with `paths` in tsconfig.app.json.
+  resolve: {
+    alias: {
+      '@assets': srcPath('assets'),
+      '@components': srcPath('components'),
+      '@content': srcPath('content'),
+      '@pages': srcPath('pages'),
+      '@styles': srcPath('styles'),
+      '@typings': srcPath('types'),
+    },
+  },
   build: {
     rolldownOptions: {
       // A second HTML entry so static hosting (GitHub Pages) serves /design-system/.

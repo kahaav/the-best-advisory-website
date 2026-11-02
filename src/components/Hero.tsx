@@ -1,7 +1,7 @@
-import type { HeroContent } from '../types/content';
-import { ContentLink } from './ui/ContentLink';
-import { HeadlineText } from './ui/HeadlineText';
-import './Hero.css';
+import type { HeroContent } from '@typings/content';
+import { ContentLink } from '@components/ui/ContentLink';
+import { HeadlineText } from '@components/ui/HeadlineText';
+import '@components/Hero.css';
 
 interface HeroProps {
   content: HeroContent;

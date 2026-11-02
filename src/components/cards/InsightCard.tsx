@@ -1,7 +1,7 @@
-import type { ArticleCard } from '../../types/content';
-import { ContentLink } from '../ui/ContentLink';
-import { FramedImage } from '../ui/FramedImage';
-import './InsightCard.css';
+import type { ArticleCard } from '@typings/content';
+import { ContentLink } from '@components/ui/ContentLink';
+import { FramedImage } from '@components/ui/FramedImage';
+import '@components/cards/InsightCard.css';
 
 interface InsightCardProps {
   card: ArticleCard;

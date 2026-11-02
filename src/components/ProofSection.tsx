@@ -1,8 +1,8 @@
-import type { ProofContent } from '../types/content';
-import { ClientLogos } from './ClientLogos';
-import { Section } from './ui/Section';
-import { SectionHeading } from './ui/SectionHeading';
-import './ProofSection.css';
+import type { ProofContent } from '@typings/content';
+import { ClientLogos } from '@components/ClientLogos';
+import { Section } from '@components/ui/Section';
+import { SectionHeading } from '@components/ui/SectionHeading';
+import '@components/ProofSection.css';
 
 interface ProofSectionProps {
   content: ProofContent;

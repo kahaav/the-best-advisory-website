@@ -1,5 +1,5 @@
-import type { ImageAsset } from '../../types/content';
-import './FramedImage.css';
+import type { ImageAsset } from '@typings/content';
+import '@components/ui/FramedImage.css';
 
 interface FramedImageProps {
   image: ImageAsset;

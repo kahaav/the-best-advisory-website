@@ -1,6 +1,6 @@
-import type { EventStrand } from '../../types/content';
-import { FramedImage } from '../ui/FramedImage';
-import './EventCard.css';
+import type { EventStrand } from '@typings/content';
+import { FramedImage } from '@components/ui/FramedImage';
+import '@components/cards/EventCard.css';
 
 interface EventCardProps {
   event: EventStrand;

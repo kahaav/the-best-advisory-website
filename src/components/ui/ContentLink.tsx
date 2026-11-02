@@ -1,7 +1,7 @@
-import type { LinkItem } from '../../types/content';
-import type { ButtonVariant } from './Button';
-import './Button.css';
-import './ContentLink.css';
+import type { LinkItem } from '@typings/content';
+import type { ButtonVariant } from '@components/ui/Button';
+import '@components/ui/Button.css';
+import '@components/ui/ContentLink.css';
 
 export type ContentLinkVariant = ButtonVariant | 'text';
 

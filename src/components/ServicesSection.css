@@ -63,6 +63,30 @@
   clip-path: polygon(0 0, 100% 0, 100% 100%, var(--slant) 100%);
 }
 
+/*
+ * Hover: the tile lifts and grows out of the mosaic while the others step
+ * back, so it reads as pulled forward. Clip-paths cut off box-shadows,
+ * hence scale and fade instead. Only on devices that can hover.
+ */
+@media (hover: hover) {
+  .services__tile {
+    position: relative;
+    transition:
+      transform 300ms var(--ease-out),
+      opacity 300ms var(--ease-out);
+  }
+
+  .services__tile:hover {
+    z-index: 1;
+    transform: translateY(-6px) scale(1.03);
+  }
+
+  .services__mosaic:has(.services__tile:hover) .services__tile:not(:hover) {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+}
+
 .services__also {
   max-width: var(--measure);
   margin-top: var(--space-6);

@@ -20,6 +20,15 @@
   background: var(--color-paper);
   border-radius: 18px 18px 18px 4px;
   box-shadow: var(--shadow-soft);
+  transition:
+    box-shadow 200ms var(--ease-out),
+    transform 200ms var(--ease-out);
+}
+
+/* Same lift as the insight cards: soft shadow at rest, raised on hover */
+.problem__bubble:hover {
+  box-shadow: var(--shadow-raised);
+  transform: translateY(-2px);
 }
 
 /* Every other bubble on the right, with its "tail" corner on that side */

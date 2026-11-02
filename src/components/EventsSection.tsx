@@ -1,10 +1,10 @@
-import type { EventsContent } from '../types/content';
-import { EventCard } from './cards/EventCard';
-import { Gallery } from './Gallery';
-import { ContentLink } from './ui/ContentLink';
-import { Section } from './ui/Section';
-import { SectionHeading } from './ui/SectionHeading';
-import './EventsSection.css';
+import type { EventsContent } from '@typings/content';
+import { EventCard } from '@components/cards/EventCard';
+import { Gallery } from '@components/Gallery';
+import { ContentLink } from '@components/ui/ContentLink';
+import { Section } from '@components/ui/Section';
+import { SectionHeading } from '@components/ui/SectionHeading';
+import '@components/EventsSection.css';
 
 interface EventsSectionProps {
   content: EventsContent;

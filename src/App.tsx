@@ -1,9 +1,9 @@
 import { lazy, Suspense } from 'react';
-import { HomePage } from './pages/HomePage';
+import { HomePage } from '@pages/HomePage';
 
 // Loaded on demand so the landing page bundle stays the same size.
 const DesignSystemPage = lazy(() =>
-  import('./pages/DesignSystemPage').then((module) => ({ default: module.DesignSystemPage })),
+  import('@pages/DesignSystemPage').then((module) => ({ default: module.DesignSystemPage })),
 );
 
 /** Matches `<base>/design-system`, with or without a trailing slash or `index.html`. */

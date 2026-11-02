@@ -1,4 +1,4 @@
-import type { Headline } from '../../types/content';
+import type { Headline } from '@typings/content';
 
 interface HeadlineTextProps {
   headline: Headline;

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import type { LinkItem, NavItem } from '../types/content';
-import { ContentLink } from './ui/ContentLink';
-import { Wordmark } from './ui/Wordmark';
-import './Header.css';
+import type { LinkItem, NavItem } from '@typings/content';
+import { ContentLink } from '@components/ui/ContentLink';
+import { Wordmark } from '@components/ui/Wordmark';
+import '@components/Header.css';
 
 interface HeaderProps {
   brandName: string;

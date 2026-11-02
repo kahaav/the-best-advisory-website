@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import './Section.css';
-import type { SectionTone } from './tones';
+import '@components/ui/Section.css';
+import type { SectionTone } from '@components/ui/tones';
 
 interface SectionProps {
   id: string;

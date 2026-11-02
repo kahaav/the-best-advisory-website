@@ -1,9 +1,9 @@
-import type { AboutContent } from '../types/content';
-import { ContentLink } from './ui/ContentLink';
-import { FramedImage } from './ui/FramedImage';
-import { Section } from './ui/Section';
-import { SectionHeading } from './ui/SectionHeading';
-import './AboutSection.css';
+import type { AboutContent } from '@typings/content';
+import { ContentLink } from '@components/ui/ContentLink';
+import { FramedImage } from '@components/ui/FramedImage';
+import { Section } from '@components/ui/Section';
+import { SectionHeading } from '@components/ui/SectionHeading';
+import '@components/AboutSection.css';
 
 interface AboutSectionProps {
   content: AboutContent;

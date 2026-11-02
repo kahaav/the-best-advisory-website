@@ -1,7 +1,7 @@
-import type { FooterContent } from '../types/content';
-import { ContentLink } from './ui/ContentLink';
-import { Wordmark } from './ui/Wordmark';
-import './Footer.css';
+import type { FooterContent } from '@typings/content';
+import { ContentLink } from '@components/ui/ContentLink';
+import { Wordmark } from '@components/ui/Wordmark';
+import '@components/Footer.css';
 
 interface FooterProps {
   brandName: string;

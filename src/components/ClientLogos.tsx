@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
-import type { ImageAsset } from '../types/content';
-import './ClientLogos.css';
+import type { ImageAsset } from '@typings/content';
+import '@components/ClientLogos.css';
 
 interface ClientLogosProps {
   /** `alt` is the client name. */

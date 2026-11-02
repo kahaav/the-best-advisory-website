@@ -6,22 +6,22 @@
  * Voice: "I" (Sophie) where it is personal, "we" for the company's services.
  * Search this file for `kind: 'todo'` and `TODO` to find what still needs the owner.
  */
-import aiAsAnEqualiserImage from '../assets/articles/ai-as-an-equaliser.png';
-import cultureEatsStrategyImage from '../assets/articles/culture-eats-strategy.jpg';
-import ediscoveryReimaginedImage from '../assets/articles/ediscovery-reimagined.jpg';
-import legalOpsBeforeAiImage from '../assets/articles/legal-ops-before-ai.jpg';
-import leveragingAiInMaImage from '../assets/articles/leveraging-ai-in-ma.png';
-import aboutImage from '../assets/images/about-sophie-guests.jpg';
-import americanaLogo from '../assets/images/client-americana.svg';
-import dubizzleLogo from '../assets/images/client-dubizzle.svg';
-import eandLogo from '../assets/images/client-eand.svg';
-import qatarEnergyLogo from '../assets/images/client-qatarenergy.svg';
-import difcSeminarImage from '../assets/images/event-difc-seminar.jpg';
-import difcWelcomeImage from '../assets/images/event-difc-welcome.jpg';
-import privateDinnerImage from '../assets/images/event-private-dinner.jpg';
-import wellnessBriefImage from '../assets/images/event-wellness-brief.jpg';
-import heroImage from '../assets/images/hero-sophie-panel.jpg';
-import type { LinkItem, SiteContent, SiteLink } from '../types/content';
+import aiAsAnEqualiserImage from '@assets/articles/ai-as-an-equaliser.png';
+import cultureEatsStrategyImage from '@assets/articles/culture-eats-strategy.jpg';
+import ediscoveryReimaginedImage from '@assets/articles/ediscovery-reimagined.jpg';
+import legalOpsBeforeAiImage from '@assets/articles/legal-ops-before-ai.jpg';
+import leveragingAiInMaImage from '@assets/articles/leveraging-ai-in-ma.png';
+import aboutImage from '@assets/images/about-sophie-guests.jpg';
+import americanaLogo from '@assets/images/client-americana.svg';
+import dubizzleLogo from '@assets/images/client-dubizzle.svg';
+import eandLogo from '@assets/images/client-eand.svg';
+import qatarEnergyLogo from '@assets/images/client-qatarenergy.svg';
+import difcSeminarImage from '@assets/images/event-difc-seminar.jpg';
+import difcWelcomeImage from '@assets/images/event-difc-welcome.jpg';
+import privateDinnerImage from '@assets/images/event-private-dinner.jpg';
+import wellnessBriefImage from '@assets/images/event-wellness-brief.jpg';
+import heroImage from '@assets/images/hero-sophie-panel.jpg';
+import type { LinkItem, SiteContent, SiteLink } from '@typings/content';
 
 const externalLink = (href: string): SiteLink => ({ kind: 'url', href, external: true });
 
