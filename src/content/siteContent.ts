@@ -81,19 +81,19 @@ export const siteContent: SiteContent = {
     },
   },
 
-  // Pain points are close to what GCs told Sophie (docs/answers.md, section 2).
+  // Quotes are close to what GCs told Sophie (docs/answers.md, section 2).
   problem: {
     headline: { roman: 'What I hear from GCs' },
-    painPoints: [
-      'The business wants legal to “do something with AI”. Nobody has said what for.',
-      '“The demos all look similar.” CLM? Contract AI? A repository? The categories overlap and nobody explains them.',
-      'You bought a tool. Hardly anyone uses it, and nobody can work out why.',
-      '“Sales has a pipeline the CFO can see. What does legal have?”',
-      'An exec outside legal says “it’s fine, I checked it on Copilot”.',
+    quotes: [
+      { text: 'Just do something with AI.', speaker: 'The business' },
+      { text: 'The demos all look the same.', speaker: 'A GC' },
+      { text: 'We bought a tool. Hardly anyone uses it.', speaker: 'A legal team' },
+      { text: 'Sales has a pipeline the CFO can see. What does legal have?', speaker: 'A GC' },
+      { text: 'It’s fine, I checked it on Copilot.', speaker: 'An exec outside legal' },
     ],
     turn: {
       strong: 'Most of this starts before the technology.',
-      rest: 'It’s in how work moves through the team and where information lives, so that’s where I look first.',
+      rest: 'That’s where I look first.',
     },
   },
 

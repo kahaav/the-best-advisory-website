@@ -68,8 +68,14 @@ export interface HeroContent {
   readonly image: ImageAsset;
 }
 
+/** A short quote shown as a speech bubble, with who said it. */
+export interface ProblemQuote {
+  readonly text: string;
+  readonly speaker: string;
+}
+
 export interface ProblemContent extends SectionIntro {
-  readonly painPoints: readonly string[];
+  readonly quotes: readonly ProblemQuote[];
   readonly turn: {
     readonly strong: string;
     readonly rest: string;

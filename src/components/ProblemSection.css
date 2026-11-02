@@ -5,22 +5,46 @@
   align-items: start;
 }
 
-.problem__list {
+/* Speech bubbles that alternate sides, like a conversation */
+.problem__bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
   list-style: none;
-  border-top: 1px solid var(--hairline);
 }
 
-.problem__item {
-  padding-block: var(--space-5);
+.problem__bubble {
+  align-self: flex-start;
+  max-width: min(85%, 30rem);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-paper);
+  border-radius: 18px 18px 18px 4px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Every other bubble on the right, with its "tail" corner on that side */
+.problem__bubble:nth-child(even) {
+  align-self: flex-end;
+  border-radius: 18px 18px 4px;
+}
+
+.problem__quote {
   font-family: var(--font-display);
-  font-size: clamp(1.1875rem, 0.6vw + 1rem, 1.4375rem);
-  line-height: 1.4;
-  border-bottom: 1px solid var(--hairline);
+  font-size: clamp(1.125rem, 0.5vw + 1rem, 1.3125rem);
+  line-height: 1.35;
+}
+
+.problem__speaker {
+  margin-top: var(--space-1);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 .problem__turn {
-  max-width: 34rem;
-  margin-top: var(--space-6);
+  margin-top: var(--space-7);
   font-size: var(--text-lead);
   line-height: 1.5;
   color: var(--text-muted);
