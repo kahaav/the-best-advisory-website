@@ -7,6 +7,10 @@
 import aboutImage from '../assets/images/about-sophie-guests.jpg';
 import clientsDidTheMathsImage from '../assets/images/carousel-clients-did-the-maths.jpg';
 import evaluationChecklistImage from '../assets/images/carousel-evaluation-checklist.jpg';
+import americanaLogo from '../assets/images/client-americana.svg';
+import dubizzleLogo from '../assets/images/client-dubizzle.svg';
+import eandLogo from '../assets/images/client-eand.svg';
+import qatarEnergyLogo from '../assets/images/client-qatarenergy.svg';
 import difcSeminarImage from '../assets/images/event-difc-seminar.jpg';
 import difcWelcomeImage from '../assets/images/event-difc-welcome.jpg';
 import privateDinnerImage from '../assets/images/event-private-dinner.jpg';
@@ -71,11 +75,17 @@ export const siteContent: SiteContent = {
     },
   },
 
-  // TODO: confirm permission to name these clients (open question 13). Names only, no logos.
+  // TODO: confirm permission to show these client names and logos (open question 13).
+  // Width and height are each logo's viewBox size; they set its aspect ratio.
   trustStrip: {
     experience: '20+ years in legal technology',
     clientsIntro: 'Trusted by legal teams at',
-    clients: ['Americana', 'e&', 'Dubizzle', 'QatarEnergy'],
+    clients: [
+      { src: americanaLogo, alt: 'Americana', width: 164.4, height: 71 },
+      { src: eandLogo, alt: 'e&', width: 530.26, height: 493.52 },
+      { src: dubizzleLogo, alt: 'Dubizzle', width: 589.8, height: 184.8 },
+      { src: qatarEnergyLogo, alt: 'QatarEnergy', width: 85.57, height: 88.6 },
+    ],
   },
 
   problem: {

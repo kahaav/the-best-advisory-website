@@ -30,21 +30,34 @@
 }
 
 .trust-strip__clients {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4) var(--space-6);
 }
 
-.trust-strip__intro {
-  font-family: var(--font-text);
-  margin-right: var(--space-2);
+/*
+ * Logos are sized to a similar area rather than one height, so wide and
+ * square marks look balanced. Grayscale keeps them from pulling focus.
+ */
+.trust-strip__logos {
+  --logo-size: 44px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5) var(--space-7);
+  list-style: none;
 }
 
-.trust-strip__client {
-  white-space: nowrap;
-}
-
-.trust-strip__dot {
-  color: var(--accent-rule);
+.trust-strip__logo {
+  width: auto;
+  height: calc(var(--logo-size) / sqrt(var(--logo-aspect, 1)));
+  filter: grayscale(1);
+  opacity: 0.7;
+  mix-blend-mode: multiply;
 }
 
 @media (max-width: 720px) {
@@ -52,12 +65,8 @@
     display: none;
   }
 
-  .trust-strip__inner {
+  .trust-strip__inner,
+  .trust-strip__clients {
     flex-direction: column;
-  }
-
-  .trust-strip__intro {
-    display: block;
-    margin: 0 0 var(--space-2);
   }
 }

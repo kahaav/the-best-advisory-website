@@ -70,7 +70,8 @@ export interface HeroContent {
 export interface TrustStripContent {
   readonly experience: string;
   readonly clientsIntro: string;
-  readonly clients: readonly string[];
+  /** Client logos. `alt` is the client name. */
+  readonly clients: readonly ImageAsset[];
 }
 
 export interface ProblemContent extends SectionIntro {
