@@ -422,5 +422,6 @@ export const siteContent: SiteContent = {
       },
     ],
     copyright: '© 2026 The Best Advisory',
+    backToTop: { label: 'Back to top', link: { kind: 'url', href: '#top' } },
   },
 };

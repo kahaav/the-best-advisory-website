@@ -64,9 +64,9 @@
 }
 
 /*
- * Hover: the tile lifts and grows out of the mosaic while the others step
- * back, so it reads as pulled forward. Clip-paths cut off box-shadows,
- * hence scale and fade instead. Only on devices that can hover.
+ * Hover: the tile lifts slightly out of the mosaic while the others step
+ * back a little, so it reads as pulled forward. Clip-paths cut off
+ * box-shadows, hence scale and fade instead. Only on devices that can hover.
  */
 @media (hover: hover) {
   .services__tile {
@@ -78,12 +78,12 @@
 
   .services__tile:hover {
     z-index: 1;
-    transform: translateY(-6px) scale(1.03);
+    transform: translateY(-4px) scale(1.015);
   }
 
   .services__mosaic:has(.services__tile:hover) .services__tile:not(:hover) {
-    opacity: 0.6;
-    transform: scale(0.98);
+    opacity: 0.8;
+    transform: scale(0.99);
   }
 }
 

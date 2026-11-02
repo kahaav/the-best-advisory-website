@@ -13,16 +13,18 @@ export const AboutSection = ({ content }: AboutSectionProps) => {
   return (
     <Section id="about" tone="cream" labelledBy="about-title">
       <div className="about__grid">
-        <FramedImage image={content.image} aspectRatio="4 / 5" className="about__image" />
+        <div className="about__image" data-reveal>
+          <FramedImage image={content.image} aspectRatio="4 / 5" />
+        </div>
 
         <div className="about__text">
           <SectionHeading intro={content} headingId="about-title" />
-          <div className="about__body">
+          <div className="about__body" data-reveal>
             {content.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          <ul className="about__links">
+          <ul className="about__links" data-reveal>
             {content.links.map((item) => (
               <li key={item.label}>
                 <ContentLink item={item} />

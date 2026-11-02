@@ -218,6 +218,7 @@ export interface ContactContent extends SectionIntro {
 export interface FooterContent {
   readonly links: readonly LinkItem[];
   readonly copyright: string;
+  readonly backToTop: LinkItem;
 }
 
 export interface SiteContent {

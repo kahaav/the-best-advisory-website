@@ -75,6 +75,58 @@
   filter: sepia(0.08) saturate(0.95);
 }
 
+/*
+ * On page load the text comes in line by line, the rule draws from the left
+ * and the portrait settles into its frame. All done in about a second.
+ */
+.hero__text > * {
+  animation: reveal var(--motion-reveal) var(--ease-out) backwards;
+}
+
+.hero__text > :nth-child(2) {
+  animation-delay: calc(1 * var(--motion-stagger));
+}
+
+.hero__text > :nth-child(3) {
+  animation-delay: calc(3 * var(--motion-stagger));
+}
+
+.hero__text > :nth-child(4) {
+  animation-delay: calc(4 * var(--motion-stagger));
+}
+
+.hero__text > :nth-child(5) {
+  animation-delay: calc(5 * var(--motion-stagger));
+}
+
+.hero__rule {
+  transform-origin: left;
+  animation-name: hero-rule;
+}
+
+@keyframes hero-rule {
+  from {
+    scale: 0 1;
+  }
+}
+
+/* The frame only fades; the image inside does the moving */
+.hero__frame {
+  --reveal-y: 0;
+
+  animation: reveal var(--motion-slow) var(--ease-out) backwards;
+}
+
+.hero__image {
+  animation: hero-image var(--motion-slow) var(--ease-out) backwards;
+}
+
+@keyframes hero-image {
+  from {
+    scale: 1.04;
+  }
+}
+
 @media (max-width: 860px) {
   .hero__inner {
     grid-template-columns: 1fr;

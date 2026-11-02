@@ -20,5 +20,12 @@ a.content-link--text:hover {
 }
 
 .content-link__external {
+  display: inline-block;
   font-size: 0.9em;
+  transition: translate var(--motion-fast) var(--ease-out);
+}
+
+/* The arrow nudges towards where the link goes */
+a.content-link:hover .content-link__external {
+  translate: 2px -2px;
 }

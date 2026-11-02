@@ -13,12 +13,12 @@ export const ContactSection = ({ content }: ContactSectionProps) => {
     <Section id="contact" tone="espresso" labelledBy="contact-title" className="contact">
       <SectionHeading intro={content} headingId="contact-title" />
 
-      <div className="contact__actions">
+      <div className="contact__actions" data-reveal>
         <ContentLink item={content.primaryCta} variant="primary" />
         <ContentLink item={content.email} />
       </div>
 
-      <p className="contact__locations">{content.locations}</p>
+      <p className="contact__locations" data-reveal>{content.locations}</p>
     </Section>
   );
 };

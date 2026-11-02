@@ -21,13 +21,14 @@ export const ServicesSection = ({ content }: ServicesSectionProps) => {
           <li
             key={service.title}
             className={`services__tile ${DARK_TILES.has(index) ? 'tone-espresso' : 'tone-cream'}`}
+            data-reveal
           >
             <ServiceCard service={service} />
           </li>
         ))}
       </ul>
 
-      <p className="services__also">{content.also}</p>
+      <p className="services__also" data-reveal>{content.also}</p>
     </Section>
   );
 };

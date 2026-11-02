@@ -15,7 +15,7 @@ export const FaqSection = ({ content }: FaqSectionProps) => {
 
       <dl className="faq__list">
         {content.items.map((item) => (
-          <div key={item.question} className="faq__item">
+          <div key={item.question} className="faq__item" data-reveal>
             <dt className="faq__question">{item.question}</dt>
             <dd className="faq__answer">{item.answer}</dd>
           </div>

@@ -16,7 +16,7 @@ export const ProblemSection = ({ content }: ProblemSectionProps) => {
         <div>
           <ul className="problem__bubbles">
             {content.quotes.map((quote) => (
-              <li key={quote.text} className="problem__bubble">
+              <li key={quote.text} className="problem__bubble" data-reveal>
                 <figure>
                   <blockquote className="problem__quote">
                     <p>“{quote.text}”</p>
@@ -26,7 +26,7 @@ export const ProblemSection = ({ content }: ProblemSectionProps) => {
               </li>
             ))}
           </ul>
-          <p className="problem__turn">
+          <p className="problem__turn" data-reveal>
             <strong className="problem__turn-strong">{content.turn.strong}</strong>{' '}
             {content.turn.rest}
           </p>

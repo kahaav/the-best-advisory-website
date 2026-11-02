@@ -37,6 +37,28 @@
   border-radius: 18px 18px 4px;
 }
 
+/*
+ * The bubbles arrive one by one, each sliding in from its own side, paced
+ * like a conversation. The closing line comes last, a little slower.
+ */
+.problem__bubble,
+.problem__turn {
+  --motion-stagger: 150ms;
+}
+
+.problem__bubble {
+  --reveal-x: -12px;
+  --reveal-y: 0;
+}
+
+.problem__bubble:nth-child(even) {
+  --reveal-x: 12px;
+}
+
+.problem__turn[data-revealed] {
+  animation-duration: var(--motion-slow);
+}
+
 .problem__quote {
   font-family: var(--font-display);
   font-size: clamp(1.125rem, 0.5vw + 1rem, 1.3125rem);

@@ -69,6 +69,27 @@
 }
 
 /*
+ * Reveal: the discs rise in from phase 1 to 4, each followed by its text.
+ * Each arc fades in and turns into place just after its disc lands, so the
+ * wave builds from left to right.
+ */
+.approach__disc {
+  --reveal-y: 28px;
+}
+
+.approach__disc[data-revealed]::before {
+  animation: approach-arc var(--motion-slow) var(--ease-out)
+    calc(var(--reveal-delay) + var(--motion-reveal) / 2) backwards;
+}
+
+@keyframes approach-arc {
+  from {
+    opacity: 0;
+    rotate: -50deg;
+  }
+}
+
+/*
  * The disc: a domed button lit from the top left. A glossy highlight sits on
  * the dome and the centre dips in, like a pressed well, holding the number.
  */

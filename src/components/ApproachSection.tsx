@@ -19,12 +19,12 @@ export const ApproachSection = ({ content }: ApproachSectionProps) => {
       <ol className="approach__timeline">
         {content.steps.map((step, index) => (
           <li key={step.title} className="approach__phase">
-            <div className="approach__disc" aria-hidden="true">
+            <div className="approach__disc" aria-hidden="true" data-reveal>
               <span className="approach__face">
                 <span className="approach__number">{String(index + 1).padStart(2, '0')}</span>
               </span>
             </div>
-            <div className="approach__text">
+            <div className="approach__text" data-reveal>
               <p className="approach__label">
                 {content.phaseLabel} {index + 1}
               </p>

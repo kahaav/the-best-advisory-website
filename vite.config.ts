@@ -40,6 +40,7 @@ export default defineConfig({
       '@assets': srcPath('assets'),
       '@components': srcPath('components'),
       '@content': srcPath('content'),
+      '@hooks': srcPath('hooks'),
       '@pages': srcPath('pages'),
       '@styles': srcPath('styles'),
       '@typings': srcPath('types'),

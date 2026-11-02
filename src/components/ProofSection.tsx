@@ -12,14 +12,16 @@ export const ProofSection = ({ content }: ProofSectionProps) => {
   const { quote } = content;
 
   return (
-    <Section id="proof" tone="paper" labelledBy="proof-title">
+    <Section id="proof" tone="paper" labelledBy="proof-title" className="proof">
       <div className="proof__grid">
         <SectionHeading intro={content} headingId="proof-title" />
-        <ClientLogos logos={content.clients} />
+        <div data-reveal>
+          <ClientLogos logos={content.clients} />
+        </div>
       </div>
 
       {quote.kind === 'quote' && (
-        <figure className="proof__quote">
+        <figure className="proof__quote" data-reveal>
           <blockquote className="proof__quote-text">
             <p>“{quote.text}”</p>
           </blockquote>

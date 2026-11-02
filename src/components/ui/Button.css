@@ -73,4 +73,10 @@
 .button__icon {
   display: inline-flex;
   flex: none;
+  transition: translate var(--motion-fast) var(--ease-out);
+}
+
+/* The icon nudges forward on hover */
+.button:is(:hover, .is-hover):not(:disabled) .button__icon {
+  translate: 3px 0;
 }

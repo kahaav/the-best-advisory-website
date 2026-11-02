@@ -5,6 +5,31 @@
   align-items: center;
 }
 
+/*
+ * Reveal: the photo uncovers from the top down while it settles from a
+ * slight zoom; the text follows.
+ */
+.about__image[data-revealed] {
+  animation-name: about-curtain;
+  animation-duration: var(--motion-slow);
+}
+
+.about__image[data-revealed] img {
+  animation: about-photo var(--motion-slow) var(--ease-out) var(--reveal-delay) backwards;
+}
+
+@keyframes about-curtain {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+@keyframes about-photo {
+  from {
+    scale: 1.06;
+  }
+}
+
 .about__text {
   display: flex;
   flex-direction: column;

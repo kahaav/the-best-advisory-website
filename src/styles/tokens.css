@@ -120,6 +120,11 @@
 
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-fast: 200ms; /* Hover and small state changes */
+  --motion-reveal: 700ms; /* Content fading in */
+  --motion-slow: 1100ms; /* Large images and quotes */
+  --motion-stagger: 80ms; /* Gap between items revealed together */
+  --reveal-distance: 20px; /* How far content rises as it fades in */
 }
 
 /*

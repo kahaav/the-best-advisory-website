@@ -86,7 +86,8 @@ export const InsightsSection = ({ content }: InsightsSectionProps) => {
         <ContentLink item={content.allLink} className="insights__all" />
       </div>
 
-      <div className="insights__carousel">
+      {/* Revealed as one: cards off to the side are outside the view until scrolled to */}
+      <div className="insights__carousel" data-reveal>
         <ul id={TRACK_ID} ref={trackRef} className="insights__track">
           {content.cards.map((card) => (
             <li key={card.id} className="insights__item">

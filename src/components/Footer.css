@@ -21,8 +21,14 @@
   font-size: var(--text-small);
 }
 
-.site-footer__copyright {
+/* Copyright on the left, "Back to top" on the right */
+.site-footer__bottom {
   grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3) var(--space-6);
   padding-top: var(--space-5);
   font-size: var(--text-small);
   color: var(--text-muted);

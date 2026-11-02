@@ -11,7 +11,7 @@ interface SectionHeadingProps {
 /** Optional eyebrow, H2 (roman + optional italic), short rule and optional lead paragraph. */
 export const SectionHeading = ({ intro, headingId, align = 'start' }: SectionHeadingProps) => {
   return (
-    <header className={`section-heading section-heading--${align}`}>
+    <header className={`section-heading section-heading--${align}`} data-reveal>
       {intro.eyebrow !== undefined && <p className="eyebrow">{intro.eyebrow}</p>}
       <h2 id={headingId} className="section-heading__title">
         <HeadlineText headline={intro.headline} />

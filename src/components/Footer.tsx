@@ -24,7 +24,10 @@ export const Footer = ({ brandName, content }: FooterProps) => {
           </ul>
         </nav>
 
-        <p className="site-footer__copyright">{content.copyright}</p>
+        <div className="site-footer__bottom">
+          <p>{content.copyright}</p>
+          <ContentLink item={content.backToTop} />
+        </div>
       </div>
     </footer>
   );

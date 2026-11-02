@@ -5,6 +5,17 @@
   height: 100%;
 }
 
+/* On hover the cover slowly moves closer inside its frame, as in the gallery */
+.insight-card__image img {
+  transition: scale 600ms var(--ease-out);
+}
+
+@media (hover: hover) {
+  .insight-card:hover .insight-card__image img {
+    scale: 1.03;
+  }
+}
+
 .insight-card__text {
   display: flex;
   flex-direction: column;

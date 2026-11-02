@@ -33,10 +33,46 @@ export const Header = ({ brandName, nav, cta }: HeaderProps) => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isMenuOpen]);
 
+  // The header gets a soft shadow once the page has scrolled.
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const update = () => setIsScrolled(window.scrollY > 0);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
+
+  // The nav link for the section crossing the middle of the screen is marked current.
+  const [currentSectionId, setCurrentSectionId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const sections = nav
+      .map((item) => document.getElementById(item.sectionId))
+      .filter((section) => section !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const { id } = entry.target;
+          if (entry.isIntersecting) {
+            setCurrentSectionId(id);
+          } else {
+            setCurrentSectionId((current) => (current === id ? null : current));
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px' },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [nav]);
+
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="site-header tone-ivory">
+    <header className="site-header tone-ivory" data-scrolled={isScrolled}>
       <div className="container site-header__inner">
         <a className="site-header__brand" href="#top" onClick={closeMenu}>
           <Wordmark brandName={brandName} />
@@ -63,7 +99,11 @@ export const Header = ({ brandName, nav, cta }: HeaderProps) => {
           <ul className="site-header__links">
             {nav.map((item) => (
               <li key={item.sectionId}>
-                <a href={`#${item.sectionId}`} onClick={closeMenu}>
+                <a
+                  href={`#${item.sectionId}`}
+                  aria-current={item.sectionId === currentSectionId ? 'true' : undefined}
+                  onClick={closeMenu}
+                >
                   {item.label}
                 </a>
               </li>

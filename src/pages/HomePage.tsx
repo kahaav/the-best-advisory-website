@@ -11,8 +11,11 @@ import { ProblemSection } from '@components/ProblemSection';
 import { ProofSection } from '@components/ProofSection';
 import { ServicesSection } from '@components/ServicesSection';
 import { siteContent } from '@content/siteContent';
+import { useScrollReveal } from '@hooks/useScrollReveal';
 
 export const HomePage = () => {
+  useScrollReveal();
+
   return (
     <div id="top">
       <a className="skip-link" href="#main">

@@ -15,6 +15,17 @@
   color: var(--text-muted);
 }
 
+/* On hover the photo slowly moves closer inside its frame */
+.gallery__figure img {
+  transition: scale 600ms var(--ease-out);
+}
+
+@media (hover: hover) {
+  .gallery__figure:hover img {
+    scale: 1.03;
+  }
+}
+
 @media (max-width: 600px) {
   .gallery {
     grid-template-columns: 1fr;

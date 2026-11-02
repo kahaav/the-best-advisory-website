@@ -17,7 +17,7 @@ export const EventsSection = ({ content }: EventsSectionProps) => {
 
       <ul className="events__strands">
         {content.strands.map((strand) => (
-          <li key={strand.id}>
+          <li key={strand.id} data-reveal>
             <EventCard
               event={strand}
               labels={content.cardLabels}
@@ -27,9 +27,11 @@ export const EventsSection = ({ content }: EventsSectionProps) => {
         ))}
       </ul>
 
-      <Gallery items={content.gallery} className="events__gallery" />
+      <div className="events__gallery" data-reveal>
+        <Gallery items={content.gallery} />
+      </div>
 
-      <div className="events__actions">
+      <div className="events__actions" data-reveal>
         {content.ctas.map((cta, index) => (
           <ContentLink key={cta.label} item={cta} variant={index === 0 ? 'primary' : 'text'} />
         ))}

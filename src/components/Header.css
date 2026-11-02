@@ -5,6 +5,12 @@
   background: color-mix(in srgb, var(--surface) 94%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--hairline);
+  transition: box-shadow var(--motion-fast) var(--ease-out);
+}
+
+/* Lifts off the page once it scrolls */
+.site-header[data-scrolled='true'] {
+  box-shadow: var(--shadow-soft);
 }
 
 .site-header__inner {
@@ -46,7 +52,9 @@
   transition: background-size 200ms var(--ease-out);
 }
 
-.site-header__links a:hover {
+/* Underlined on hover, and for the section you are in */
+.site-header__links a:hover,
+.site-header__links a[aria-current='true'] {
   background-size: 100% 1px;
 }
 
@@ -120,6 +128,7 @@
 
   .site-header__nav[data-open='true'] {
     display: flex;
+    animation: menu-in var(--motion-fast) var(--ease-out);
   }
 
   .site-header__links {
@@ -139,5 +148,17 @@
     font-weight: 400;
     letter-spacing: 0;
     background: none;
+  }
+
+  /* The menu has no underline, so the current section is set in italic */
+  .site-header__links a[aria-current='true'] {
+    font-style: italic;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    translate: 0 -8px;
   }
 }

@@ -1,7 +1,31 @@
+/*
+ * A logo strip: the heading is a small label so the logos lead. The label's
+ * height comes off the top padding, so the logo row sits in the middle.
+ */
+.page-section.proof {
+  --label-space: calc(var(--text-eyebrow) * 1.5 + var(--space-5));
+
+  padding-top: calc(var(--section-padding) - var(--label-space));
+}
+
 .proof__grid {
   display: flex;
   flex-direction: column;
-  gap: var(--space-7);
+  gap: var(--space-5);
+}
+
+.proof .section-heading__title {
+  font-family: var(--font-text);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.proof .section-heading__rule {
+  display: none;
 }
 
 .proof__quote {
@@ -10,6 +34,11 @@
   gap: var(--space-5);
   max-width: 48rem;
   margin-top: var(--space-8);
+}
+
+/* The quote takes its time */
+.proof__quote[data-revealed] {
+  animation-duration: var(--motion-slow);
 }
 
 .proof__quote-text {
