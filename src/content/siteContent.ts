@@ -80,6 +80,7 @@ export const siteContent: SiteContent = {
       width: 800,
       height: 800,
     },
+    scrollCue: { label: 'Scroll down', link: { kind: 'url', href: '#problem' } },
   },
 
   // Quotes are close to what GCs told Sophie (docs/answers.md, section 2).

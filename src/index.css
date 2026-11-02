@@ -10,8 +10,8 @@
   font-family: var(--font-text);
   font-size: 100%;
   line-height: 1.5;
-  color: var(--color-espresso);
-  background: var(--color-ivory);
+  color: var(--color-bark);
+  background: var(--color-sand);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -24,7 +24,7 @@ html {
 body {
   margin: 0;
   font-size: var(--text-body);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 img {
@@ -55,8 +55,13 @@ a {
   color: inherit;
 }
 
+::selection {
+  color: var(--color-sand-100);
+  background: var(--color-ember-400);
+}
+
 :focus-visible {
-  outline: 2px solid var(--focus-ring, var(--color-taupe));
+  outline: 2px solid var(--focus-ring, var(--color-ember-400));
   outline-offset: 3px;
 }
 
@@ -83,8 +88,8 @@ main:focus {
   z-index: 20;
   padding: var(--space-3) var(--space-5);
   font-weight: 500;
-  color: var(--color-cream);
-  background: var(--color-espresso);
+  color: var(--color-sand-100);
+  background: var(--color-ink);
   transform: translateY(-200%);
   transition: transform 150ms var(--ease-out);
 }
@@ -100,39 +105,83 @@ main:focus {
   padding-inline: var(--gutter);
 }
 
-/* Small spaced caps, as in the carousel subtitles */
+/*
+ * Dotted column guides: thin vertical lines that split the content width into
+ * four columns, as a quiet grid behind the page. The section needs
+ * position: relative; its content sits above the lines.
+ */
+.guides {
+  position: relative;
+  isolation: isolate;
+}
+
+.guides::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  max-width: calc(var(--content-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  background-image:
+    linear-gradient(var(--guide) 50%, transparent 0),
+    linear-gradient(var(--guide) 50%, transparent 0),
+    linear-gradient(var(--guide) 50%, transparent 0);
+  background-size: 1px calc(2 * var(--guide-dash));
+  background-repeat: repeat-y;
+  background-position:
+    25% 0,
+    50% 0,
+    75% 0;
+  background-origin: content-box;
+  background-clip: content-box;
+  pointer-events: none;
+}
+
+/* A dotted horizontal rule in the same style as the guides */
+.dotted-rule {
+  background-image: linear-gradient(to right, var(--guide) 50%, transparent 0);
+  background-size: calc(2 * var(--guide-dash)) 1px;
+  background-repeat: repeat-x;
+}
+
+/* Small upright caps, used for labels in corners of the grid */
 .eyebrow {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
   font-family: var(--font-text);
   font-size: var(--text-eyebrow);
   font-weight: 500;
+  line-height: 1.3;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text);
 }
 
+/* A small orange square marks a label */
 .eyebrow::before {
   content: '';
-  width: 32px;
-  height: 1px;
-  background: var(--accent-rule);
   flex: none;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
 }
 
-/* Card surface shared by insight and event cards: no border, a soft shadow at rest, lifting onto the raised shadow on hover */
+/* Card surface shared by insight and event cards: flat, a dotted outline that turns orange on hover */
 .raised-card {
-  background: var(--color-paper);
-  box-shadow: var(--shadow-soft);
+  position: relative;
+  background: var(--surface-raised);
+  outline: 1px solid transparent;
+  outline-offset: -1px;
   transition:
-    box-shadow 200ms var(--ease-out),
-    transform 200ms var(--ease-out);
+    outline-color var(--motion-fast) var(--ease-out),
+    background-color var(--motion-fast) var(--ease-out);
 }
 
 .raised-card:hover {
-  box-shadow: var(--shadow-raised);
-  transform: translateY(-2px);
+  outline-color: var(--accent);
 }
 
 /*
@@ -164,6 +213,14 @@ main:focus {
 @media print {
   [data-reveal]:not([data-revealed]) {
     opacity: 1;
+  }
+}
+
+/* On narrow screens the guides split the page in two */
+@media (max-width: 860px) {
+  .guides::before {
+    background-image: linear-gradient(var(--guide) 50%, transparent 0);
+    background-position: 50% 0;
   }
 }
 

@@ -1,5 +1,12 @@
 .page-section {
   padding-block: var(--section-padding);
-  background: var(--surface);
+  background-color: var(--surface);
   color: var(--text);
+}
+
+/* Two sand sections in a row are split by a full-width dotted line */
+.tone-sand + .page-section.tone-sand {
+  background-image: linear-gradient(to right, var(--guide) 50%, transparent 0);
+  background-size: calc(2 * var(--guide-dash)) 1px;
+  background-repeat: repeat-x;
 }

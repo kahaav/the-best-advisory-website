@@ -21,7 +21,7 @@ export interface LinkItem {
   readonly link: SiteLink;
 }
 
-/** Carousel-style heading: a roman first part and an optional italic second part. */
+/** A heading in two parts: a plain first part and an optional second part set in the accent colour. */
 export interface Headline {
   readonly roman: string;
   readonly italic?: string;
@@ -66,6 +66,8 @@ export interface HeroContent {
   readonly primaryCta: LinkItem;
   readonly secondaryCta: LinkItem;
   readonly image: ImageAsset;
+  /** Small link at the foot of the hero that jumps to the next section. */
+  readonly scrollCue: LinkItem;
 }
 
 /** A short quote shown as a speech bubble, with who said it. */

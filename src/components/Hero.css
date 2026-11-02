@@ -1,57 +1,104 @@
 .hero {
-  background: var(--surface);
+  overflow-x: clip;
   color: var(--text);
-  padding-block: clamp(48px, 8vw, 112px) clamp(56px, 8vw, 112px);
+  background: var(--surface);
+  padding-block: var(--space-7) var(--space-8);
 }
 
-.hero__inner {
+/*
+ * Four columns, matching the guides:
+ * label | introduction introduction | portrait
+ * ----- dotted line -----
+ * headline across all four
+ * scroll cue
+ */
+.hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
-  gap: clamp(40px, 6vw, 96px);
-  align-items: center;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    'label intro intro media'
+    'line line line line'
+    'title title title title'
+    'scroll scroll scroll scroll';
+  align-items: end;
 }
 
-.hero__text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-5);
+.hero__label {
+  grid-area: label;
+  align-self: end;
+  padding-bottom: var(--space-4);
+}
+
+.hero__media {
+  grid-area: media;
+  justify-self: end;
+  width: min(100%, 340px);
+  padding-bottom: var(--space-5);
+}
+
+/* Full-bleed dotted line between the top row and the headline */
+.hero__line {
+  grid-area: line;
+  width: 100vw;
+  height: 1px;
+  margin-left: calc(50% - 50vw);
 }
 
 .hero__title {
+  grid-area: title;
+  margin-top: var(--space-7);
   font-family: var(--font-display);
   font-size: var(--text-display);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.015em;
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: var(--tracking-display);
   text-wrap: balance;
 }
 
+/* Each sentence on its own line */
+.hero__title .headline-roman,
 .hero__title .headline-italic {
-  margin-top: 0.08em;
-}
-
-.hero__rule {
   display: block;
-  width: 64px;
-  height: 1px;
-  background: var(--accent-rule);
-  margin-block: var(--space-2);
 }
 
+.hero__intro {
+  grid-area: intro;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding: 0 var(--space-6) var(--space-5) var(--space-5);
+}
+
+/* As in a statement: the first line in full colour, the rest muted */
 .hero__subheadline {
-  max-width: 36rem;
-  font-size: var(--text-lead);
-  line-height: 1.55;
+  max-width: 34ch;
+  font-size: var(--text-statement);
+  line-height: 1.22;
+  letter-spacing: var(--tracking-heading);
   color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+.hero__subheadline::first-line {
+  color: var(--text);
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-4) var(--space-6);
-  margin-top: var(--space-3);
+  gap: var(--space-3);
+}
+
+.hero__scroll.content-link--text {
+  grid-area: scroll;
+  align-self: end;
+  justify-self: start;
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: var(--space-7);
 }
 
 /*
@@ -62,7 +109,7 @@
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: var(--color-cream);
+  background: var(--color-sand-400);
 }
 
 .hero__image {
@@ -72,67 +119,81 @@
   width: 228.6%;
   max-width: none;
   height: auto;
-  filter: sepia(0.08) saturate(0.95);
+  filter: sepia(0.22) saturate(0.75) contrast(1.03);
 }
 
 /*
- * On page load the text comes in line by line, the rule draws from the left
- * and the portrait settles into its frame. All done in about a second.
+ * On page load: the label, introduction and headline rise in one after
+ * another, the portrait uncovers upwards and the line draws across.
  */
-.hero__text > * {
+.hero__label,
+.hero__title .headline-roman,
+.hero__title .headline-italic,
+.hero__intro,
+.hero__scroll {
   animation: reveal var(--motion-reveal) var(--ease-out) backwards;
 }
 
-.hero__text > :nth-child(2) {
+.hero__intro {
   animation-delay: calc(1 * var(--motion-stagger));
 }
 
-.hero__text > :nth-child(3) {
+.hero__title .headline-roman {
   animation-delay: calc(3 * var(--motion-stagger));
 }
 
-.hero__text > :nth-child(4) {
+.hero__title .headline-italic {
   animation-delay: calc(4 * var(--motion-stagger));
 }
 
-.hero__text > :nth-child(5) {
-  animation-delay: calc(5 * var(--motion-stagger));
+.hero__scroll {
+  animation-delay: calc(6 * var(--motion-stagger));
 }
 
-.hero__rule {
+.hero__frame {
+  animation: hero-frame var(--motion-slow) var(--ease-out) backwards;
+}
+
+@keyframes hero-frame {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+}
+
+.hero__line {
   transform-origin: left;
-  animation-name: hero-rule;
+  animation: hero-line var(--motion-slow) var(--ease-out) backwards;
 }
 
-@keyframes hero-rule {
+@keyframes hero-line {
   from {
     scale: 0 1;
   }
 }
 
-/* The frame only fades; the image inside does the moving */
-.hero__frame {
-  --reveal-y: 0;
-
-  animation: reveal var(--motion-slow) var(--ease-out) backwards;
-}
-
-.hero__image {
-  animation: hero-image var(--motion-slow) var(--ease-out) backwards;
-}
-
-@keyframes hero-image {
-  from {
-    scale: 1.04;
-  }
-}
-
 @media (max-width: 860px) {
-  .hero__inner {
-    grid-template-columns: 1fr;
+  .hero__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      'label label'
+      'line line'
+      'title title'
+      'intro intro'
+      'media media'
+      'scroll scroll';
+  }
+
+  .hero__intro {
+    margin-top: var(--space-6);
+    padding: 0;
   }
 
   .hero__media {
-    width: min(100%, 420px);
+    justify-self: start;
+    margin-top: var(--space-7);
+  }
+
+  .hero__scroll.content-link--text {
+    margin-top: var(--space-5);
   }
 }

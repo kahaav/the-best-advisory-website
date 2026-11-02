@@ -4,7 +4,7 @@ interface HeadlineTextProps {
   headline: Headline;
 }
 
-/** Roman first part, italic second part on its own line, as in the carousels. */
+/** Plain first part, then the optional second part, which CSS sets in the accent colour. */
 export const HeadlineText = ({ headline }: HeadlineTextProps) => {
   return (
     <>

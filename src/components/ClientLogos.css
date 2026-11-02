@@ -1,25 +1,28 @@
-/* One still row, spread edge to edge; wraps and centres on narrow screens */
+/* One logo per grid column, centred in its cell between the guides */
 .client-logos {
-  --logo-size: clamp(56px, 6vw, 80px);
+  --logo-size: clamp(60px, 6vw, 88px);
 
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-6) var(--space-7);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   min-width: 0;
   list-style: none;
 }
 
+.client-logos li {
+  display: grid;
+  place-items: center;
+  min-height: clamp(120px, 12vw, 180px);
+}
+
 /*
  * Logos are sized to a similar area rather than one height, so wide and
- * square marks look balanced. Grayscale keeps them from pulling focus.
+ * square marks look balanced. Grayscale and multiply sink them into the sand.
  */
 .client-logos__logo {
   width: auto;
   height: calc(var(--logo-size) / sqrt(var(--logo-aspect, 1)));
-  filter: grayscale(1);
-  opacity: 0.8;
+  filter: grayscale(1) sepia(0.3) contrast(1.1);
+  opacity: 0.75;
   mix-blend-mode: multiply;
   transition:
     filter var(--motion-fast) var(--ease-out),
@@ -28,14 +31,14 @@
 
 /* A logo shows its own colours on hover */
 .client-logos__logo:hover {
-  filter: grayscale(0);
+  filter: none;
   opacity: 1;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 860px) {
   .client-logos {
-    --logo-size: 52px;
+    --logo-size: 56px;
 
-    justify-content: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

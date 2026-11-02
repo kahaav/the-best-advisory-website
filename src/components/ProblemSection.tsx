@@ -7,18 +7,24 @@ interface ProblemSectionProps {
   content: ProblemContent;
 }
 
-/** Short quotes as speech bubbles that alternate sides like a conversation, then one closing line. */
+/**
+ * The heading holds the left half while the quotes run down the right half,
+ * one per dotted row, ending on one larger closing statement.
+ */
 export const ProblemSection = ({ content }: ProblemSectionProps) => {
   return (
-    <Section id="problem" tone="cream" labelledBy="problem-title" className="problem">
+    <Section id="problem" tone="sand" guides labelledBy="problem-title" className="problem">
       <div className="problem__grid">
-        <SectionHeading intro={content} headingId="problem-title" />
-        <div>
-          <ul className="problem__bubbles">
+        <div className="problem__heading">
+          <SectionHeading intro={content} headingId="problem-title" />
+        </div>
+
+        <div className="problem__text">
+          <ul className="problem__quotes">
             {content.quotes.map((quote) => (
-              <li key={quote.text} className="problem__bubble" data-reveal>
+              <li key={quote.text} className="problem__quote dotted-rule" data-reveal>
                 <figure>
-                  <blockquote className="problem__quote">
+                  <blockquote className="problem__quote-text">
                     <p>“{quote.text}”</p>
                   </blockquote>
                   <figcaption className="problem__speaker">{quote.speaker}</figcaption>

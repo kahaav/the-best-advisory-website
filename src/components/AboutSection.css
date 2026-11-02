@@ -1,12 +1,28 @@
+/* Photo on the left half, story on the right */
 .about__grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: var(--space-7) clamp(40px, 7vw, 112px);
-  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-7) var(--space-8);
+  align-items: start;
+}
+
+.about__image {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-5));
+}
+
+/* Toned down towards the dark surface; full colour when you point at it */
+.about__image img {
+  filter: grayscale(0.55) sepia(0.25) contrast(1.05);
+  transition: filter 600ms var(--ease-out);
+}
+
+.about__image:hover img {
+  filter: sepia(0.1);
 }
 
 /*
- * Reveal: the photo uncovers from the top down while it settles from a
+ * Reveal: the photo uncovers from the bottom up while it settles from a
  * slight zoom; the text follows.
  */
 .about__image[data-revealed] {
@@ -20,34 +36,39 @@
 
 @keyframes about-curtain {
   from {
-    clip-path: inset(0 0 100% 0);
+    clip-path: inset(100% 0 0 0);
   }
 }
 
 @keyframes about-photo {
   from {
-    scale: 1.06;
+    scale: 1.08;
   }
 }
 
 .about__text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-7);
 }
 
 .about__body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-5);
   max-width: var(--measure);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  line-height: 1.6;
   color: var(--text-muted);
 }
 
+/* The first paragraph reads as a statement */
 .about__body p:first-child {
-  font-family: var(--font-display);
-  font-size: var(--text-lead);
-  line-height: 1.5;
+  font-family: var(--font-text);
+  font-size: var(--text-statement);
+  line-height: 1.22;
+  letter-spacing: var(--tracking-heading);
   color: var(--text);
 }
 
@@ -55,7 +76,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3) var(--space-6);
+  padding-top: var(--space-5);
   list-style: none;
+  font-size: var(--text-eyebrow);
+  text-transform: uppercase;
 }
 
 @media (max-width: 860px) {
@@ -64,6 +88,8 @@
   }
 
   .about__image {
+    position: relative;
+    top: 0;
     max-width: 420px;
   }
 }

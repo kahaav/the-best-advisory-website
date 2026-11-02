@@ -33,7 +33,7 @@ export const Header = ({ brandName, nav, cta }: HeaderProps) => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isMenuOpen]);
 
-  // The header gets a soft shadow once the page has scrolled.
+  // The header gets a surface and a dotted edge once the page has scrolled.
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export const Header = ({ brandName, nav, cta }: HeaderProps) => {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="site-header tone-ivory" data-scrolled={isScrolled}>
+    <header className="site-header tone-sand" data-scrolled={isScrolled}>
       <div className="container site-header__inner">
         <a className="site-header__brand" href="#top" onClick={closeMenu}>
           <Wordmark brandName={brandName} />
@@ -109,7 +109,7 @@ export const Header = ({ brandName, nav, cta }: HeaderProps) => {
               </li>
             ))}
           </ul>
-          <ContentLink item={cta} variant="primary" className="site-header__cta" />
+          <ContentLink item={cta} variant="primary" className="site-header__cta button--small" />
         </nav>
       </div>
     </header>

@@ -11,7 +11,7 @@ interface AboutSectionProps {
 
 export const AboutSection = ({ content }: AboutSectionProps) => {
   return (
-    <Section id="about" tone="cream" labelledBy="about-title">
+    <Section id="about" tone="ink" labelledBy="about-title">
       <div className="about__grid">
         <div className="about__image" data-reveal>
           <FramedImage image={content.image} aspectRatio="4 / 5" />
@@ -24,7 +24,7 @@ export const AboutSection = ({ content }: AboutSectionProps) => {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          <ul className="about__links" data-reveal>
+          <ul className="about__links dotted-rule" data-reveal>
             {content.links.map((item) => (
               <li key={item.label}>
                 <ContentLink item={item} />

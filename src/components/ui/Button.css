@@ -1,6 +1,7 @@
 /*
- * Buttons: square corners, as in the brand. Two variants (primary,
- * secondary), two sizes (large, small) and states: hover, pressed, disabled.
+ * Buttons: square corners, upright caps and a small orange square before the
+ * label. Two variants (primary, secondary), two sizes (large, small) and
+ * states: hover, pressed, disabled.
  * Used by <Button> and by button-style <ContentLink>, so both look the same.
  * The .is-hover and .is-pressed classes show a state without interaction,
  * e.g. on the design-system page.
@@ -9,22 +10,32 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   min-height: var(--button-height-large);
   padding: var(--button-padding-large);
   font-family: var(--font-text);
   font-size: var(--button-font-large);
   font-weight: 500;
-  line-height: inherit;
-  letter-spacing: 0.02em;
+  line-height: 1.2;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
   text-decoration: none;
   border: 1px solid var(--button-bg);
   border-radius: 0;
   cursor: pointer;
   transition:
-    background-color 180ms var(--ease-out),
-    border-color 180ms var(--ease-out),
-    color 180ms var(--ease-out);
+    background-color var(--motion-fast) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out);
+}
+
+.button::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  transition: background-color var(--motion-fast) var(--ease-out);
 }
 
 .button--small {
@@ -38,9 +49,14 @@
   color: var(--button-fg);
 }
 
+/* On hover the button fills with the accent; the square takes the label colour */
 .button--primary:is(:hover, .is-hover):not(:disabled) {
   background: var(--button-bg-hover);
   border-color: var(--button-bg-hover);
+}
+
+.button--primary:is(:hover, .is-hover, :active, .is-pressed):not(:disabled)::before {
+  background: currentColor;
 }
 
 .button--primary:is(:active, .is-pressed):not(:disabled) {
@@ -51,17 +67,16 @@
 .button--secondary {
   background: transparent;
   color: var(--text);
-  border-color: var(--text);
+  border-color: var(--hairline);
 }
 
 .button--secondary:is(:hover, .is-hover):not(:disabled) {
-  background: var(--text);
-  color: var(--surface);
+  border-color: var(--text);
 }
 
 .button--secondary:is(:active, .is-pressed):not(:disabled) {
-  background: var(--button-outline-pressed);
-  border-color: var(--button-outline-pressed);
+  background: var(--text);
+  border-color: var(--text);
   color: var(--surface);
 }
 

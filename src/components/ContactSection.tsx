@@ -8,17 +8,19 @@ interface ContactSectionProps {
   content: ContactContent;
 }
 
+/** The question on the left; on the right one large call to action, then email and places. */
 export const ContactSection = ({ content }: ContactSectionProps) => {
   return (
-    <Section id="contact" tone="espresso" labelledBy="contact-title" className="contact">
-      <SectionHeading intro={content} headingId="contact-title" />
+    <Section id="contact" tone="ink" labelledBy="contact-title" className="contact">
+      <div className="contact__grid">
+        <SectionHeading intro={content} headingId="contact-title" />
 
-      <div className="contact__actions" data-reveal>
-        <ContentLink item={content.primaryCta} variant="primary" />
-        <ContentLink item={content.email} />
+        <div className="contact__actions" data-reveal>
+          <ContentLink item={content.primaryCta} className="contact__cta" />
+          <ContentLink item={content.email} className="contact__email" />
+          <p className="contact__locations">{content.locations}</p>
+        </div>
       </div>
-
-      <p className="contact__locations" data-reveal>{content.locations}</p>
     </Section>
   );
 };

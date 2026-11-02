@@ -8,27 +8,23 @@ interface ServicesSectionProps {
   content: ServicesContent;
 }
 
-/** Tiles shown dark, on opposite corners of the mosaic; the rest are cream. */
-const DARK_TILES: ReadonlySet<number> = new Set([0, 5]);
-
+/** Services in three numbered columns on the dark surface, each opened by a dotted line. */
 export const ServicesSection = ({ content }: ServicesSectionProps) => {
   return (
-    <Section id="services" tone="ivory" labelledBy="services-title">
+    <Section id="services" tone="ink" labelledBy="services-title" className="services">
       <SectionHeading intro={content} headingId="services-title" />
 
-      <ul className="services__mosaic">
+      <ul className="services__grid">
         {content.items.map((service, index) => (
-          <li
-            key={service.title}
-            className={`services__tile ${DARK_TILES.has(index) ? 'tone-espresso' : 'tone-cream'}`}
-            data-reveal
-          >
-            <ServiceCard service={service} />
+          <li key={service.title} className="services__item dotted-rule" data-reveal>
+            <ServiceCard service={service} number={index + 1} />
           </li>
         ))}
       </ul>
 
-      <p className="services__also" data-reveal>{content.also}</p>
+      <p className="services__also dotted-rule" data-reveal>
+        {content.also}
+      </p>
     </Section>
   );
 };

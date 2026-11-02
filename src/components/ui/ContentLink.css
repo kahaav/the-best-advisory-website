@@ -10,13 +10,19 @@
 
 .content-link--text {
   text-decoration: underline;
+  text-decoration-color: var(--hairline);
   text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
   color: var(--text);
+  transition:
+    color var(--motion-fast) var(--ease-out),
+    text-decoration-color var(--motion-fast) var(--ease-out);
 }
 
+/* Text links turn orange on hover */
 a.content-link--text:hover {
-  text-decoration-thickness: 2px;
+  color: var(--accent);
+  text-decoration-color: currentColor;
 }
 
 .content-link__external {

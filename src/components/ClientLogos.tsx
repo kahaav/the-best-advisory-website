@@ -12,7 +12,7 @@ interface LogoStyle extends CSSProperties {
   '--logo-aspect': number;
 }
 
-/** A still row of grayscale client logos, spread across the width. */
+/** A still row of grayscale client logos, one per grid column. */
 export const ClientLogos = ({ logos }: ClientLogosProps) => {
   return (
     <ul className="client-logos">

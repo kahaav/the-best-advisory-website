@@ -16,31 +16,33 @@ import '@pages/DesignSystemPage.css';
  * All copy and images below are templates, not site content.
  */
 
-const COLOURS = ['espresso', 'taupe', 'ivory', 'cream', 'paper'] as const;
+const COLOURS = ['ember', 'bark', 'ink', 'sand', 'stone'] as const;
 
 /** Matches the "Brand colours" group in tokens.css. */
-const BRAND_COLOURS: ReadonlySet<string> = new Set(['espresso', 'taupe']);
+const BRAND_COLOURS: ReadonlySet<string> = new Set(['ember', 'bark', 'ink']);
 
 const SHADES = [100, 200, 300, 400, 500] as const;
 
 /** tokens.css: "300 is the brand value". */
 const BRAND_SHADE = 300;
 
-const FONT_FAMILIES = ['--font-display', '--font-text', '--font-mono'] as const;
+const FONT_FAMILIES = ['--font-display', '--font-text', '--font-mono', '--font-wide'] as const;
 
 const FONT_SIZES = [
   '--text-display',
   '--text-h2',
+  '--text-statement',
   '--text-h3',
   '--text-lead',
   '--text-body',
+  '--text-mono',
   '--text-small',
   '--text-eyebrow',
 ] as const;
 
 const SPACING = Array.from({ length: 10 }, (_, index) => `--space-${index + 1}`);
 
-const SHADOWS = ['--shadow-soft', '--shadow-raised', '--shadow-lifted'] as const;
+const SHADOWS = ['--shadow-soft', '--shadow-raised'] as const;
 
 /** Each name has a matching `--breakpoint-*` token and a `.ds-breakpoint--*` class. */
 const BREAKPOINTS = ['wide', 'nav', 'tablet', 'footer', 'mobile', 'mobile-small'] as const;
@@ -190,7 +192,7 @@ const Specimen = ({ label, wide = false, children }: SpecimenProps) => (
 
 export const DesignSystemPage = () => {
   return (
-    <main className="ds-page tone-ivory">
+    <main className="ds-page tone-sand">
       <div className="container ds-grid">
         <h1 className="visually-hidden">Design system</h1>
 
@@ -376,7 +378,7 @@ export const DesignSystemPage = () => {
         <Panel id="cards" title="Cards" wide>
           <ul className="ds-cards">
             <Specimen label="Service card">
-              <ServiceCard service={serviceCard} />
+              <ServiceCard service={serviceCard} number={1} />
             </Specimen>
             <Specimen label="Event card · upcoming">
               <EventCard event={upcomingEvent} labels={eventLabels} upcomingImage={TEMPLATE_IMAGE} />

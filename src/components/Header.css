@@ -1,66 +1,102 @@
+/*
+ * A thin strip of upright caps over the page: the wordmark on the left, the
+ * links spread across the remaining columns. Clear over the hero; it takes
+ * the sand surface and a dotted edge once the page scrolls.
+ */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: color-mix(in srgb, var(--surface) 94%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--hairline);
-  transition: box-shadow var(--motion-fast) var(--ease-out);
+  color: var(--text);
+  background: transparent;
+  transition: background-color var(--motion-fast) var(--ease-out);
 }
 
-/* Lifts off the page once it scrolls */
+.site-header::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  opacity: 0;
+  transition: opacity var(--motion-fast) var(--ease-out);
+}
+
 .site-header[data-scrolled='true'] {
-  box-shadow: var(--shadow-soft);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.site-header[data-scrolled='true']::after {
+  opacity: 1;
+  background-image: linear-gradient(to right, var(--guide) 50%, transparent 0);
+  background-size: calc(2 * var(--guide-dash)) 1px;
 }
 
 .site-header__inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-5);
   min-height: var(--header-height);
 }
 
 .site-header__brand {
   display: inline-flex;
+  justify-self: start;
   text-decoration: none;
 }
 
 .site-header__nav {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  justify-content: space-between;
+  gap: var(--space-5);
 }
 
 .site-header__links {
   display: flex;
+  flex: 1;
+  justify-content: space-between;
   gap: var(--space-5);
+  max-width: 48rem;
   list-style: none;
 }
 
 .site-header__links a {
-  font-size: var(--text-small);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+  font-size: var(--text-eyebrow);
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
   text-decoration: none;
   color: var(--text);
-  padding-block: var(--space-2);
-  background-image: linear-gradient(var(--accent-rule), var(--accent-rule));
-  background-size: 0 1px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  transition: background-size 200ms var(--ease-out);
+  transition: color var(--motion-fast) var(--ease-out);
 }
 
-/* Underlined on hover, and for the section you are in */
-.site-header__links a:hover,
-.site-header__links a[aria-current='true'] {
-  background-size: 100% 1px;
+/* A small orange square appears before the link you point at, and the section you are in */
+.site-header__links a::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  scale: 0;
+  transition: scale var(--motion-fast) var(--ease-out);
+}
+
+.site-header__links a:hover::before,
+.site-header__links a[aria-current='true']::before {
+  scale: 1;
+}
+
+.site-header__links a:hover {
+  color: var(--accent);
 }
 
 .site-header__cta {
-  min-height: 42px;
-  padding: 10px 20px;
+  flex: none;
 }
 
 .site-header__menu-button {
@@ -70,7 +106,7 @@
   min-height: 44px;
   padding: 0 var(--space-2);
   font: inherit;
-  font-size: var(--text-small);
+  font-size: var(--text-eyebrow);
   font-weight: 500;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -86,7 +122,7 @@
   width: 20px;
   height: 1px;
   background: currentColor;
-  transition: transform 200ms var(--ease-out);
+  transition: transform var(--motion-fast) var(--ease-out);
 }
 
 .site-header__menu-icon {
@@ -110,20 +146,26 @@
 }
 
 @media (max-width: 960px) {
+  .site-header__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .site-header__menu-button {
     display: inline-flex;
   }
 
+  /* The menu opens as a sand panel under the strip */
   .site-header__nav {
     display: none;
     position: absolute;
     inset: var(--header-height) 0 auto;
     flex-direction: column;
     align-items: stretch;
-    gap: var(--space-5);
-    padding: var(--space-5) var(--gutter) var(--space-6);
+    gap: var(--space-6);
+    padding: var(--space-4) var(--gutter) var(--space-6);
     background: var(--surface);
-    border-bottom: 1px solid var(--hairline);
+    box-shadow: var(--shadow-raised);
   }
 
   .site-header__nav[data-open='true'] {
@@ -134,6 +176,7 @@
   .site-header__links {
     flex-direction: column;
     gap: 0;
+    max-width: none;
   }
 
   .site-header__links li + li {
@@ -141,18 +184,16 @@
   }
 
   .site-header__links a {
-    display: block;
+    display: flex;
     padding-block: var(--space-4);
-    font-family: var(--font-display);
-    font-size: 1.375rem;
+    font-size: 1.75rem;
     font-weight: 400;
-    letter-spacing: 0;
-    background: none;
+    letter-spacing: var(--tracking-heading);
+    text-transform: none;
   }
 
-  /* The menu has no underline, so the current section is set in italic */
-  .site-header__links a[aria-current='true'] {
-    font-style: italic;
+  .site-header__cta {
+    align-self: flex-start;
   }
 }
 

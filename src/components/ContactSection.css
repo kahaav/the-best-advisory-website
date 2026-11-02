@@ -1,25 +1,73 @@
-.contact .section-heading__title {
-  font-size: var(--text-display);
-  line-height: 1.05;
+.page-section.contact {
+  padding-bottom: var(--space-9);
 }
 
-.contact .headline-roman,
-.contact .headline-italic {
-  display: inline;
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8);
+  align-items: end;
+}
+
+.contact .section-heading__title {
+  font-size: var(--text-display);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: var(--tracking-display);
 }
 
 .contact__actions {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-4) var(--space-6);
-  margin-top: var(--space-7);
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-4);
+  text-align: right;
+}
+
+/* The main call to action: large capitals after an orange square, like a sign */
+.contact__cta.content-link--text {
+  gap: var(--space-4);
+  font-size: clamp(1.75rem, 2.4vw + 1rem, 3.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: var(--tracking-heading);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.contact__cta::before {
+  content: '';
+  flex: none;
+  width: 0.28em;
+  height: 0.28em;
+  background: var(--accent);
+  transition: scale var(--motion-fast) var(--ease-out);
+}
+
+.contact__cta:hover::before {
+  scale: 1.4;
+}
+
+.contact__email.content-link--text {
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
 }
 
 .contact__locations {
-  margin-top: var(--space-8);
-  padding-top: var(--space-5);
-  border-top: 1px solid var(--hairline);
-  font-size: var(--text-small);
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  text-transform: uppercase;
   color: var(--text-muted);
+}
+
+@media (max-width: 860px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__actions {
+    align-items: flex-start;
+    text-align: left;
+  }
 }

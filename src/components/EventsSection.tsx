@@ -12,7 +12,7 @@ interface EventsSectionProps {
 
 export const EventsSection = ({ content }: EventsSectionProps) => {
   return (
-    <Section id="events" tone="ivory" labelledBy="events-title">
+    <Section id="events" tone="sand" guides labelledBy="events-title">
       <SectionHeading intro={content} headingId="events-title" />
 
       <ul className="events__strands">
@@ -33,7 +33,7 @@ export const EventsSection = ({ content }: EventsSectionProps) => {
 
       <div className="events__actions" data-reveal>
         {content.ctas.map((cta, index) => (
-          <ContentLink key={cta.label} item={cta} variant={index === 0 ? 'primary' : 'text'} />
+          <ContentLink key={cta.label} item={cta} variant={index === 0 ? 'primary' : 'secondary'} />
         ))}
       </div>
     </Section>

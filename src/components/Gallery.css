@@ -1,7 +1,7 @@
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
 
 .gallery__figure {
@@ -10,9 +10,23 @@
   gap: var(--space-3);
 }
 
+/* Caption in small mono caps after an orange square */
 .gallery__caption {
-  font-size: var(--text-small);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  text-transform: uppercase;
   color: var(--text-muted);
+}
+
+.gallery__caption::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
 }
 
 /* On hover the photo slowly moves closer inside its frame */

@@ -1,11 +1,6 @@
-/*
- * A logo strip: the heading is a small label so the logos lead. The label's
- * height comes off the top padding, so the logo row sits in the middle.
- */
+/* A short logo strip: the heading is a small label so the logos lead */
 .page-section.proof {
-  --label-space: calc(var(--text-eyebrow) * 1.5 + var(--space-5));
-
-  padding-top: calc(var(--section-padding) - var(--label-space));
+  padding-block: var(--space-8);
 }
 
 .proof__grid {
@@ -15,24 +10,28 @@
 }
 
 .proof .section-heading__title {
-  font-family: var(--font-text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   font-size: var(--text-eyebrow);
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.3;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  color: var(--text-muted);
 }
 
-.proof .section-heading__rule {
-  display: none;
+.proof .section-heading__title::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
 }
 
 .proof__quote {
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
-  max-width: 48rem;
+  max-width: 56rem;
   margin-top: var(--space-8);
 }
 
@@ -42,8 +41,7 @@
 }
 
 .proof__quote-text {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
-  font-style: italic;
-  line-height: 1.3;
+  font-size: var(--text-statement);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-heading);
 }

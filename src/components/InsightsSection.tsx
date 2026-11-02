@@ -80,7 +80,7 @@ export const InsightsSection = ({ content }: InsightsSectionProps) => {
   const stopNumbers = Array.from({ length: stops }, (_, index) => index);
 
   return (
-    <Section id="insights" tone="cream" labelledBy="insights-title">
+    <Section id="insights" tone="ink" labelledBy="insights-title">
       <div className="insights__header">
         <SectionHeading intro={content} headingId="insights-title" />
         <ContentLink item={content.allLink} className="insights__all" />

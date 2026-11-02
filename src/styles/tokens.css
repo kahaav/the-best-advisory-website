@@ -9,55 +9,60 @@
    */
 
   /* Brand colours */
-  --color-espresso-100: hsl(20 20% 70%);
-  --color-espresso-200: hsl(20 20% 40.9%);
-  --color-espresso-300: hsl(20 20% 11.8%);
-  --color-espresso-400: hsl(20 20% 7.8%);
-  --color-espresso-500: hsl(20 20% 3.9%);
-  --color-espresso: var(--color-espresso-300);
+  --color-ember-100: hsl(12 100% 88%);
+  --color-ember-200: hsl(12 100% 72%);
+  --color-ember-300: hsl(12 100% 54%);
+  --color-ember-400: hsl(12 88% 43%);
+  --color-ember-500: hsl(12 80% 30%);
+  --color-ember: var(--color-ember-300);
 
-  --color-taupe-100: hsl(26.3 17.2% 81.9%);
-  --color-taupe-200: hsl(26.3 17.2% 64.4%);
-  --color-taupe-300: hsl(26.3 17.2% 46.9%);
-  --color-taupe-400: hsl(26.3 17.2% 31%);
-  --color-taupe-500: hsl(26.3 17.2% 15.5%);
-  --color-taupe: var(--color-taupe-300);
+  --color-bark-100: hsl(33 18% 62%);
+  --color-bark-200: hsl(33 22% 40%);
+  --color-bark-300: hsl(33 38% 17%);
+  --color-bark-400: hsl(33 38% 12%);
+  --color-bark-500: hsl(33 38% 7%);
+  --color-bark: var(--color-bark-300);
+
+  --color-ink-100: hsl(20 8% 58%);
+  --color-ink-200: hsl(20 10% 22%);
+  --color-ink-300: hsl(20 14% 10%);
+  --color-ink-400: hsl(20 14% 7%);
+  --color-ink-500: hsl(20 14% 4%);
+  --color-ink: var(--color-ink-300);
 
   /* Neutral colours */
-  --color-ivory-100: hsl(36 38.5% 99.2%);
-  --color-ivory-200: hsl(36 38.5% 98.3%);
-  --color-ivory-300: hsl(36 38.5% 97.5%);
-  --color-ivory-400: hsl(36 38.5% 64.4%);
-  --color-ivory-500: hsl(36 38.5% 32.2%);
-  --color-ivory: var(--color-ivory-300);
+  --color-sand-100: hsl(30 36% 94%);
+  --color-sand-200: hsl(30 34% 90%);
+  --color-sand-300: hsl(30 32% 85%);
+  --color-sand-400: hsl(30 22% 75%);
+  --color-sand-500: hsl(30 16% 62%);
+  --color-sand: var(--color-sand-300);
 
-  --color-cream-100: hsl(35 35.3% 97.7%);
-  --color-cream-200: hsl(35 35.3% 95.5%);
-  --color-cream-300: hsl(35 35.3% 93.3%);
-  --color-cream-400: hsl(35 35.3% 61.6%);
-  --color-cream-500: hsl(35 35.3% 30.8%);
-  --color-cream: var(--color-cream-300);
-
-  --color-paper-100: hsl(0 0% 100%);
-  --color-paper-200: hsl(0 0% 100%);
-  --color-paper-300: hsl(0 0% 100%);
-  --color-paper-400: hsl(0 0% 66%);
-  --color-paper-500: hsl(0 0% 33%);
-  --color-paper: var(--color-paper-300);
+  --color-stone-100: hsl(26 12% 86%);
+  --color-stone-200: hsl(26 11% 74%);
+  --color-stone-300: hsl(26 10% 61%);
+  --color-stone-400: hsl(26 9% 45%);
+  --color-stone-500: hsl(26 9% 30%);
+  --color-stone: var(--color-stone-300);
 
   /* Type */
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-text: 'Hanken Grotesk', system-ui, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-display: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+  --font-text: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-wide: 'Archivo', 'Arial Black', sans-serif; /* Wordmark, set extended */
 
-  --text-display: clamp(2.5rem, 5vw + 1rem, 4.5rem);
-  --text-h2: clamp(2rem, 3vw + 1rem, 3rem);
-  --text-h3: clamp(1.375rem, 1vw + 1rem, 1.75rem);
-  --text-lead: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);
-  --text-body: 1.0625rem;
+  --text-display: clamp(2.75rem, 5.4vw + 0.5rem, 6.75rem);
+  --text-h2: clamp(2rem, 2.4vw + 1rem, 3.25rem);
+  --text-statement: clamp(1.5rem, 1.5vw + 1rem, 2.375rem); /* Large paragraphs */
+  --text-h3: clamp(1.375rem, 0.8vw + 1rem, 1.75rem);
+  --text-lead: clamp(1.125rem, 0.4vw + 1rem, 1.3125rem);
+  --text-body: 1rem;
+  --text-mono: 0.9375rem;
   --text-small: 0.875rem;
-  --text-eyebrow: 0.75rem;
-  --tracking-eyebrow: 0.18em;
+  --text-eyebrow: 0.8125rem;
+  --tracking-display: -0.04em;
+  --tracking-heading: -0.025em;
+  --tracking-eyebrow: 0.01em;
 
   /* Spacing */
   --space-1: 4px;
@@ -72,19 +77,20 @@
   --space-10: 128px;
 
   /* Layout */
-  --content-max: 1200px;
-  --measure: 65ch;
-  --gutter: clamp(20px, 4vw, 32px);
-  --section-padding: clamp(64px, 10vw, 128px);
-  --header-height: 72px;
+  --content-max: 1520px;
+  --measure: 62ch;
+  --gutter: clamp(16px, 2.4vw, 32px);
+  --section-padding: clamp(72px, 10vw, 144px);
+  --header-height: 64px;
+  --guide-dash: 3px; /* Dotted column guides: dash length, gap is the same */
 
   /* Buttons */
   --button-height-large: 48px;
-  --button-padding-large: 14px 28px;
-  --button-font-large: 0.9375rem;
+  --button-padding-large: 14px 24px;
+  --button-font-large: 0.875rem;
   --button-height-small: 36px;
   --button-padding-small: 8px 16px;
-  --button-font-small: 0.8125rem;
+  --button-font-small: 0.75rem;
   --button-inactive-opacity: 0.4;
 
   /*
@@ -92,75 +98,62 @@
    * design-system page. Media queries cannot read variables: keep in step.
    */
   --breakpoint-wide: 1024; /* Event cards: 4 to 2 columns */
-  --breakpoint-nav: 960; /* Navigation becomes a menu, 4-column grids halve */
-  --breakpoint-tablet: 860; /* Two-column layouts stack */
+  --breakpoint-nav: 960; /* Navigation becomes a menu, 3- and 4-column grids halve */
+  --breakpoint-tablet: 860; /* Two-column layouts stack, column guides halve */
   --breakpoint-footer: 760; /* Footer stacks */
   --breakpoint-mobile: 600; /* Card grids become one column */
-  --breakpoint-mobile-small: 560; /* Approach timeline tightens */
+  --breakpoint-mobile-small: 560; /* Approach steps tighten */
 
-  /* Shadows: soft and warm, mixed from espresso. Soft for cards at rest, raised on hover. */
+  /* Shadows: only for things that float over the page, like the mobile menu */
   --shadow-soft:
-    0 1px 3px color-mix(in srgb, var(--color-espresso) 6%, transparent),
-    0 6px 16px -8px color-mix(in srgb, var(--color-espresso) 14%, transparent);
+    0 1px 3px color-mix(in srgb, var(--color-ink) 8%, transparent),
+    0 8px 20px -10px color-mix(in srgb, var(--color-ink) 18%, transparent);
   --shadow-raised:
-    0 4px 10px -4px color-mix(in srgb, var(--color-espresso) 14%, transparent),
-    0 16px 32px -12px color-mix(in srgb, var(--color-espresso) 22%, transparent);
-  /*
-   * Lifted: for raised discs on dark sections. A solid edge below gives the
-   * disc thickness, a lit rim and a shaded underside round it, and long
-   * layered shadows float it off the page.
-   */
-  --shadow-lifted:
-    inset 0 2px 1px var(--color-paper),
-    inset -8px -12px 20px color-mix(in srgb, var(--color-cream-500) 35%, transparent),
-    0 6px 0 -1px var(--color-cream-400),
-    0 8px 2px -1px color-mix(in srgb, var(--color-cream-500) 70%, transparent),
-    0 20px 24px -8px color-mix(in srgb, var(--color-espresso-500) 90%, transparent),
-    0 44px 60px -16px color-mix(in srgb, var(--color-espresso-500) 85%, transparent);
+    0 4px 10px -4px color-mix(in srgb, var(--color-ink) 16%, transparent),
+    0 24px 48px -16px color-mix(in srgb, var(--color-ink) 30%, transparent);
 
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-fast: 200ms; /* Hover and small state changes */
-  --motion-reveal: 700ms; /* Content fading in */
-  --motion-slow: 1100ms; /* Large images and quotes */
-  --motion-stagger: 80ms; /* Gap between items revealed together */
-  --reveal-distance: 20px; /* How far content rises as it fades in */
+  --motion-reveal: 800ms; /* Content fading in */
+  --motion-slow: 1200ms; /* Large images and statements */
+  --motion-stagger: 90ms; /* Gap between items revealed together */
+  --reveal-distance: 24px; /* How far content rises as it fades in */
 }
 
 /*
  * Surface tones. Components read these variables, so a section's tone
- * switches text, rules and buttons in one place. Muted text, hairlines and
- * hover colours are mixed from the palette rather than being extra colours.
+ * switches text, accents, guides and buttons in one place. Muted text,
+ * hairlines and hover colours are mixed from the palette.
+ * The accent is darker on sand so orange text stays readable at large sizes.
  */
-.tone-ivory,
-.tone-cream,
-.tone-paper,
-.tone-espresso {
-  --surface: var(--color-ivory);
-  --text: var(--color-espresso);
-  --accent-rule: var(--color-taupe);
-  --button-bg: var(--color-espresso);
-  --button-fg: var(--color-cream);
-  --focus-ring: var(--color-taupe);
-  --text-muted: color-mix(in srgb, var(--text) 72%, var(--surface));
-  --hairline: color-mix(in srgb, var(--color-taupe) 25%, var(--surface));
-  --button-bg-hover: color-mix(in srgb, var(--button-bg) 90%, var(--color-paper));
-  --button-bg-pressed: color-mix(in srgb, var(--button-bg) 65%, var(--color-taupe));
-  --button-outline-pressed: color-mix(in srgb, var(--text) 65%, var(--color-taupe));
+.tone-sand,
+.tone-ink {
+  --surface: var(--color-sand);
+  --surface-raised: var(--color-sand-200);
+  --text: var(--color-bark);
+  --accent: var(--color-ember-400);
+  --button-bg: var(--color-bark);
+  --button-fg: var(--color-sand-100);
+  --focus-ring: var(--color-ember-400);
+  --text-muted: color-mix(in srgb, var(--text) 68%, var(--surface));
+  --hairline: color-mix(in srgb, var(--text) 22%, var(--surface));
+  --guide: color-mix(in srgb, var(--text) 26%, var(--surface));
+  --button-bg-hover: color-mix(in srgb, var(--accent) 85%, var(--color-ink));
+  --button-bg-pressed: color-mix(in srgb, var(--accent) 65%, var(--color-ink));
+  --button-outline-pressed: color-mix(in srgb, var(--text) 70%, var(--surface));
 }
 
-.tone-cream {
-  --surface: var(--color-cream);
-}
-
-.tone-paper {
-  --surface: var(--color-paper);
-}
-
-.tone-espresso {
-  --surface: var(--color-espresso);
-  --text: var(--color-cream);
-  --button-bg: var(--color-cream);
-  --button-fg: var(--color-espresso);
-  --focus-ring: var(--color-cream);
+.tone-ink {
+  --surface: var(--color-ink);
+  --surface-raised: var(--color-ink-200);
+  --text: var(--color-sand-200);
+  --accent: var(--color-ember);
+  --button-bg: var(--color-sand-200);
+  --button-fg: var(--color-ink);
+  --focus-ring: var(--color-ember);
+  --button-bg-hover: var(--accent);
+  --text-muted: color-mix(in srgb, var(--text) 62%, var(--surface));
+  --hairline: color-mix(in srgb, var(--text) 18%, var(--surface));
+  --guide: color-mix(in srgb, var(--text) 16%, var(--surface));
 }

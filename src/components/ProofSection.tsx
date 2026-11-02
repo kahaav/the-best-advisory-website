@@ -12,7 +12,7 @@ export const ProofSection = ({ content }: ProofSectionProps) => {
   const { quote } = content;
 
   return (
-    <Section id="proof" tone="paper" labelledBy="proof-title" className="proof">
+    <Section id="proof" tone="sand" guides labelledBy="proof-title" className="proof">
       <div className="proof__grid">
         <SectionHeading intro={content} headingId="proof-title" />
         <div data-reveal>

@@ -20,7 +20,7 @@
   gap: var(--space-5);
   min-width: 0;
   padding: var(--space-5);
-  background: var(--color-paper);
+  background: var(--color-sand-100);
   border: 1px solid var(--hairline);
 }
 
@@ -88,7 +88,7 @@
   height: 12px;
   transform: translate(50%, -50%);
   background: hsl(8 40% 55%);
-  border: 1px solid var(--color-paper);
+  border: 1px solid var(--color-sand-100);
   border-radius: 50%;
 }
 
@@ -148,7 +148,7 @@
 .ds-spacing__bar {
   display: block;
   height: var(--space-3);
-  background: var(--accent-rule);
+  background: var(--accent);
 }
 
 /* Shadows: a plain box per token, with room around it for the shadow */
@@ -170,7 +170,7 @@
   display: block;
   width: var(--space-10);
   height: var(--space-9);
-  background: var(--color-paper);
+  background: var(--color-sand-100);
 }
 
 /* Tones */
@@ -201,7 +201,7 @@
   display: block;
   width: var(--space-6);
   height: 1px;
-  background: var(--accent-rule);
+  background: var(--accent);
 }
 
 /*
@@ -235,7 +235,7 @@
 .ds-device__screen {
   position: relative;
   width: calc(var(--bp) * 0.16px);
-  background: var(--color-cream);
+  background: var(--color-sand-200);
   border: 3px solid var(--text);
 }
 
@@ -314,7 +314,7 @@
   width: var(--space-3);
   height: var(--space-3);
   border-radius: 50%;
-  background: var(--accent-rule);
+  background: var(--accent);
 }
 
 .ds-breakpoint__label {
