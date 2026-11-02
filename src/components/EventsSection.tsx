@@ -18,7 +18,11 @@ export const EventsSection = ({ content }: EventsSectionProps) => {
       <ul className="events__strands">
         {content.strands.map((strand) => (
           <li key={strand.id}>
-            <EventCard event={strand} />
+            <EventCard
+              event={strand}
+              labels={content.cardLabels}
+              upcomingImage={content.upcomingImage}
+            />
           </li>
         ))}
       </ul>

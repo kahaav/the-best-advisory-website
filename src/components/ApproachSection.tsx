@@ -7,7 +7,10 @@ interface ApproachSectionProps {
   content: ApproachContent;
 }
 
-/** The four phases as a timeline: across the page on desktop, down it on smaller screens. */
+/**
+ * The four phases as raised discs, each half-wrapped by an arc. On desktop the
+ * discs alternate low and high in a wave; on smaller screens they zigzag down.
+ */
 export const ApproachSection = ({ content }: ApproachSectionProps) => {
   return (
     <Section id="approach" tone="espresso" labelledBy="approach-title" className="approach">
@@ -16,12 +19,18 @@ export const ApproachSection = ({ content }: ApproachSectionProps) => {
       <ol className="approach__timeline">
         {content.steps.map((step, index) => (
           <li key={step.title} className="approach__phase">
-            <span className="approach__marker" aria-hidden="true" />
-            <p className="approach__label">
-              {content.phaseLabel} {index + 1}
-            </p>
-            <h3 className="approach__title">{step.title}</h3>
-            <p className="approach__body">{step.body}</p>
+            <div className="approach__disc" aria-hidden="true">
+              <span className="approach__face">
+                <span className="approach__number">{String(index + 1).padStart(2, '0')}</span>
+              </span>
+            </div>
+            <div className="approach__text">
+              <p className="approach__label">
+                {content.phaseLabel} {index + 1}
+              </p>
+              <h3 className="approach__title">{step.title}</h3>
+              <p className="approach__body">{step.body}</p>
+            </div>
           </li>
         ))}
       </ol>

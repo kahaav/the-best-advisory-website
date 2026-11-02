@@ -15,15 +15,7 @@ export const ProofSection = ({ content }: ProofSectionProps) => {
     <Section id="proof" tone="paper" labelledBy="proof-title">
       <div className="proof__grid">
         <SectionHeading intro={content} headingId="proof-title" />
-
-        <div className="proof__body">
-          <ClientLogos logos={content.clients} />
-          {content.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="proof__paragraph">
-              {paragraph}
-            </p>
-          ))}
-        </div>
+        <ClientLogos logos={content.clients} />
       </div>
 
       {quote.kind === 'quote' && (

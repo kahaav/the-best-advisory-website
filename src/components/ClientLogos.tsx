@@ -12,48 +12,25 @@ interface LogoStyle extends CSSProperties {
   '--logo-aspect': number;
 }
 
-/**
- * How many copies of the logo set the scrolling strip holds. The animation moves
- * it by half, so the second half must look the same as the first, and each half
- * must be wider than the container for the loop to be seamless.
- */
-const COPIES = [0, 1, 2, 3] as const;
-
-/** An infinitely scrolling strip of grayscale client logos, faded at both ends. */
+/** A still row of grayscale client logos, spread across the width. */
 export const ClientLogos = ({ logos }: ClientLogosProps) => {
   return (
-    <div className="client-logos">
-      <div className="client-logos__marquee">
-        <div className="client-logos__track">
-          {COPIES.map((copy) => {
-            const isCopy = copy > 0;
-            return (
-              <ul
-                key={copy}
-                className="client-logos__list"
-                aria-hidden={isCopy ? true : undefined}
-                data-copy={isCopy ? '' : undefined}
-              >
-                {logos.map((logo) => {
-                  const style: LogoStyle = { '--logo-aspect': logo.width / logo.height };
-                  return (
-                    <li key={logo.src}>
-                      <img
-                        className="client-logos__logo"
-                        src={logo.src}
-                        alt={isCopy ? '' : logo.alt}
-                        width={logo.width}
-                        height={logo.height}
-                        style={style}
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
-            );
-          })}
-        </div>
-      </div>
-    </div>
+    <ul className="client-logos">
+      {logos.map((logo) => {
+        const style: LogoStyle = { '--logo-aspect': logo.width / logo.height };
+        return (
+          <li key={logo.src}>
+            <img
+              className="client-logos__logo"
+              src={logo.src}
+              alt={logo.alt}
+              width={logo.width}
+              height={logo.height}
+              style={style}
+            />
+          </li>
+        );
+      })}
+    </ul>
   );
 };

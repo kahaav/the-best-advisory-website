@@ -121,6 +121,20 @@ main:focus {
   flex: none;
 }
 
+/* Card surface shared by insight and event cards: no border, a soft shadow at rest, lifting onto the raised shadow on hover */
+.raised-card {
+  background: var(--color-paper);
+  box-shadow: var(--shadow-soft);
+  transition:
+    box-shadow 200ms var(--ease-out),
+    transform 200ms var(--ease-out);
+}
+
+.raised-card:hover {
+  box-shadow: var(--shadow-raised);
+  transform: translateY(-2px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

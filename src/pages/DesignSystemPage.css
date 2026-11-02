@@ -212,7 +212,6 @@
 .ds-breakpoint--nav { --bp: var(--breakpoint-nav); }
 .ds-breakpoint--tablet { --bp: var(--breakpoint-tablet); }
 .ds-breakpoint--footer { --bp: var(--breakpoint-footer); }
-.ds-breakpoint--small { --bp: var(--breakpoint-small); }
 .ds-breakpoint--mobile { --bp: var(--breakpoint-mobile); }
 .ds-breakpoint--mobile-small { --bp: var(--breakpoint-mobile-small); }
 

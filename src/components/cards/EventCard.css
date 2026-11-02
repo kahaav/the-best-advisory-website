@@ -1,27 +1,72 @@
+/* Laid out like the insight cards: image on top, then label, title, body and a footer line */
 .event-card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
   height: 100%;
 }
 
-.event-card > .framed-image {
-  margin-bottom: var(--space-3);
+/* Upcoming events: the date or "Coming soon" sits on the template image */
+.event-card__poster {
+  position: relative;
+}
+
+.event-card__when {
+  position: absolute;
+  left: var(--space-4);
+  bottom: var(--space-3);
+  font-family: var(--font-display);
+  color: var(--color-espresso);
+}
+
+.event-card__when time {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+/* Day, month and "Coming soon" share one size; the day stays upright */
+.event-card__when {
+  font-size: 1.25rem;
+}
+
+.event-card__month,
+.event-card__soon {
+  font-style: italic;
+}
+
+.event-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+  padding: var(--space-4) var(--space-5) var(--space-5);
+}
+
+.event-card__label {
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-taupe);
 }
 
 .event-card__title {
   font-family: var(--font-display);
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.3;
+  text-wrap: pretty;
 }
 
 .event-card__body {
+  font-size: var(--text-small);
+  line-height: 1.6;
   color: var(--text-muted);
-  font-size: 1rem;
 }
 
-.event-card__note {
-  font-family: var(--font-display);
-  font-style: italic;
+.event-card__meta {
+  margin-top: auto;
+  padding-top: var(--space-2);
+  font-size: var(--text-small);
+  color: var(--text-muted);
 }

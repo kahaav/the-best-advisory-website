@@ -18,7 +18,7 @@ const formatDate = (isoDate: string) => dateFormatter.format(new Date(`${isoDate
 /** Article card: cover, topic, title, summary, date and reading time. The whole card is the link. */
 export const InsightCard = ({ card }: InsightCardProps) => {
   return (
-    <article className="insight-card">
+    <article className="insight-card raised-card">
       <FramedImage image={card.image} aspectRatio="16 / 9" className="insight-card__image" />
       <div className="insight-card__text">
         <p className="insight-card__topic">{card.topic}</p>

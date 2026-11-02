@@ -21,6 +21,7 @@ import difcWelcomeImage from '@assets/images/event-difc-welcome.jpg';
 import privateDinnerImage from '@assets/images/event-private-dinner.jpg';
 import wellnessBriefImage from '@assets/images/event-wellness-brief.jpg';
 import heroImage from '@assets/images/hero-sophie-panel.jpg';
+import templateImage from '@assets/images/template.svg';
 import type { LinkItem, SiteContent, SiteLink } from '@typings/content';
 
 const externalLink = (href: string): SiteLink => ({ kind: 'url', href, external: true });
@@ -166,11 +167,6 @@ export const siteContent: SiteContent = {
       { src: dubizzleLogo, alt: 'Dubizzle', width: 589.8, height: 184.8 },
       { src: qatarEnergyLogo, alt: 'QatarEnergy', width: 85.57, height: 88.6 },
     ],
-    paragraphs: [
-      'I’ve spoken at the Kuwait Corporate Legal Summit, the Bespoke Global Legal Summit, LexTalk World, AIJA and LegalTechTalk London.',
-      // Post 2026-10-09: 215 registered, 77 declined, "still had a room of at least 130".
-      'In October 2026, 215 people registered for our DIFC AI Governance seminar. We had to turn 77 away and still had a room of more than 130.',
-    ],
     // TODO: Renato Leite Monteiro quote is marked "permission needed" (open question 16).
     quote: {
       kind: 'todo',
@@ -201,17 +197,29 @@ export const siteContent: SiteContent = {
   events: {
     headline: { roman: 'No pitches.', italic: 'Just good people and conversations.' },
     lead: 'Breakfasts, dinners and seminars for GCs and senior in-house lawyers. Most are in Dubai and Abu Dhabi, and some in London.',
+    cardLabels: { upcoming: 'Coming up', past: 'Past event', comingSoon: 'Coming soon' },
+    upcomingImage: { src: templateImage, alt: '', width: 400, height: 300 },
     strands: [
       {
+        kind: 'upcoming',
         id: 'legal-table',
         title: 'The Legal Table',
         body: 'Breakfast roundtables for GCs and senior in-house lawyers only.',
+        place: 'London',
         // TODO: update or remove after 17 November 2026 (open question 25).
-        note: 'Next: London, 17 November',
+        date: '2026-11-17',
       },
       {
+        kind: 'upcoming',
+        id: 'practice-lab',
+        title: 'Legal AI Practice Lab',
+        body: 'Real simulations with dummy data, so you can practise without touching client files. First up is Microsoft Copilot, then Claude.',
+      },
+      {
+        kind: 'past',
         id: 'wellness-brief',
         title: 'The Wellness Brief for Lawyers',
+        place: 'Barry’s Dubai Marina',
         body: 'A workout, breathwork or a run, then coffee and a talk. Almost 40 people joined the session at Barry’s Dubai Marina.',
         image: {
           src: wellnessBriefImage,
@@ -222,8 +230,10 @@ export const siteContent: SiteContent = {
         },
       },
       {
+        kind: 'past',
         id: 'seminars',
         title: 'Seminars & roundtables',
+        place: 'DIFC and Abu Dhabi',
         body: 'Recent ones: “AI governance: everyone’s doing it. No one’s cracked it.” at DIFC, and a closed roundtable for about 20 GCs at the Four Seasons in Abu Dhabi.',
         image: {
           src: difcSeminarImage,
@@ -232,12 +242,6 @@ export const siteContent: SiteContent = {
           height: 853,
           focus: '50% 2%',
         },
-      },
-      {
-        id: 'practice-lab',
-        title: 'Legal AI Practice Lab',
-        body: 'Real simulations with dummy data, so you can practise without touching client files. First up is Microsoft Copilot, then Claude.',
-        note: 'Coming soon',
       },
     ],
     gallery: [

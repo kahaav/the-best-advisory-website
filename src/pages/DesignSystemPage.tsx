@@ -7,7 +7,7 @@ import { Gallery } from '@components/Gallery';
 import { ArrowIcon } from '@components/ui/ArrowIcon';
 import { Button, type ButtonSize } from '@components/ui/Button';
 import { SECTION_TONES } from '@components/ui/tones';
-import type { ArticleCard, EventStrand, ImageAsset } from '@typings/content';
+import type { ArticleCard, EventCardLabels, EventStrand, ImageAsset } from '@typings/content';
 import '@pages/DesignSystemPage.css';
 
 /*
@@ -40,15 +40,14 @@ const FONT_SIZES = [
 
 const SPACING = Array.from({ length: 10 }, (_, index) => `--space-${index + 1}`);
 
-const SHADOWS = ['--shadow-soft', '--shadow-raised'] as const;
+const SHADOWS = ['--shadow-soft', '--shadow-raised', '--shadow-lifted'] as const;
 
 /** Each name has a matching `--breakpoint-*` token and a `.ds-breakpoint--*` class. */
-const BREAKPOINTS = ['wide', 'nav', 'tablet', 'footer', 'small', 'mobile', 'mobile-small'] as const;
+const BREAKPOINTS = ['wide', 'nav', 'tablet', 'footer', 'mobile', 'mobile-small'] as const;
 
 const DEVICES = [
   { breakpoint: 'mobile-small', device: 'phone' },
   { breakpoint: 'mobile', device: 'phone' },
-  { breakpoint: 'small', device: 'tablet' },
   { breakpoint: 'tablet', device: 'tablet' },
   { breakpoint: 'wide', device: 'laptop' },
 ] as const;
@@ -67,18 +66,31 @@ const TEMPLATE_BODY = 'Short supporting text that describes the card in a senten
 
 const serviceCard = { title: 'Card title', body: TEMPLATE_BODY, tagline: 'Optional tagline' };
 
-const photoEvent: EventStrand = {
-  id: 'photo',
+const eventLabels: EventCardLabels = { upcoming: 'Upcoming label', past: 'Past label', comingSoon: 'No date yet' };
+
+const upcomingEvent: EventStrand = {
+  kind: 'upcoming',
+  id: 'upcoming',
   title: 'Card title',
   body: TEMPLATE_BODY,
-  image: TEMPLATE_IMAGE,
+  place: 'Optional place',
+  date: '2025-01-01',
 };
 
-const textEvent: EventStrand = {
-  id: 'text',
+const undatedEvent: EventStrand = {
+  kind: 'upcoming',
+  id: 'undated',
   title: 'Card title',
   body: TEMPLATE_BODY,
-  note: 'Optional note',
+};
+
+const pastEvent: EventStrand = {
+  kind: 'past',
+  id: 'past',
+  title: 'Card title',
+  body: TEMPLATE_BODY,
+  place: 'Optional place',
+  image: TEMPLATE_IMAGE,
 };
 
 const insightCard: ArticleCard = {
@@ -366,11 +378,14 @@ export const DesignSystemPage = () => {
             <Specimen label="Service card">
               <ServiceCard service={serviceCard} />
             </Specimen>
-            <Specimen label="Event card · photo">
-              <EventCard event={photoEvent} />
+            <Specimen label="Event card · upcoming">
+              <EventCard event={upcomingEvent} labels={eventLabels} upcomingImage={TEMPLATE_IMAGE} />
             </Specimen>
-            <Specimen label="Event card · no photo">
-              <EventCard event={textEvent} />
+            <Specimen label="Event card · upcoming, no date">
+              <EventCard event={undatedEvent} labels={eventLabels} upcomingImage={TEMPLATE_IMAGE} />
+            </Specimen>
+            <Specimen label="Event card · past">
+              <EventCard event={pastEvent} labels={eventLabels} upcomingImage={TEMPLATE_IMAGE} />
             </Specimen>
             <Specimen label="Article card">
               <InsightCard card={insightCard} />

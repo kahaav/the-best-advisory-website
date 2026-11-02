@@ -3,17 +3,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--color-paper);
-  box-shadow: var(--shadow-soft);
-  transition:
-    box-shadow 200ms var(--ease-out),
-    transform 200ms var(--ease-out);
-}
-
-/* No border: a soft shadow at rest, lifting onto the raised shadow on hover */
-.insight-card:hover {
-  box-shadow: var(--shadow-raised);
-  transform: translateY(-2px);
 }
 
 .insight-card__text {

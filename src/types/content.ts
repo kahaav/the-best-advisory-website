@@ -121,7 +121,6 @@ export type QuoteContent =
 export interface ProofContent extends SectionIntro {
   /** Client logos. `alt` is the client name. */
   readonly clients: readonly ImageAsset[];
-  readonly paragraphs: readonly string[];
   readonly quote: QuoteContent;
 }
 
@@ -131,12 +130,35 @@ export interface AboutContent extends SectionIntro {
   readonly image: ImageAsset;
 }
 
-export interface EventStrand {
+interface EventBase {
   readonly id: string;
   readonly title: string;
   readonly body: string;
-  readonly note?: string;
-  readonly image?: ImageAsset;
+  /** Where it is or was held, e.g. "London". */
+  readonly place?: string;
+}
+
+/**
+ * An event still to come, shown on a template image with its date, or "Coming
+ * soon" when there is no date yet. Past events show a photo.
+ */
+export type EventStrand =
+  | (EventBase & {
+      readonly kind: 'upcoming';
+      /** ISO date, e.g. 2026-11-17. */
+      readonly date?: string;
+    })
+  | (EventBase & {
+      readonly kind: 'past';
+      readonly image: ImageAsset;
+    });
+
+export interface EventCardLabels {
+  /** Shown above the title. */
+  readonly upcoming: string;
+  readonly past: string;
+  /** Shown on the image of an upcoming event with no date. */
+  readonly comingSoon: string;
 }
 
 export interface CaptionedImage {
@@ -145,7 +167,11 @@ export interface CaptionedImage {
 }
 
 export interface EventsContent extends SectionIntro {
+  /** Upcoming events first, then past ones. */
   readonly strands: readonly EventStrand[];
+  readonly cardLabels: EventCardLabels;
+  /** The template image behind an upcoming event's date. */
+  readonly upcomingImage: ImageAsset;
   readonly gallery: readonly CaptionedImage[];
   readonly ctas: readonly LinkItem[];
 }

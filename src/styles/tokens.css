@@ -95,7 +95,6 @@
   --breakpoint-nav: 960; /* Navigation becomes a menu, 4-column grids halve */
   --breakpoint-tablet: 860; /* Two-column layouts stack */
   --breakpoint-footer: 760; /* Footer stacks */
-  --breakpoint-small: 720; /* Proof columns stack */
   --breakpoint-mobile: 600; /* Card grids become one column */
   --breakpoint-mobile-small: 560; /* Approach timeline tightens */
 
@@ -106,6 +105,18 @@
   --shadow-raised:
     0 4px 10px -4px color-mix(in srgb, var(--color-espresso) 14%, transparent),
     0 16px 32px -12px color-mix(in srgb, var(--color-espresso) 22%, transparent);
+  /*
+   * Lifted: for raised discs on dark sections. A solid edge below gives the
+   * disc thickness, a lit rim and a shaded underside round it, and long
+   * layered shadows float it off the page.
+   */
+  --shadow-lifted:
+    inset 0 2px 1px var(--color-paper),
+    inset -8px -12px 20px color-mix(in srgb, var(--color-cream-500) 35%, transparent),
+    0 6px 0 -1px var(--color-cream-400),
+    0 8px 2px -1px color-mix(in srgb, var(--color-cream-500) 70%, transparent),
+    0 20px 24px -8px color-mix(in srgb, var(--color-espresso-500) 90%, transparent),
+    0 44px 60px -16px color-mix(in srgb, var(--color-espresso-500) 85%, transparent);
 
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
