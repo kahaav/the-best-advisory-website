@@ -1,0 +1,83 @@
+{
+  "name": "Sophie Best",
+  "headline": "Legal Tech & AI Strategy Advisor + Educator | Trusted Globally by Legal Teams on AI, People, Process & Technology Transformation",
+  "location": "Dubai, United Arab Emirates",
+  "currentCompany": {
+    "name": "The Best Advisory",
+    "linkedinUrl": "https://www.linkedin.com/company/the-best-advisory/"
+  },
+  "followers": 25630,
+  "linkedinUrl": "https://www.linkedin.com/in/sophiebestai/",
+  "websites": [
+    {
+      "label": "knowledgenexus.ae",
+      "url": "https://knowledgenexus.ae",
+      "type": "Company"
+    },
+    {
+      "label": "jamesonlegal.com",
+      "url": "https://jamesonlegal.com",
+      "type": "Company"
+    }
+  ],
+  "images": {
+    "photo": {
+      "local": "assets/profile/D4D03AQEReoNZdGYUCA_0.jpg",
+      "alt": "",
+      "width": 633,
+      "height": 633,
+      "linkedinUrl": "https://media.licdn.com/dms/image/v2/D4D03AQEReoNZdGYUCA/profile-displayphoto-shrink_800_800/B4DZT0.DnNHIAc-/0/1739276702829"
+    },
+    "banner": {
+      "local": "assets/profile/D4D16AQHjKFIYEnwUkw_0.jpg",
+      "alt": "Cover photo",
+      "width": 633,
+      "height": 158,
+      "linkedinUrl": "https://media.licdn.com/dms/image/v2/D4D16AQHjKFIYEnwUkw/profile-displaybackgroundimage-shrink_200_800/B4DaCl45HmKYAQ-/0/1789489550187"
+    },
+    "companyLogo": {
+      "local": "assets/profile/D4D0BAQHcAWs7YzefjQ_0.jpg",
+      "alt": "",
+      "width": 100,
+      "height": 100,
+      "linkedinUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQHcAWs7YzefjQ/company-logo_100_100/B4DaEFvhYsKgAI-/0/1791097706595/the_best_advisory_logo"
+    }
+  },
+  "about": {
+    "text": "Bridging the gap between legal expertise, technology and operational change with over 20 years of experience in legal tech consulting, strategy and legal operations.\n \nI work with law firms, in-house legal teams, legal tech companies and corporates globally, with a strong focus on the Middle East, helping teams better understand how AI, legal technology and process improvement can genuinely support the business.\n \nHaving worked within leading legal tech companies responsible for millions in technology sales and client engagement, I understand not just the tools themselves, but the workflows, stakeholder challenges and business mindset needed for successful adoption.\n \nI work with legal teams at different stages of AI and legal tech maturity, from those starting to explore strategy and workflows, to teams that have already adopted technology but are struggling with adoption, process alignment, stakeholder buy-in or maximising the value of the tools they already have in place.\n \nMany teams don’t actually start with a technology problem. They start with workflow inefficiencies, fragmented communication, lack of visibility, unclear processes or pressure from the business to “do something with AI” without a clear strategy behind it.\n \nMy role is to work alongside legal teams to map out workflows, identify operational pain points, understand stakeholder needs and assess where technology, AI and process redesign can genuinely add value before tools are selected or implemented.\n \nThat vendor-neutral, people-and-process-first approach helps teams make better long-term technology decisions and improves adoption across the business.\n \nMy work spans AI strategy, legal operations, workflow design, legal intake, contracting, investigations, litigation support, compliance, M&A and digital transformation projects. I’ve supported teams including Americana, E&, Dubizzle and QatarEnergy.\n \nI specialise in:\n \n• AI & Legal Tech Strategy\n • Legal Operations & Workflow Optimisation\n • Technology Adoption & Stakeholder Buy-In\n • Legal Workflow & Intake Transformation\n • Go-to-Market Strategy for Legal Tech Companies\n • Training, Workshops & Education\n \nAlongside consulting, I’m also the MD & leading Knowledge Nexus, a legal education and community platform focused on AI, legal tech, legal operations and the future of work. Through accredited training, events and global communities, I’m passionate about helping legal professionals and the next generation build practical, ethical and commercially valuable technology skills.",
+    "paragraphs": [
+      "Bridging the gap between legal expertise, technology and operational change with over 20 years of experience in legal tech consulting, strategy and legal operations.",
+      "I work with law firms, in-house legal teams, legal tech companies and corporates globally, with a strong focus on the Middle East, helping teams better understand how AI, legal technology and process improvement can genuinely support the business.",
+      "Having worked within leading legal tech companies responsible for millions in technology sales and client engagement, I understand not just the tools themselves, but the workflows, stakeholder challenges and business mindset needed for successful adoption.",
+      "I work with legal teams at different stages of AI and legal tech maturity, from those starting to explore strategy and workflows, to teams that have already adopted technology but are struggling with adoption, process alignment, stakeholder buy-in or maximising the value of the tools they already have in place.",
+      "Many teams don’t actually start with a technology problem. They start with workflow inefficiencies, fragmented communication, lack of visibility, unclear processes or pressure from the business to “do something with AI” without a clear strategy behind it.",
+      "My role is to work alongside legal teams to map out workflows, identify operational pain points, understand stakeholder needs and assess where technology, AI and process redesign can genuinely add value before tools are selected or implemented.",
+      "That vendor-neutral, people-and-process-first approach helps teams make better long-term technology decisions and improves adoption across the business.",
+      "My work spans AI strategy, legal operations, workflow design, legal intake, contracting, investigations, litigation support, compliance, M&A and digital transformation projects. I’ve supported teams including Americana, E&, Dubizzle and QatarEnergy.",
+      "I specialise in:",
+      "• AI & Legal Tech Strategy\n • Legal Operations & Workflow Optimisation\n • Technology Adoption & Stakeholder Buy-In\n • Legal Workflow & Intake Transformation\n • Go-to-Market Strategy for Legal Tech Companies\n • Training, Workshops & Education",
+      "Alongside consulting, I’m also the MD & leading Knowledge Nexus, a legal education and community platform focused on AI, legal tech, legal operations and the future of work. Through accredited training, events and global communities, I’m passionate about helping legal professionals and the next generation build practical, ethical and commercially valuable technology skills."
+    ],
+    "specialisms": [
+      "AI & Legal Tech Strategy",
+      "Legal Operations & Workflow Optimisation",
+      "Technology Adoption & Stakeholder Buy-In",
+      "Legal Workflow & Intake Transformation",
+      "Go-to-Market Strategy for Legal Tech Companies",
+      "Training, Workshops & Education"
+    ]
+  },
+  "clientsMentioned": [
+    "Americana",
+    "E&",
+    "Dubizzle",
+    "QatarEnergy"
+  ],
+  "notPublicOnProfile": [
+    "Experience",
+    "Education",
+    "Skills",
+    "Recommendations"
+  ],
+  "extractedAt": "2026-10-30"
+}

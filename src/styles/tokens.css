@@ -1,0 +1,91 @@
+/*
+ * Design tokens from docs/answers.md section 8.
+ * Colour values are estimated from the brand images; confirm against brand source files.
+ */
+:root {
+  /* Colour */
+  --color-espresso-900: #241c18;
+  --color-espresso-700: #3a2e28;
+  --color-ivory-50: #fbf9f6;
+  --color-ivory-100: #f4efe8;
+  --color-paper: #ffffff;
+  --color-sand-300: #b9a28a;
+  --color-taupe-500: #8c7563;
+  --color-ink-muted: #6b5e56;
+  --color-line: #e4dcd2;
+  --color-focus: #8c5a2b;
+
+  /* Type */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-text: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  --text-display: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  --text-h2: clamp(2rem, 3vw + 1rem, 3rem);
+  --text-h3: clamp(1.375rem, 1vw + 1rem, 1.75rem);
+  --text-lead: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);
+  --text-body: 1.0625rem;
+  --text-small: 0.875rem;
+  --text-eyebrow: 0.75rem;
+  --tracking-eyebrow: 0.18em;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Layout */
+  --content-max: 1200px;
+  --measure: 65ch;
+  --gutter: clamp(20px, 4vw, 32px);
+  --section-padding: clamp(64px, 10vw, 128px);
+  --header-height: 72px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/*
+ * Surface tones. Components read these variables, so a section's tone
+ * switches text, rules and buttons in one place.
+ */
+.tone-ivory,
+.tone-cream,
+.tone-paper {
+  --surface: var(--color-ivory-50);
+  --text: var(--color-espresso-900);
+  --text-muted: var(--color-ink-muted);
+  --accent-rule: var(--color-taupe-500);
+  --hairline: var(--color-line);
+  --button-bg: var(--color-espresso-900);
+  --button-bg-hover: var(--color-espresso-700);
+  --button-fg: var(--color-ivory-100);
+  --focus-ring: var(--color-focus);
+}
+
+.tone-cream {
+  --surface: var(--color-ivory-100);
+  --hairline: #ddd3c7;
+}
+
+.tone-paper {
+  --surface: var(--color-paper);
+}
+
+.tone-espresso {
+  --surface: var(--color-espresso-900);
+  --text: var(--color-ivory-100);
+  --text-muted: #cfc3b6;
+  --accent-rule: var(--color-sand-300);
+  --hairline: #4a3d35;
+  --button-bg: var(--color-ivory-100);
+  --button-bg-hover: #ffffff;
+  --button-fg: var(--color-espresso-900);
+  --focus-ring: var(--color-sand-300);
+}

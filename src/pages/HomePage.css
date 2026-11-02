@@ -1,0 +1,26 @@
+.page-section {
+  padding-block: var(--section-padding);
+  background: var(--surface);
+  color: var(--text);
+}
+
+main:focus {
+  outline: none;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 20;
+  padding: var(--space-3) var(--space-5);
+  font-weight: 500;
+  color: var(--color-ivory-100);
+  background: var(--color-espresso-900);
+  transform: translateY(-200%);
+  transition: transform 150ms var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: none;
+}

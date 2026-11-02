@@ -1,0 +1,73 @@
+.content-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-text);
+  font-weight: 500;
+}
+
+/* Buttons: square corners, as in the brand */
+.content-link--primary,
+.content-link--secondary {
+  justify-content: center;
+  min-height: 48px;
+  padding: 14px 28px;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1px solid var(--button-bg);
+  transition:
+    background-color 180ms var(--ease-out),
+    color 180ms var(--ease-out);
+}
+
+.content-link--primary {
+  background: var(--button-bg);
+  color: var(--button-fg);
+}
+
+a.content-link--primary:hover {
+  background: var(--button-bg-hover);
+  border-color: var(--button-bg-hover);
+}
+
+.content-link--secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--text);
+}
+
+a.content-link--secondary:hover {
+  background: var(--text);
+  color: var(--surface);
+}
+
+.content-link--text {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  color: var(--text);
+}
+
+a.content-link--text:hover {
+  text-decoration-thickness: 2px;
+}
+
+.content-link__external {
+  font-size: 0.9em;
+}
+
+/* Placeholder for links the owner has not supplied yet */
+.content-link--todo {
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.content-link--primary.content-link--todo,
+.content-link--secondary.content-link--todo {
+  border-style: dashed;
+}
+
+.content-link--text.content-link--todo {
+  text-decoration-style: dashed;
+}
