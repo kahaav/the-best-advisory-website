@@ -97,30 +97,45 @@ export const siteContent: SiteContent = {
     },
   },
 
+  // The six specialisms from Sophie's LinkedIn profile, in her order. Body copy draws on her
+  // profile About, articles and posts (docs/answers.md, sections 1 and 4).
   services: {
     headline: { roman: 'How we can help' },
     items: [
       {
         title: 'AI & legal tech strategy',
-        body: 'We sit with your team and map how work moves today, from intake to sign-off. Then we show where AI, automation or a simple process change would help, before you spend anything.',
+        body: 'We map how your team works today and show where AI, automation or a simple process change would help, before you spend anything.',
       },
       {
-        title: 'Tool selection & adoption',
-        body: 'A demo shows you the product. A trial shows you the fit. We run trials on your hardest work, inside the systems you already use, ask vendors the awkward questions, and stay after launch to get people using the tool.',
+        title: 'Legal operations & workflow optimisation',
+        body: 'Redundant approvals, the same data typed into four systems, unclear handoffs. We find them and fix them.',
+      },
+      {
+        title: 'Technology adoption & stakeholder buy-in',
+        body: 'A demo shows you the product. A trial shows you the fit. We run real trials, win over the people who need convincing, and stay after launch.',
         tagline: 'Go live is the start, not the finish.',
       },
       {
-        title: 'Training, workshops & keynotes',
-        body: 'Sessions on AI and governance for in-house teams, law firms and conferences. Recent ones include a workshop for Norton Rose Fulbright’s Dubai and Riyadh teams and a session for DIFC Academy’s law course.',
+        title: 'Legal workflow & intake transformation',
+        body: 'One clear way for the business to bring work to legal, so you can see what’s coming in, who owns it and what’s stuck.',
+      },
+      {
+        title: 'Go-to-market strategy for legal tech companies',
+        body: 'Help for legal tech companies to talk the language of lawyers, from someone who sold legal tech for years.',
+      },
+      {
+        title: 'Training, workshops & education',
+        body: 'Practical sessions on AI and governance for in-house teams, law firms and conferences, including a workshop for Norton Rose Fulbright’s Dubai and Riyadh teams.',
       },
     ],
-    also: 'We also help teams make AI governance usable. If the approved route is too cumbersome, people go around it. And we advise legal tech companies on talking the language of lawyers.',
+    also: 'We also help teams make AI governance usable. If the approved route is too cumbersome, people go around it.',
   },
 
   // The brief's "no vendor commissions" line is left out until the owner confirms it (open question 11).
   // "People. Process. Then AI." is Sophie's Kuwait keynote slide.
   approach: {
     headline: { roman: 'People. Process.', italic: 'Then AI.' },
+    phaseLabel: 'Phase',
     steps: [
       {
         title: 'Map',

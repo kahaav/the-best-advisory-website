@@ -8,14 +8,20 @@ interface ServicesSectionProps {
   content: ServicesContent;
 }
 
+/** Tiles shown dark, on opposite corners of the mosaic; the rest are cream. */
+const DARK_TILES: ReadonlySet<number> = new Set([0, 5]);
+
 export const ServicesSection = ({ content }: ServicesSectionProps) => {
   return (
     <Section id="services" tone="ivory" labelledBy="services-title">
       <SectionHeading intro={content} headingId="services-title" />
 
-      <ul className="services__list">
-        {content.items.map((service) => (
-          <li key={service.title}>
+      <ul className="services__mosaic">
+        {content.items.map((service, index) => (
+          <li
+            key={service.title}
+            className={`services__tile ${DARK_TILES.has(index) ? 'tone-espresso' : 'tone-cream'}`}
+          >
             <ServiceCard service={service} />
           </li>
         ))}

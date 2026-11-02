@@ -100,6 +100,8 @@ export interface ApproachStep {
 }
 
 export interface ApproachContent extends SectionIntro {
+  /** Shown before each step's number, e.g. "Phase 1". */
+  readonly phaseLabel: string;
   readonly steps: readonly ApproachStep[];
 }
 

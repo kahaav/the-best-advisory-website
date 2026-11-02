@@ -3,80 +3,114 @@
   line-height: 1.05;
 }
 
-.approach__steps {
+/*
+ * Phased timeline. A line runs through a marker for each phase and fades out
+ * past the last one: adoption doesn't stop at launch.
+ */
+.approach__timeline {
+  --marker-size: 18px;
+  --line-colour: color-mix(in srgb, var(--accent-rule) 70%, transparent);
+
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-6);
   margin-top: var(--space-8);
   list-style: none;
-  counter-reset: approach-step;
-  border-top: 1px solid var(--hairline);
 }
 
-.approach__step {
+/* The line, through the middle of the markers */
+.approach__timeline::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--marker-size) / 2);
+  left: 0;
+  right: calc(-1 * var(--gutter));
+  height: 1px;
+  background: linear-gradient(to right, var(--line-colour) 85%, transparent);
+}
+
+.approach__phase {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-6) var(--space-5) 0 0;
-  counter-increment: approach-step;
+  gap: var(--space-2);
 }
 
-.approach__step + .approach__step {
-  padding-left: var(--space-5);
-  border-left: 1px solid var(--hairline);
+/* A ring on the line with a filled centre */
+.approach__marker {
+  position: relative;
+  width: var(--marker-size);
+  height: var(--marker-size);
+  margin-bottom: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--accent-rule);
+  border-radius: 50%;
 }
 
-.approach__title {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  font-family: var(--font-display);
-  font-size: var(--text-h3);
-  font-weight: 400;
+.approach__marker::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: var(--text);
+  border-radius: 50%;
 }
 
-/* The list already gives screen readers the order; this is just the visible number */
-.approach__title::before {
-  content: counter(approach-step) '.';
-  font-family: var(--font-display);
-  font-size: 0.85em;
-  font-variant-numeric: lining-nums;
-  line-height: 1;
+.approach__label {
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
   color: var(--accent-rule);
 }
 
+.approach__title {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
 .approach__body {
+  max-width: 32ch;
   color: var(--text-muted);
 }
 
+/* Smaller screens: the timeline runs down the page, markers on the left */
 @media (max-width: 960px) {
-  .approach__steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .approach__timeline {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
   }
 
-  .approach__step:nth-child(3) {
-    padding-left: 0;
-    border-left: 0;
+  .approach__timeline::before {
+    top: 0;
+    bottom: calc(-1 * var(--space-7));
+    left: calc(var(--marker-size) / 2);
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(to bottom, var(--line-colour) 85%, transparent);
   }
 
-  .approach__step:nth-child(n + 3) {
-    margin-top: var(--space-6);
-    border-top: 1px solid var(--hairline);
+  .approach__phase {
+    padding-left: calc(var(--marker-size) + var(--space-6));
+  }
+
+  .approach__marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+
+  .approach__body {
+    max-width: var(--measure);
   }
 }
 
 @media (max-width: 560px) {
-  .approach__steps {
-    grid-template-columns: 1fr;
-  }
-
-  .approach__step,
-  .approach__step + .approach__step {
-    padding: var(--space-5) 0;
-    border-left: 0;
-  }
-
-  .approach__step + .approach__step {
-    margin-top: 0;
-    border-top: 1px solid var(--hairline);
+  .approach__phase {
+    padding-left: calc(var(--marker-size) + var(--space-4));
   }
 }

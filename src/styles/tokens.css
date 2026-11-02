@@ -97,7 +97,7 @@
   --breakpoint-footer: 760; /* Footer stacks */
   --breakpoint-small: 720; /* Proof columns stack */
   --breakpoint-mobile: 600; /* Card grids become one column */
-  --breakpoint-mobile-small: 560; /* Approach steps become one column */
+  --breakpoint-mobile-small: 560; /* Approach timeline tightens */
 
   /* Shadows: soft and warm, mixed from espresso. Soft for cards at rest, raised on hover. */
   --shadow-soft:

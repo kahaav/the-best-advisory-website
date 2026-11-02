@@ -1,11 +1,102 @@
-.services__list {
+/*
+ * Services mosaic: tiles in pairs with a slanted seam between them.
+ * Desktop rows are wide + narrow, narrow + wide, then two halves; the slant
+ * flips direction each row. The right tile of a pair is pulled left by the
+ * slant, so the gap along the seam stays the same as the gap between rows.
+ */
+.services__mosaic {
+  --slant: 56px;
+  --tile-gap: var(--space-3);
+
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--tile-gap);
   margin-top: var(--space-7);
   list-style: none;
-  border-bottom: 1px solid var(--hairline);
+}
+
+.services__tile {
+  grid-column: span 3;
+}
+
+.services__tile:nth-child(1),
+.services__tile:nth-child(4) {
+  grid-column: span 4;
+}
+
+.services__tile:nth-child(2),
+.services__tile:nth-child(3) {
+  grid-column: span 2;
+}
+
+.services__tile > .service-card {
+  height: 100%;
+}
+
+/* Rows 1, 3, ...: a "/" seam */
+.services__tile:nth-child(4n + 1) > .service-card {
+  padding-right: calc(var(--slant) + var(--space-5));
+  clip-path: polygon(0 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100%);
+}
+
+.services__tile:nth-child(4n + 2) {
+  margin-left: calc(-1 * var(--slant));
+}
+
+.services__tile:nth-child(4n + 2) > .service-card {
+  padding-left: calc(var(--slant) + var(--space-5));
+  clip-path: polygon(var(--slant) 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Rows 2, 4, ...: a "\" seam */
+.services__tile:nth-child(4n + 3) > .service-card {
+  padding-right: calc(var(--slant) + var(--space-5));
+  clip-path: polygon(0 0, calc(100% - var(--slant)) 0, 100% 100%, 0 100%);
+}
+
+.services__tile:nth-child(4n + 4) {
+  margin-left: calc(-1 * var(--slant));
+}
+
+.services__tile:nth-child(4n + 4) > .service-card {
+  padding-left: calc(var(--slant) + var(--space-5));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, var(--slant) 100%);
 }
 
 .services__also {
   max-width: var(--measure);
   margin-top: var(--space-6);
   color: var(--text-muted);
+}
+
+/* Tablets: two equal columns, same seams */
+@media (max-width: 960px) {
+  .services__mosaic {
+    --slant: 40px;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services__tile,
+  .services__tile:nth-child(n) {
+    grid-column: span 1;
+  }
+}
+
+/* Phones: one column; each tile keeps a cut corner instead of a seam */
+@media (max-width: 600px) {
+  .services__mosaic {
+    grid-template-columns: 1fr;
+  }
+
+  .services__tile:nth-child(n) {
+    margin-left: 0;
+  }
+
+  .services__tile:nth-child(n) > .service-card {
+    min-height: 0;
+    padding: var(--space-5);
+    padding-bottom: var(--space-6);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%);
+  }
 }
