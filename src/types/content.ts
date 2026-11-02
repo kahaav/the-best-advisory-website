@@ -111,7 +111,6 @@ export type QuoteContent =
     };
 
 export interface ProofContent extends SectionIntro {
-  readonly clientsLabel: string;
   /** Client logos. `alt` is the client name. */
   readonly clients: readonly ImageAsset[];
   readonly paragraphs: readonly string[];

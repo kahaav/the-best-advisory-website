@@ -17,7 +17,7 @@ export const ProofSection = ({ content }: ProofSectionProps) => {
         <SectionHeading intro={content} headingId="proof-title" />
 
         <div className="proof__body">
-          <ClientLogos label={content.clientsLabel} logos={content.clients} />
+          <ClientLogos logos={content.clients} />
           {content.paragraphs.map((paragraph) => (
             <p key={paragraph} className="proof__paragraph">
               {paragraph}

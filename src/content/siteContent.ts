@@ -142,7 +142,6 @@ export const siteContent: SiteContent = {
   // Logo width and height are each logo's viewBox size; they set its aspect ratio.
   proof: {
     headline: { roman: 'Who I’ve worked with' },
-    clientsLabel: 'Clients include',
     clients: [
       { src: americanaLogo, alt: 'Americana', width: 164.4, height: 71 },
       { src: eandLogo, alt: 'e&', width: 530.26, height: 493.52 },

@@ -3,7 +3,6 @@ import type { ImageAsset } from '../types/content';
 import './ClientLogos.css';
 
 interface ClientLogosProps {
-  label: string;
   /** `alt` is the client name. */
   logos: readonly ImageAsset[];
 }
@@ -20,11 +19,10 @@ interface LogoStyle extends CSSProperties {
  */
 const COPIES = [0, 1, 2, 3] as const;
 
-/** A label and an infinitely scrolling strip of grayscale client logos, faded at both ends. */
-export const ClientLogos = ({ label, logos }: ClientLogosProps) => {
+/** An infinitely scrolling strip of grayscale client logos, faded at both ends. */
+export const ClientLogos = ({ logos }: ClientLogosProps) => {
   return (
     <div className="client-logos">
-      <p className="client-logos__label">{label}</p>
       <div className="client-logos__marquee">
         <div className="client-logos__track">
           {COPIES.map((copy) => {
