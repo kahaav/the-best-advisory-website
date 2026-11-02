@@ -10,18 +10,24 @@
   font-size: var(--text-small);
 }
 
-/* Side space keeps the arrows clear of the cards */
+/*
+ * The cards run edge to edge with the content; the arrows sit outside, in the
+ * page margin. --outer is that margin (100% is the carousel's width here), less
+ * a little room for a desktop scrollbar so the arrows never cause sideways scrolling.
+ * Arrows shrink and move closer to the cards when the margin is narrow.
+ */
 .insights__carousel {
-  --arrow-size: 40px;
+  --outer: calc((100vw - 100%) / 2 - var(--space-2));
+  --arrow-size: min(40px, var(--outer));
+  --arrow-offset: min(calc(var(--arrow-size) + var(--space-4)), var(--outer));
 
   position: relative;
   margin-top: var(--space-7);
-  padding-inline: calc(var(--arrow-size) + var(--space-3));
 }
 
-/* Four cards across on desktop, two on tablets, one and a bit on phones */
+/* Three cards across on desktop, two on tablets, one and a bit on phones */
 .insights__track {
-  --cards-visible: 4;
+  --cards-visible: 3;
   --card-gap: var(--space-5);
 
   display: grid;
@@ -60,7 +66,7 @@
   align-items: center;
   justify-content: center;
   width: var(--arrow-size);
-  height: var(--arrow-size);
+  aspect-ratio: 1;
   padding: 0;
   color: var(--text);
   background: color-mix(in srgb, var(--text) 8%, transparent);
@@ -83,11 +89,11 @@
 }
 
 .insights__arrow--back {
-  left: 0;
+  left: calc(-1 * var(--arrow-offset));
 }
 
 .insights__arrow--forward {
-  right: 0;
+  right: calc(-1 * var(--arrow-offset));
 }
 
 /* Progress dots: the current one is longer and dark */
@@ -137,12 +143,8 @@
   }
 }
 
-/* Phones: swipe and dots; no arrows, so the cards get the full width */
+/* Phones: swipe and dots; the page margin is too narrow for arrows */
 @media (max-width: 600px) {
-  .insights__carousel {
-    padding-inline: 0;
-  }
-
   .insights__track {
     --cards-visible: 1.15;
   }
