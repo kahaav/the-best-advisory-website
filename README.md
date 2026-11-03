@@ -49,3 +49,16 @@ Ask Claude Code in VSCode:
 6. Click Install
 7. Open Claude Code panel in VSCode
 8. Follow the authentication prompts
+
+## Install Claude Desktop
+1. Download Claude Desktop:
+    - https://claude.ai/download
+2. Install the application for Windows or Mac.
+3. Launch Claude Desktop.
+4. Sign in using your Claude account.
+5. Make sure your account has access to Claude Code. A paid Claude plan is required for this functionality.
+6. Open the Code tab inside Claude Desktop.
+7. Select the option to open an existing project or local folder.
+8. Navigate to and select: *the-best-advisory-website*
+9. Allow Claude Code to access the project folder.
+10. Review any permission requests before allowing Claude to edit files or execute terminal commands.
